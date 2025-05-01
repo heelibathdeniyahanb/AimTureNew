@@ -3,7 +3,6 @@ import { Sun, Moon } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const LandingPage = () => {
-  // State to manage the current theme (light or dark)
   const [isDarkMode, setIsDarkMode] = useState(false);
 
   // Function to load theme from localStorage or system preference
@@ -11,7 +10,6 @@ const LandingPage = () => {
     const savedTheme = localStorage.getItem('theme');
     const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
 
-    // Apply saved theme or system preference
     if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
       setIsDarkMode(true);
       document.documentElement.setAttribute('data-mode', 'dark');
@@ -37,50 +35,48 @@ const LandingPage = () => {
   };
 
   return (
-    <div className="bg-white dark:bg-slate-900 min-h-screen p-8">
-      <div className="max-w-6xl mx-auto">
-        <header className="flex justify-between items-center mb-12">
-          <div className="flex items-center space-x-2">
-            <div className="w-8 h-8 bg-blue-500 dark:bg-blue-400 rounded-full"></div>
-            <h1 className="text-slate-900 dark:text-yellow-400 text-2xl font-bold">AimTure</h1>
+    <div className="bg-gray-100 dark:bg-gray-900 text-gray-800 dark:text-white min-h-screen font-sans p-6">
+      <div className="max-w-7xl mx-auto">
+        <header className="flex justify-between items-center mb-10">
+          <div className="flex items-center space-x-4">
+            <div className="w-10 h-10 bg-teal-500 rounded-full shadow-lg"></div>
+            <h1 className="text-4xl font-bold">AimTure</h1>
           </div>
           <nav className="flex items-center space-x-6">
-            
-            <a href="#" className="text-slate-700 dark:text-slate-200 hover:text-blue-500 dark:hover:text-blue-400">Contact us</a>
-            <button className="bg-blue-500 hover:bg-blue-600 dark:bg-yellow-400 dark:hover:bg-yellow-500 text-white dark:text-slate-900 px-4 py-2 rounded-full transition duration-300 ease-in-out">
-              Try Now
-            </button>
-           <Link to='/login' className="text-slate-700 dark:text-slate-200 hover:text-blue-500 dark:hover:text-blue-400">Sign in</Link>
-            <button 
+            <Link to="#" className="text-gray-800 dark:text-white hover:text-teal-500">Contact</Link>
+            <Link to="/login" className="text-gray-800 dark:text-white hover:text-teal-500">Sign In</Link>
+            <button
               onClick={toggleTheme}
               aria-label="Toggle theme"
-              className="p-2 rounded-full bg-slate-200 dark:bg-slate-700 hover:bg-slate-300 dark:hover:bg-slate-600 transition duration-300 ease-in-out"
+              className="p-2 rounded-full bg-gray-300 dark:bg-gray-700 hover:bg-gray-400 dark:hover:bg-gray-600 transition-colors"
             >
-              {isDarkMode ? <Sun className="h-5 w-5 text-yellow-400" /> : <Moon className="h-5 w-5 text-slate-700" />}
+              {isDarkMode ? <Sun className="h-6 w-6 text-teal-500" /> : <Moon className="h-6 w-6 text-gray-800" />}
             </button>
           </nav>
         </header>
 
-        <main className="text-slate-900 dark:text-slate-200">
-          <h2 className="text-blue-500 dark:text-yellow-400 text-5xl font-bold mb-6">LEARNING PATH GENERATION</h2>
-          <p className="text-xl mb-12">Create personalized learning journeys with our AI-powered system.</p>
+        <main className="text-center">
+          <h2 className="text-5xl font-extrabold text-teal-600 dark:text-teal-400 mb-6">Create Your Learning Path</h2>
+          <p className="text-lg max-w-3xl mx-auto mb-12">
+            Our AI-driven platform generates personalized learning journeys based on your goals, helping you grow and achieve success faster.
+          </p>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
             {[
-              { title: "Skill Assessment", description: "Evaluate your current skills and identify areas for improvement.", color: "bg-blue-500 dark:bg-blue-400" },
-              { title: "Custom Pathways", description: "Get tailored learning paths based on your goals and skill level.", color: "bg-blue-700 dark:bg-blue-500" },
-              { title: "Progress Tracking", description: "Monitor your learning journey and celebrate milestones.", color: "bg-blue-400 dark:bg-blue-600" }
+              { title: "Skill Assessment", description: "Assess your current skill level to know where to start.", icon: "👩‍💻" },
+              { title: "Custom Learning Paths", description: "Get personalized learning paths based on your needs.", icon: "🛤" },
+              { title: "Progress Tracking", description: "Track your progress and see how you're advancing.", icon: "📈" }
             ].map((feature, index) => (
-              <div key={index} className="bg-sky-100 dark:bg-slate-800 p-6 rounded-xl">
-                <div className={`w-16 h-16 ${feature.color} rounded-full mb-4`}></div>
-                <h3 className="text-xl font-semibold mb-2">{feature.title}</h3>
+              <div key={index} className="bg-white dark:bg-gray-800 p-8 rounded-lg shadow-lg transition-transform transform hover:scale-105">
+                <div className="text-4xl mb-4">{feature.icon}</div>
+                <h3 className="text-2xl font-semibold mb-3">{feature.title}</h3>
                 <p>{feature.description}</p>
               </div>
             ))}
           </div>
 
-          <button className="bg-blue-500 hover:bg-blue-600 dark:bg-yellow-400 dark:hover:bg-yellow-500 text-white dark:text-slate-900 px-6 py-3 rounded-full font-semibold transition duration-300 ease-in-out">
-            Start Your Journey
+          <button className="bg-teal-600 hover:bg-teal-500 text-white px-8 py-4 rounded-full font-semibold transition duration-300 ease-in-out transform hover:scale-105">
+            Get Started
           </button>
         </main>
       </div>

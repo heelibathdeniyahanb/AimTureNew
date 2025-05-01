@@ -3,7 +3,7 @@
 const fetchLearningPaths = async () => {
     try {
       // Replace with your actual API URL
-      const response = await fetch("https://your-api-url.com/learning-paths");
+      const response = await fetch("https://localhost:7295/api/GoogleAi/learning-paths");
   
       // If the response is successful, return the data
       if (response.ok) {

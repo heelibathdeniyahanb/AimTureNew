@@ -12,6 +12,7 @@ namespace LearningPathGeneration_Backend.Data
         }
         public DbSet<User> Users { get; set; }
         public DbSet<AnalyzeRequest> AnalyzeRequests { get; set; }
+        public DbSet<LearningPathRequest> LearningPathRequests { get; set; }
         public DbSet<Email>Emails { get; set; }
         public DbSet<Attachments>Attachments { get; set; }
 
