@@ -1,0 +1,45 @@
+﻿## .NET build folders
+bin/
+obj/
+out/
+
+## User-specific files
+.vscode/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+## Logs
+*.log
+
+## Environment variables
+.env
+
+## Secrets
+appsettings.Development.json
+appsettings.Local.json
+secrets.json
+
+## OS files
+.DS_Store
+Thumbs.db
+
+## Rider
+.idea/
+
+## Node.js (if you have front-end stuff)
+node_modules/
+
+## Packages
+*.nupkg
+*.snupkg
+packages/
+
+## Others
+*.cache
+*.pdb
+*.mdb
+
+## Test Results
+TestResults/

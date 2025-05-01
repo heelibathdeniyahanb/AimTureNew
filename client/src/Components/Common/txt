@@ -1,0 +1,98 @@
+import React, { useState } from 'react';
+import Logo from '../images/LOGO.png';
+import {toast} from 'react-hot-toast'
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
+
+export default function LoginCompo() {
+  const navigate = useNavigate();
+  const [data, setData] = useState({
+    email: '',
+    password: ''
+  });
+  const loginUser = async (e) => {
+    e.preventDefault();
+    const {email, password} = data;
+    try {
+      const response = await axios.post('/loginuser', { email, password });
+            const userData = response.data;
+            if (userData.error) {
+                toast.error(userData.error);
+            } else {
+                setData({ email: '', password: '' }); // Clear input fields
+                localStorage.setItem('user', JSON.stringify(userData));
+                const role = userData.role;
+                switch (role) {
+                    case 'admin':
+                        navigate('/adminhome');
+                        break;
+                    case 'manager':
+                        navigate('/managerhome');
+                        break;
+                    case 'user':
+                        navigate('/userhome');
+                        break;
+                    
+                    default:
+                        navigate('/defaultdash');
+                }
+              }
+    } catch (error) {
+      console.error('Error logging in:', error);
+    }
+  }
+  return (
+    <div className='relative flex items-center h-screen'>
+      <div className='absolute top-4 right-5 '>
+        <img src={Logo} alt='Logo' className='w-[250px]' />
+      </div>
+      <div className='flex justify-center w-screen'>
+        <div>
+            <div className='pb-10 text-start'>
+                <h1 className='text-5xl'><strong>Sign In</strong></h1>
+            </div>
+          <form className='text-center' onSubmit={loginUser}>
+            <div>
+                <div className='text-left'>
+                    <label><strong>Email :</strong></label>
+                </div>
+              <input
+                type='email'
+                className='w-[400px] h-12 border-[#19191A] border-[1.5px] rounded-lg pl-4 pr-4 shadow-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-300 ease-in-out bg-[#2a2a2a1c]'
+                placeholder='Enter email'
+                value={data.email}
+                onChange={(e) => setData({...data, email: e.target.value})}
+              />
+            </div>
+            <div className='pt-4'>
+            <div className='text-left'>
+                    <label><strong>password :</strong></label>
+                </div>
+              <input
+                type='password'
+                className='w-[400px] h-12 border-[#19191A] border-[1.5px] rounded-lg pl-4 pr-4 shadow-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-300 ease-in-out bg-[#2a2a2a1c]'
+                placeholder='Enter password'
+                value={data.password}
+                onChange={(e) => setData({ ...data, password: e.target.value })}
+              />
+            </div>
+            <div>
+                <div className=''>
+                    
+                    <div className='text-right'>
+                        <button className='text-[#080824] hover:text-orange-600'><strong>Forgot password</strong></button>
+                    </div>
+                </div>
+            </div>
+            <div className='pt-10'>
+                <button className='pl-4 pr-4 transition duration-300 ease-in-out rounded-lg shadow-lg focus:outline-none focus:ring-2 focus:ring-blue-500 bg-[#19191A] text-white h-12 w-[400px] hover:bg-orange-500'>
+                    Login
+                </button>
+            </div>
+            
+          </form>
+        </div>
+      </div>
+    </div>
+  );
+}
