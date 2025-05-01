@@ -11,10 +11,13 @@ const UserDashboard = () => {
   const [advertisements, setAdvertisements] = useState([]);
   const [learningPaths, setLearningPaths] = useState([]);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedPath, setSelectedPath] = useState(null);
+  const [isTopicModalOpen, setIsTopicModalOpen] = useState(false);
+
   const [isLoading, setIsLoading] = useState(false);
   const [newPath, setNewPath] = useState({
-  name: "",
-  description: "",
+  goal: "",
+  level: "",
   deadline: "",
 });
 
@@ -23,7 +26,11 @@ const UserDashboard = () => {
     localStorage.removeItem("token");
     navigate("/login");
   };
-
+  const handleViewTopics = (path) => {
+    setSelectedPath(path);
+    setIsTopicModalOpen(true);
+  };
+  
   useEffect(() => {
     const getAds = async () => {
       const ads = await fetchAdvertisements();
@@ -50,17 +57,18 @@ const UserDashboard = () => {
   const handleCreateLearningPath = async () => {
     setIsLoading(true);
     try {
-      await createLearningPath();
+      await createLearningPath(newPath); // Pass the newPath to the API
       await refreshLearningPaths();
       setIsModalOpen(false);
     } catch (error) {
-      console.error("Failed to create learning path");
+      console.error("Failed to create learning path", error);
     } finally {
       setIsLoading(false);
     }
   };
+  
 
-  const getClosestDeadlines = (count = 3) => {
+  const getClosestDeadlines = (count = 4) => {
     const today = new Date();
   
     // Sort by deadline ascending
@@ -129,7 +137,7 @@ const UserDashboard = () => {
       <div key={index}>
         <div className="flex items-center justify-between mb-4 font-sans">
           <div>
-            <p className="text-lg">{path.name}</p>
+            <p className="text-lg">{path.goal}</p>
             <p className="text-sm text-gray-400">{new Date(path.deadline).toLocaleDateString()}</p>
           </div>
           <div className="flex items-center space-x-2">
@@ -138,9 +146,14 @@ const UserDashboard = () => {
             >
               <FontAwesomeIcon icon={getDeadlineStatus(path.deadline).icon} size="lg" />
             </div>
-            <button className="bg-[#56b2bb] text-white px-4 py-1.5 rounded-lg hover:bg-[#56b1bb] transition text-sm">
-              View
-            </button>
+            <button 
+  onClick={() => setSelectedPath(path)}
+  className="bg-[#56b2bb] text-white px-4 py-1.5 rounded-lg hover:bg-[#56b1bb] transition text-sm"
+>
+  View
+</button>
+
+
           </div>
         </div>
 
@@ -178,14 +191,14 @@ const UserDashboard = () => {
           type="text"
           placeholder="Path Name"
           className="w-full p-3 rounded-lg bg-[#2a2a2a] text-white focus:outline-none"
-          value={newPath.name}
+          value={newPath.goal}
           onChange={(e) => setNewPath({ ...newPath, name: e.target.value })}
         />
 
         <textarea
           placeholder="Description"
           className="w-full p-3 rounded-lg bg-[#2a2a2a] text-white focus:outline-none"
-          value={newPath.description}
+          value={newPath.level}
           onChange={(e) => setNewPath({ ...newPath, description: e.target.value })}
         />
 
@@ -214,6 +227,30 @@ const UserDashboard = () => {
     </div>
   </div>
 )}
+
+{selectedPath && (
+  <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
+    <div className="bg-[#19191A] p-8 rounded-2xl w-full max-w-2xl shadow-lg space-y-6 relative max-h-[80vh] overflow-y-auto">
+      <h2 className="text-2xl font-bold text-white mb-4">{selectedPath.goal} - Topics</h2>
+
+      {/* Topics (formatted as preformatted text) */}
+      <pre className="text-white whitespace-pre-wrap">
+        {selectedPath.topics}
+      </pre>
+
+      <div className="flex justify-end mt-6">
+        <button
+          onClick={() => setSelectedPath(null)}
+          className="bg-red-500 px-4 py-2 rounded-lg text-white font-semibold hover:bg-red-600"
+        >
+          Close
+        </button>
+      </div>
+    </div>
+  </div>
+)}
+
+
 
     </div>
   );

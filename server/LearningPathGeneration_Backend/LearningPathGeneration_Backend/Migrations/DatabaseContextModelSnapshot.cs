@@ -39,7 +39,7 @@ namespace LearningPathGeneration_Backend.Migrations
                     b.ToTable("AnalyzeRequests");
                 });
 
-            modelBuilder.Entity("LearningPathGeneration_Backend.Models.Attachment", b =>
+            modelBuilder.Entity("LearningPathGeneration_Backend.Models.Attachments", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -62,7 +62,7 @@ namespace LearningPathGeneration_Backend.Migrations
 
                     b.HasIndex("EmailId");
 
-                    b.ToTable("Attachment");
+                    b.ToTable("Attachments");
                 });
 
             modelBuilder.Entity("LearningPathGeneration_Backend.Models.Email", b =>
@@ -95,6 +95,38 @@ namespace LearningPathGeneration_Backend.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Emails");
+                });
+
+            modelBuilder.Entity("LearningPathGeneration_Backend.Models.LearningPathRequest", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<string>("Deadline")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("Goal")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("Level")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("Topics")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("LearningPathRequests");
                 });
 
             modelBuilder.Entity("LearningPathGeneration_Backend.Models.User", b =>
@@ -142,10 +174,10 @@ namespace LearningPathGeneration_Backend.Migrations
                     b.ToTable("Users");
                 });
 
-            modelBuilder.Entity("LearningPathGeneration_Backend.Models.Attachment", b =>
+            modelBuilder.Entity("LearningPathGeneration_Backend.Models.Attachments", b =>
                 {
                     b.HasOne("LearningPathGeneration_Backend.Models.Email", "Email")
-                        .WithMany("Attachments")
+                        .WithMany("Attachment")
                         .HasForeignKey("EmailId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -155,7 +187,7 @@ namespace LearningPathGeneration_Backend.Migrations
 
             modelBuilder.Entity("LearningPathGeneration_Backend.Models.Email", b =>
                 {
-                    b.Navigation("Attachments");
+                    b.Navigation("Attachment");
                 });
 #pragma warning restore 612, 618
         }

@@ -6,5 +6,7 @@
         public string Goal { get; set; } = string.Empty;
         public string Deadline { get; set; } = string.Empty;
         public string Level { get; set; } = string.Empty;
+        public string Topics { get; set; } = string.Empty;
+        public DateTime CreatedAt { get; set; }
     }
 }
