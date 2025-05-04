@@ -1,5 +1,6 @@
 ﻿using LearningPathGeneration_Backend.Models;
 using Microsoft.EntityFrameworkCore;
+using System.Text.Json;
 
 namespace LearningPathGeneration_Backend.Data
 {
@@ -25,7 +26,14 @@ namespace LearningPathGeneration_Backend.Data
                .WithOne(a => a.Email)
                .HasForeignKey(a => a.EmailId);
 
-            base.OnModelCreating(modelBuilder);
+            modelBuilder.Entity<LearningPathRequest>()
+           .Property(e => e.Topics)
+           .HasConversion(
+               v => JsonSerializer.Serialize(v, (JsonSerializerOptions)null),  // Save as JSON
+               v => JsonSerializer.Deserialize<List<string>>(v, (JsonSerializerOptions)null)  // Read as List<string>
+               );
+
+           base.OnModelCreating(modelBuilder);
         }
 
 
