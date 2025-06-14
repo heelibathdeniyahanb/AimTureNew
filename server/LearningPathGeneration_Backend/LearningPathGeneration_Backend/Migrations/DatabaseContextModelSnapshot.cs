@@ -120,13 +120,35 @@ namespace LearningPathGeneration_Backend.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<string>("Topics")
+                    b.HasKey("Id");
+
+                    b.ToTable("LearningPathRequests");
+                });
+
+            modelBuilder.Entity("LearningPathGeneration_Backend.Models.LearningPathTopic", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("LearningPathRequestId")
+                        .HasColumnType("integer");
+
+                    b.Property<string>("TopicName")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("VideoLinks")
                         .IsRequired()
                         .HasColumnType("text");
 
                     b.HasKey("Id");
 
-                    b.ToTable("LearningPathRequests");
+                    b.HasIndex("LearningPathRequestId");
+
+                    b.ToTable("LearningPathTopics");
                 });
 
             modelBuilder.Entity("LearningPathGeneration_Backend.Models.User", b =>
@@ -185,9 +207,25 @@ namespace LearningPathGeneration_Backend.Migrations
                     b.Navigation("Email");
                 });
 
+            modelBuilder.Entity("LearningPathGeneration_Backend.Models.LearningPathTopic", b =>
+                {
+                    b.HasOne("LearningPathGeneration_Backend.Models.LearningPathRequest", "LearningPathRequest")
+                        .WithMany("Topics")
+                        .HasForeignKey("LearningPathRequestId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("LearningPathRequest");
+                });
+
             modelBuilder.Entity("LearningPathGeneration_Backend.Models.Email", b =>
                 {
                     b.Navigation("Attachment");
+                });
+
+            modelBuilder.Entity("LearningPathGeneration_Backend.Models.LearningPathRequest", b =>
+                {
+                    b.Navigation("Topics");
                 });
 #pragma warning restore 612, 618
         }

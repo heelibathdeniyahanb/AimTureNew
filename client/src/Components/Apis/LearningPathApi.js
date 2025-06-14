@@ -45,27 +45,28 @@ const fetchLearningPaths = async () => {
     },
   ];
 
-  const createLearningPath = async () => {
-    try {
-      const response = await fetch("https://localhost:7295/api/GoogleAi/generate-learning-path", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({}) // If the API needs any body, add it here. Else leave it empty
-      });
-  
-      if (response.ok) {
-        const newPath = await response.json();
-        return newPath;
-      } else {
-        throw new Error("Failed to generate learning path");
-      }
-    } catch (error) {
-      console.error("Error creating learning path:", error);
-      throw error;
+ const createLearningPath = async (pathData) => {
+  try {
+    const response = await fetch("https://localhost:7295/api/GoogleAi/generate", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(pathData), // ← now sending actual data
+    });
+
+    if (response.ok) {
+      const newPath = await response.json();
+      return newPath;
+    } else {
+      throw new Error("Failed to generate learning path");
     }
-  };
+  } catch (error) {
+    console.error("Error creating learning path:", error);
+    throw error;
+  }
+};
+
   
   export { fetchLearningPaths };
   export {createLearningPath};

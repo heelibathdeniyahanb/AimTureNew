@@ -2,13 +2,8 @@
   "ExpandedNodes": [
     "",
     "\\LearningPathGeneration_Backend",
-    "\\LearningPathGeneration_Backend\\LearningPathGeneration_Backend",
-    "\\LearningPathGeneration_Backend\\LearningPathGeneration_Backend\\Controllers",
-    "\\LearningPathGeneration_Backend\\LearningPathGeneration_Backend\\Data",
-    "\\LearningPathGeneration_Backend\\LearningPathGeneration_Backend\\Dtos",
-    "\\LearningPathGeneration_Backend\\LearningPathGeneration_Backend\\Models",
-    "\\LearningPathGeneration_Backend\\LearningPathGeneration_Backend\\Services"
+    "\\LearningPathGeneration_Backend\\LearningPathGeneration_Backend"
   ],
-  "SelectedNode": "\\LearningPathGeneration_Backend\\LearningPathGeneration_Backend\\Models\\LearningPathRequest.cs",
+  "SelectedNode": "\\LearningPathGeneration_Backend\\LearningPathGeneration_Backend.sln",
   "PreviewInSolutionExplorer": false
 }

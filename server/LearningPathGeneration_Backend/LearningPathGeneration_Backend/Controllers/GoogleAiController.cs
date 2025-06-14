@@ -1,12 +1,15 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore; // <-- For ToListAsync()
 using LearningPathGeneration_Backend.Models;
+using LearningPathGeneration_Backend.Dtos;
 using System;
 using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
 using Google;
 using LearningPathGeneration_Backend.Data;
+using LearningPathGeneration_Backend.Services;
+using Newtonsoft.Json;
 
 [ApiController]
 [Route("api/[controller]")]
@@ -14,11 +17,13 @@ public class GoogleAiController : ControllerBase
 {
     private readonly GoogleAiService _googleAiService;
     private readonly DatabaseContext _context; // ✅ inject context
+    private readonly YouTubeService _youTubeService;
 
-    public GoogleAiController(GoogleAiService googleAiService, DatabaseContext context)
+    public GoogleAiController(GoogleAiService googleAiService, DatabaseContext context, YouTubeService youTubeService)
     {
         _googleAiService = googleAiService;
         _context = context;
+        _youTubeService = youTubeService;
     }
 
     [HttpPost("ask")]
@@ -41,9 +46,9 @@ public class GoogleAiController : ControllerBase
             return StatusCode(500, new { error = "An unexpected error occurred.", details = ex.Message });
         }
     }
-
-    [HttpPost("generate-learning-path")]
-    public async Task<IActionResult> GenerateLearningPath([FromBody] LearningPathRequest request)
+    
+    [HttpPost("generate")]
+    public async Task<IActionResult> GenerateLearningPath([FromBody] LearningPathRequestDto request)
     {
         if (string.IsNullOrWhiteSpace(request.Goal) ||
             string.IsNullOrWhiteSpace(request.Deadline) ||
@@ -67,8 +72,6 @@ Output as a clearly organized list.";
 
             var result = await _googleAiService.AskQuestionAsync(prompt);
 
-            // ✅ Parse result into List<string>
-            // Split result by new lines and clean up each topic
             var topicsArray = result
                 .Split('\n')
                 .Where(line => !string.IsNullOrWhiteSpace(line))
@@ -76,31 +79,55 @@ Output as a clearly organized list.";
                 .Where(line => !string.IsNullOrWhiteSpace(line))
                 .ToList();
 
-            // Save to DB
+            // ✅ Create LearningPathRequest object
             var newPath = new LearningPathRequest
             {
                 Goal = request.Goal,
                 Deadline = request.Deadline,
                 Level = request.Level,
-                Topics = topicsArray,
-                CreatedAt = DateTime.UtcNow
+                CreatedAt = DateTime.UtcNow,
+                Topics = new List<LearningPathTopic>()
             };
 
+            // ✅ For each topic, fetch YouTube videos based on topic + level
+            foreach (var topic in topicsArray)
+            {
+                // ✨ Query includes user level now
+                var searchQuery = $"{topic} tutorial {request.Level}";
+                var links = await _youTubeService.SearchTop3HighQualityVideosAsync(searchQuery);
 
+                newPath.Topics.Add(new LearningPathTopic
+                {
+                    TopicName = topic,
+                    VideoLinks = links
+                });
+            }
+
+            // ✅ Save to DB
             _context.LearningPathRequests.Add(newPath);
             await _context.SaveChangesAsync();
 
-            return Ok(new { topics = topicsArray });
+            // ✅ Prepare clean response
+            var response = newPath.Topics.Select(t => new
+            {
+                t.TopicName,
+                t.VideoLinks
+            });
+
+            return Ok(new { topics = response });
         }
         catch (HttpRequestException ex)
         {
-            return StatusCode(502, new { error = "Error communicating with the AI service.", details = ex.Message });
+            return StatusCode(502, new { error = "Error communicating with the AI or YouTube service.", details = ex.Message });
         }
         catch (Exception ex)
         {
             return StatusCode(500, new { error = "An unexpected error occurred.", details = ex.Message });
         }
     }
+    
+
+
 
     [HttpGet("learning-paths")]
     public async Task<IActionResult> GetLearningPaths()
@@ -115,7 +142,11 @@ Output as a clearly organized list.";
                     lp.Goal,
                     lp.Deadline,
                     lp.Level,
-                    Topics = lp.Topics, // ✅ return as array
+                    Topics = lp.Topics.Select(t => new {
+                        t.TopicName,
+                        t.VideoLinks
+                    }),
+
                     lp.CreatedAt
                 })
                 .ToListAsync();
@@ -149,5 +180,22 @@ Output as a clearly organized list.";
             return StatusCode(500, new { error = "An unexpected error occurred.", details = ex.Message });
         }
     }
+
+   /* public async Task<string> GetYouTubeVideoLink(string topic, string level)
+    {
+        string apiKey = "YouTubeApiKey";
+        string query = $"{topic} tutorial {level}";
+        string apiUrl = $"https://www.googleapis.com/youtube/v3/search?part=snippet&type=video&maxResults=1&q={Uri.EscapeDataString(query)}&key={apiKey}";
+
+        using var client = new HttpClient();
+        var response = await client.GetAsync(apiUrl);
+        var content = await response.Content.ReadAsStringAsync();
+
+        dynamic result = JsonConvert.DeserializeObject(content);
+        string videoId = result.items[0].id.videoId;
+
+        return $"https://www.youtube.com/watch?v={videoId}";
+    }
+   */
 
 }
