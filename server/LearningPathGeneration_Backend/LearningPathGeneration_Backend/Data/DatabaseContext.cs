@@ -16,6 +16,7 @@ namespace LearningPathGeneration_Backend.Data
         public DbSet<LearningPathRequest> LearningPathRequests { get; set; }
         public DbSet<Email>Emails { get; set; }
         public DbSet<Attachments>Attachments { get; set; }
+        public DbSet<LearningPathTopic> LearningPathTopics { get; set; }
 
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -26,14 +27,21 @@ namespace LearningPathGeneration_Backend.Data
                .WithOne(a => a.Email)
                .HasForeignKey(a => a.EmailId);
 
+            // ✅ Configure LearningPathRequest and Topics relationship
             modelBuilder.Entity<LearningPathRequest>()
-           .Property(e => e.Topics)
-           .HasConversion(
-               v => JsonSerializer.Serialize(v, (JsonSerializerOptions)null),  // Save as JSON
-               v => JsonSerializer.Deserialize<List<string>>(v, (JsonSerializerOptions)null)  // Read as List<string>
+                .HasMany(lp => lp.Topics)
+                .WithOne(t => t.LearningPathRequest)
+                .HasForeignKey(t => t.LearningPathRequestId);
+
+            // ✅ Configure VideoLinks to be saved as JSON
+            modelBuilder.Entity<LearningPathTopic>()
+               .Property(e => e.VideoLinks)
+               .HasConversion(
+                   v => JsonSerializer.Serialize(v, (JsonSerializerOptions)null),
+                   v => JsonSerializer.Deserialize<List<string>>(v, (JsonSerializerOptions)null)
                );
 
-           base.OnModelCreating(modelBuilder);
+            base.OnModelCreating(modelBuilder);
         }
 
 

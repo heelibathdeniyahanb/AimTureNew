@@ -5,6 +5,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFire, faTint, faCloud } from '@fortawesome/free-solid-svg-icons';
 import { fetchLearningPaths } from "../Apis/LearningPathApi";
 import { createLearningPath } from "../Apis/LearningPathApi";
+import { ToastContainer, toast } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
+
 
 const UserDashboard = () => {
   const navigate = useNavigate();
@@ -13,6 +16,7 @@ const UserDashboard = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedPath, setSelectedPath] = useState(null);
   const [isTopicModalOpen, setIsTopicModalOpen] = useState(false);
+
 
   const [isLoading, setIsLoading] = useState(false);
   const [newPath, setNewPath] = useState({
@@ -55,17 +59,20 @@ const UserDashboard = () => {
   }, []);
 
   const handleCreateLearningPath = async () => {
-    setIsLoading(true);
-    try {
-      await createLearningPath(newPath); // Pass the newPath to the API
-      await refreshLearningPaths();
-      setIsModalOpen(false);
-    } catch (error) {
-      console.error("Failed to create learning path", error);
-    } finally {
-      setIsLoading(false);
-    }
-  };
+  setIsLoading(true);
+  try {
+    await createLearningPath(newPath);
+    await refreshLearningPaths();
+    setIsModalOpen(false);
+    toast.success("Learning path created successfully!");
+  } catch (error) {
+    console.error("Failed to create learning path", error);
+    toast.error("Failed to create learning path");
+  } finally {
+    setIsLoading(false);
+  }
+};
+
   
 
   const getClosestDeadlines = (count = 4) => {
@@ -130,6 +137,8 @@ const UserDashboard = () => {
 
     {/* Deadlines Section */}
 <div className="bg-[#19191A] p-6 rounded-2xl shadow-md flex flex-col transition border border-[#2a2a2a] mt-5">
+  <ToastContainer position="top-right" autoClose={3000} />
+
   <h2 className="text-xl font-bold mb-4 font-poppins">Upcoming Deadlines</h2>
 
   {closestDeadlines.length > 0 ? (
@@ -192,15 +201,19 @@ const UserDashboard = () => {
           placeholder="Path Name"
           className="w-full p-3 rounded-lg bg-[#2a2a2a] text-white focus:outline-none"
           value={newPath.goal}
-          onChange={(e) => setNewPath({ ...newPath, name: e.target.value })}
+          onChange={(e) => setNewPath({ ...newPath, goal: e.target.value })}
         />
 
-        <textarea
-          placeholder="Description"
-          className="w-full p-3 rounded-lg bg-[#2a2a2a] text-white focus:outline-none"
-          value={newPath.level}
-          onChange={(e) => setNewPath({ ...newPath, description: e.target.value })}
-        />
+        <select
+  className="w-full p-3 rounded-lg bg-[#2a2a2a] text-white focus:outline-none"
+  value={newPath.level}
+  onChange={(e) => setNewPath({ ...newPath, level: e.target.value })}
+>
+  <option value="">Select Level</option>
+  <option value="Beginner">Beginner</option>
+  <option value="Intermediate">Intermediate</option>
+  <option value="Advanced">Advanced</option>
+</select>
 
         <input
           type="date"
@@ -230,14 +243,43 @@ const UserDashboard = () => {
 
 {selectedPath && (
   <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
-    <div className="bg-[#19191A] p-8 rounded-2xl w-full max-w-2xl shadow-lg space-y-6 relative max-h-[80vh] overflow-y-auto">
-      <h2 className="text-2xl font-bold text-white mb-4">{selectedPath.goal} - Topics</h2>
+    <div className="bg-[#19191A] p-8 rounded-2xl w-full max-w-2xl shadow-lg space-y-6 relative max-h-[80vh] overflow-y-auto scrollbar-thin scrollbar-thumb-[#56b2bb] scrollbar-track-[#2a2a2a]">
+      <h2 className="text-2xl font-bold text-white mb-4">
+        {selectedPath.goal} - Topics
+      </h2>
 
-      {/* Topics (formatted as preformatted text) */}
-      <pre className="text-white whitespace-pre-wrap">
-        {selectedPath.topics}
-      </pre>
+      {/* Topics Rendering */}
+      <div className="space-y-6">
+        {selectedPath.topics && selectedPath.topics.length > 0 ? (
+          selectedPath.topics.map((topic, index) => (
+            <div key={index} className="bg-[#2a2a2a] p-4 rounded-xl text-white shadow-sm">
+              <h3 className="font-bold text-lg mb-2">{topic.topicName}</h3>
+              {topic.videoLinks && topic.videoLinks.length > 0 ? (
+                <ul className="list-disc pl-6 space-y-1 text-sm text-blue-400">
+                  {topic.videoLinks.map((link, idx) => (
+                    <li key={idx}>
+                      <a
+                        href={link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="hover:underline"
+                      >
+                        {link}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              ) : (
+                <p className="text-gray-400 text-sm">No video links available</p>
+              )}
+            </div>
+          ))
+        ) : (
+          <p className="text-white">No topics available.</p>
+        )}
+      </div>
 
+      {/* Close Button */}
       <div className="flex justify-end mt-6">
         <button
           onClick={() => setSelectedPath(null)}
@@ -249,6 +291,7 @@ const UserDashboard = () => {
     </div>
   </div>
 )}
+
 
 
 

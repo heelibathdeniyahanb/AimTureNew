@@ -8,15 +8,25 @@ using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Load environment variables from .env file
-DotNetEnv.Env.Load();
+// Load configuration from environment variables
+// If using DotNetEnv make sure the package is properly referenced
+try
+{
+    DotNetEnv.Env.Load();
+}
+catch (Exception ex)
+{
+    Console.WriteLine($"Error loading .env file: {ex.Message}");
+    // Continue execution - we'll try to use configuration from appsettings
+}
 
 // Add environment variables to configuration
 builder.Configuration.AddEnvironmentVariables();
 
-// Get connection string from environment variables
+// Get connection string - try from env vars first, then from config
 var connectionString = Environment.GetEnvironmentVariable("ConnectionStrings__DBCon")
-                      ?? throw new ArgumentException("Database connection string is not configured.");
+                     ?? builder.Configuration.GetConnectionString("DBCon")
+                     ?? throw new ArgumentException("Database connection string is not configured.");
 
 // Add CORS policy
 builder.Services.AddCors(options =>
@@ -30,7 +40,11 @@ builder.Services.AddCors(options =>
     });
 });
 
-// Add JWT authentication
+// Add JWT authentication with safer configuration
+var jwtKey = Environment.GetEnvironmentVariable("JWT_SECRET_KEY")
+           ?? builder.Configuration["JWT:SecretKey"]
+           ?? "defaultSecretKeyForDevelopmentOnly12345678901234567890";
+
 builder.Services.AddAuthentication(options =>
 {
     options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
@@ -41,13 +55,9 @@ builder.Services.AddAuthentication(options =>
     options.TokenValidationParameters = new TokenValidationParameters
     {
         ValidateIssuerSigningKey = true,
-        IssuerSigningKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes(
-            Environment.GetEnvironmentVariable("JWT_SECRET_KEY") ??
-            throw new InvalidOperationException("JWT Secret Key is not configured."))),
-        ValidateIssuer = true,
-        ValidIssuer = Environment.GetEnvironmentVariable("JWT_ISSUER"),
-        ValidateAudience = true,
-        ValidAudience = Environment.GetEnvironmentVariable("JWT_AUDIENCE"),
+        IssuerSigningKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes(jwtKey)),
+        ValidateIssuer = false,    // For development, can be true in production
+        ValidateAudience = false,  // For development, can be true in production
         ValidateLifetime = true,
         ClockSkew = TimeSpan.Zero
     };
@@ -60,7 +70,6 @@ builder.Services.AddAuthorization();
 builder.Services.AddControllers()
     .AddJsonOptions(options =>
     {
-        options.JsonSerializerOptions.MaxDepth = 0; // No max depth limit
         options.JsonSerializerOptions.WriteIndented = false; // (Optional) no indentation
     });
 
@@ -71,10 +80,26 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddScoped<UserService>();
 builder.Services.AddScoped<TokenService>();
 builder.Services.AddScoped<GoogleAiService>();
+builder.Services.AddScoped<YouTubeService>();
 builder.Services.AddTransient<EmailController>();
 builder.Services.AddHttpClient();
 
 var app = builder.Build();
+
+// Apply migrations at startup (optional)
+try
+{
+    using (var scope = app.Services.CreateScope())
+    {
+        var dbContext = scope.ServiceProvider.GetRequiredService<DatabaseContext>();
+        dbContext.Database.Migrate();
+    }
+}
+catch (Exception ex)
+{
+    // Log the error but don't stop the app
+    Console.WriteLine($"Error applying migrations: {ex.Message}");
+}
 
 app.UseCors("AllowSpecificOrigin");
 
