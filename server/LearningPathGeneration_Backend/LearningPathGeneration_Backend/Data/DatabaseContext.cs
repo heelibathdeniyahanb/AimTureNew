@@ -41,6 +41,14 @@ namespace LearningPathGeneration_Backend.Data
                    v => JsonSerializer.Deserialize<List<string>>(v, (JsonSerializerOptions)null)
                );
 
+            // One User -> Many LearningPathRequests
+            modelBuilder.Entity<User>()
+                .HasMany(u => u.LearningPaths)
+                .WithOne(lp => lp.User)
+                .HasForeignKey(lp => lp.UserId)
+                .OnDelete(DeleteBehavior.Cascade); // Optional: cascade delete if user is removed
+
+
             base.OnModelCreating(modelBuilder);
         }
 

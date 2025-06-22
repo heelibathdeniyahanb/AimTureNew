@@ -86,6 +86,7 @@ Output as a clearly organized list.";
                 Deadline = request.Deadline,
                 Level = request.Level,
                 CreatedAt = DateTime.UtcNow,
+                UserId = request.UserId,
                 Topics = new List<LearningPathTopic>()
             };
 
@@ -181,21 +182,37 @@ Output as a clearly organized list.";
         }
     }
 
-   /* public async Task<string> GetYouTubeVideoLink(string topic, string level)
+    [HttpGet("learning-paths/user/{userId}")]
+    public async Task<IActionResult> GetLearningPathsByUser(int userId)
     {
-        string apiKey = "YouTubeApiKey";
-        string query = $"{topic} tutorial {level}";
-        string apiUrl = $"https://www.googleapis.com/youtube/v3/search?part=snippet&type=video&maxResults=1&q={Uri.EscapeDataString(query)}&key={apiKey}";
+        try
+        {
+            var learningPaths = await _context.LearningPathRequests
+                .Where(lp => lp.UserId == userId)
+                .OrderByDescending(lp => lp.CreatedAt)
+                .Select(lp => new
+                {
+                    lp.Id,
+                    lp.Goal,
+                    lp.Deadline,
+                    lp.Level,
+                    Topics = lp.Topics.Select(t => new {
+                        t.TopicName,
+                        t.VideoLinks
+                    }),
+                    lp.CreatedAt
+                })
+                .ToListAsync();
 
-        using var client = new HttpClient();
-        var response = await client.GetAsync(apiUrl);
-        var content = await response.Content.ReadAsStringAsync();
-
-        dynamic result = JsonConvert.DeserializeObject(content);
-        string videoId = result.items[0].id.videoId;
-
-        return $"https://www.youtube.com/watch?v={videoId}";
+            return Ok(learningPaths);
+        }
+        catch (Exception ex)
+        {
+            return StatusCode(500, new { error = "An unexpected error occurred.", details = ex.Message });
+        }
     }
-   */
+
+
+
 
 }

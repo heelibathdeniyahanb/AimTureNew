@@ -67,6 +67,8 @@ const fetchLearningPaths = async () => {
   }
 };
 
+//https://localhost:7295/api/GoogleAi/learning-paths/user/4          by user id
+
   
   export { fetchLearningPaths };
   export {createLearningPath};

@@ -2,8 +2,9 @@
   "ExpandedNodes": [
     "",
     "\\LearningPathGeneration_Backend",
-    "\\LearningPathGeneration_Backend\\LearningPathGeneration_Backend"
+    "\\LearningPathGeneration_Backend\\LearningPathGeneration_Backend",
+    "\\LearningPathGeneration_Backend\\LearningPathGeneration_Backend\\Services"
   ],
-  "SelectedNode": "\\LearningPathGeneration_Backend\\LearningPathGeneration_Backend.sln",
+  "SelectedNode": "\\LearningPathGeneration_Backend\\LearningPathGeneration_Backend\\Services\\GoogleAiService.cs",
   "PreviewInSolutionExplorer": false
 }

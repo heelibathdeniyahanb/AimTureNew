@@ -120,7 +120,12 @@ namespace LearningPathGeneration_Backend.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
+                    b.Property<int>("UserId")
+                        .HasColumnType("integer");
+
                     b.HasKey("Id");
+
+                    b.HasIndex("UserId");
 
                     b.ToTable("LearningPathRequests");
                 });
@@ -207,6 +212,17 @@ namespace LearningPathGeneration_Backend.Migrations
                     b.Navigation("Email");
                 });
 
+            modelBuilder.Entity("LearningPathGeneration_Backend.Models.LearningPathRequest", b =>
+                {
+                    b.HasOne("LearningPathGeneration_Backend.Models.User", "User")
+                        .WithMany("LearningPaths")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("User");
+                });
+
             modelBuilder.Entity("LearningPathGeneration_Backend.Models.LearningPathTopic", b =>
                 {
                     b.HasOne("LearningPathGeneration_Backend.Models.LearningPathRequest", "LearningPathRequest")
@@ -226,6 +242,11 @@ namespace LearningPathGeneration_Backend.Migrations
             modelBuilder.Entity("LearningPathGeneration_Backend.Models.LearningPathRequest", b =>
                 {
                     b.Navigation("Topics");
+                });
+
+            modelBuilder.Entity("LearningPathGeneration_Backend.Models.User", b =>
+                {
+                    b.Navigation("LearningPaths");
                 });
 #pragma warning restore 612, 618
         }
