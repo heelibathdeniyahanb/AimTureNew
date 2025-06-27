@@ -121,5 +121,57 @@ namespace LearningPathGeneration_Backend.Services
             return true;
         }
 
+        public async Task SendResetCodeAsync(string email)
+        {
+            var user = await _context.Users.FirstOrDefaultAsync(u => u.Email == email);
+            if (user == null)
+                throw new ArgumentException("User not found");
+
+            var code = new Random().Next(100000, 999999).ToString();
+            var expiry = DateTime.UtcNow.AddMinutes(15);
+
+            var token = new PasswordResetToken
+            {
+                Email = email,
+                Code = code,
+                ExpiryTime = expiry
+            };
+
+            // Remove previous codes for this email
+            var existingTokens = _context.PasswordResetTokens.Where(t => t.Email == email);
+            _context.PasswordResetTokens.RemoveRange(existingTokens);
+
+            _context.PasswordResetTokens.Add(token);
+            await _context.SaveChangesAsync();
+
+            await _emailController.SendResetCode(email, code);
+        }
+
+        public async Task<bool> VerifyResetCodeAsync(string email, string code)
+        {
+            var token = await _context.PasswordResetTokens
+                .FirstOrDefaultAsync(t => t.Email == email && t.Code == code);
+
+            return token != null && token.ExpiryTime > DateTime.UtcNow;
+        }
+
+        public async Task ResetPasswordAsync(string email, string code, string newPassword)
+        {
+            var token = await _context.PasswordResetTokens
+                .FirstOrDefaultAsync(t => t.Email == email && t.Code == code);
+
+            if (token == null || token.ExpiryTime < DateTime.UtcNow)
+                throw new ArgumentException("Invalid or expired code");
+
+            var user = await _context.Users.FirstOrDefaultAsync(u => u.Email == email);
+            if (user == null)
+                throw new ArgumentException("User not found");
+
+            user.PasswordHash = BCrypt.Net.BCrypt.HashPassword(newPassword);
+
+            _context.PasswordResetTokens.Remove(token);
+            await _context.SaveChangesAsync();
+        }
+
     }
 }

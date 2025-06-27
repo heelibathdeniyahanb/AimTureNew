@@ -89,6 +89,10 @@ Output as a clearly organized list.";
                 UserId = request.UserId,
                 Topics = new List<LearningPathTopic>()
             };
+            if (request.UserId <= 0)
+            {
+                return BadRequest(new { error = "UserId is required and must be valid." });
+            }
 
             // ✅ For each topic, fetch YouTube videos based on topic + level
             foreach (var topic in topicsArray)

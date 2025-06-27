@@ -19,7 +19,7 @@ const AdminSidebar = () => {
 
   const menuItems = [
     { name: 'Dashboard', icon: FaTachometerAlt, path: '/admin/dashboard/page' },
-    { name: 'My Profile', icon: FaUser, path: '/user/profile' },
+    { name: 'My Profile', icon: FaUser, path: '/admin/profile' },
     { name: 'Users', icon: FaUsers, path: '/users' },
     { name: 'Email', icon: FaEnvelope, path: '/email' },
     { name: 'Settings', icon: FaCog, path: '/user-settings' },

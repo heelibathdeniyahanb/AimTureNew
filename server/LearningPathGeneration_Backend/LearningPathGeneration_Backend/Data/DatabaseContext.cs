@@ -17,6 +17,7 @@ namespace LearningPathGeneration_Backend.Data
         public DbSet<Email>Emails { get; set; }
         public DbSet<Attachments>Attachments { get; set; }
         public DbSet<LearningPathTopic> LearningPathTopics { get; set; }
+        public DbSet<PasswordResetToken> PasswordResetTokens { get; set; }
 
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

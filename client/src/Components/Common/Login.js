@@ -9,6 +9,7 @@ import 'react-toastify/dist/ReactToastify.css';
 //import { useUser } from './path/to/UserContext'; // Adjust the import path
 import { UserContext } from "../UserContext";
 import Cookies from "js-cookie";
+import ForgotPasswordModal from "./Password/ForgotPassword";
 
 
 const Login = () => {
@@ -18,6 +19,7 @@ const Login = () => {
   const [error, setError] = useState("");
   const navigate = useNavigate();
   const [showPassword, setShowPassword] = useState(false);
+  const [showForgotModal, setShowForgotModal] = useState(false);
 
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
@@ -119,7 +121,10 @@ const Login = () => {
                 <input id="remember" type="checkbox" value="" className="w-4 h-4 border-2 border-[#56B2BB] rounded bg-[#D9D9D9] opacity-20 focus:ring-3 focus:ring-blue-300" required />
               </div>
               <label htmlFor="remember" className="ms-2 text-sm font-medium text-[#F0F4F8] opacity-35">Remember me</label>
-              <div className="ml-20 text-[#56B2BB]"><Link to=''>Forget Password</Link></div>
+              <div className="ml-20 text-[#56B2BB] cursor-pointer" onClick={() => setShowForgotModal(true)}>
+                Forget Password?
+              </div>
+
             </div>
             
             <button
@@ -144,6 +149,8 @@ const Login = () => {
         </div>
       </div>
       <ToastContainer />
+      <ForgotPasswordModal isOpen={showForgotModal} onClose={() => setShowForgotModal(false)} />
+
     </div>
   );
 };

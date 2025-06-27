@@ -1,12 +1,13 @@
 import { useNavigate } from "react-router-dom";
 import { fetchAdvertisements } from "../Apis/AdvertisementsApi";
-import { useState, useEffect } from "react";
+import { useState, useEffect,useContext } from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFire, faTint, faCloud } from '@fortawesome/free-solid-svg-icons';
 import { fetchLearningPaths } from "../Apis/LearningPathApi";
 import { createLearningPath } from "../Apis/LearningPathApi";
 import { ToastContainer, toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
+import { UserContext } from "../UserContext";
 
 
 const UserDashboard = () => {
@@ -16,13 +17,15 @@ const UserDashboard = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedPath, setSelectedPath] = useState(null);
   const [isTopicModalOpen, setIsTopicModalOpen] = useState(false);
-
+  const context = useContext(UserContext);
+    const {user}=context;
 
   const [isLoading, setIsLoading] = useState(false);
   const [newPath, setNewPath] = useState({
   goal: "",
   level: "",
   deadline: "",
+  userId:user.id
 });
 
 
@@ -61,7 +64,9 @@ const UserDashboard = () => {
   const handleCreateLearningPath = async () => {
   setIsLoading(true);
   try {
+     console.log("userid:",user.id);
     await createLearningPath(newPath);
+    console.log("userid:",user.id);
     await refreshLearningPaths();
     setIsModalOpen(false);
     toast.success("Learning path created successfully!");

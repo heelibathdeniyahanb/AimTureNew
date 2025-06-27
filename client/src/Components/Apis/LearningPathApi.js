@@ -1,4 +1,5 @@
 // This file handles fetching learning paths from the API or providing demo data as fallback
+import { API_BASE_URL } from "./BaseUrl";
 
 const fetchLearningPaths = async () => {
     try {
@@ -68,6 +69,33 @@ const fetchLearningPaths = async () => {
 };
 
 //https://localhost:7295/api/GoogleAi/learning-paths/user/4          by user id
+// src/api/learningPathApi.js
+export const getLearningPathsByUser = async (userId) => {
+  try {
+    const response = await fetch(`${API_BASE_URL}/GoogleAi/learning-paths/user/${userId}`);
+    if (!response.ok) {
+      throw new Error("Failed to fetch user-specific learning paths");
+    }
+    return await response.json();
+  } catch (error) {
+    console.error("Error fetching learning paths by user:", error);
+    return [];
+  }
+};
+
+export const getAllLearningPaths = async () => {
+  try {
+    const response = await fetch(`${API_BASE_URL}/GoogleAi/learning-paths`);
+    if (!response.ok) {
+      throw new Error("Failed to fetch all learning paths");
+    }
+    return await response.json();
+  } catch (error) {
+    console.error("Error fetching learning paths:", error);
+    return [];
+  }
+};
+
 
   
   export { fetchLearningPaths };
