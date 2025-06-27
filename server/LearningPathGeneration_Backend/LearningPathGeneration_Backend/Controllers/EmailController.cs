@@ -105,5 +105,19 @@ namespace LearningPathGeneration_Backend.Controllers
 
             return Ok(new { message = "Login details sent to user via email" });
         }
+
+        [HttpPost("SendResetCode")]
+        public async Task<IActionResult> SendResetCode([FromForm] string email, [FromForm] string code)
+        {
+            var subject = "Password Reset Code";
+            var body = $"Your password reset code is: {code}. It will expire in 15 minutes.";
+
+            await SendEmail(subject, body, new string[] { email }, new List<IFormFile>());
+
+            return Ok(new { message = "Send Verification code via email " });
+        }
+
+
+
     }
 }

@@ -3,15 +3,19 @@ using System.Net.Http;
 using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
+using LearningPathGeneration_Backend.Data;
 using Microsoft.Extensions.Configuration;
+using LearningPathGeneration_Backend.Models;
+using Microsoft.EntityFrameworkCore;
 
 public class GoogleAiService
 {
     private readonly IHttpClientFactory _httpClientFactory;
     private readonly string _apiKey;
     private readonly string _apiUrl;
+    private readonly DatabaseContext _context;
 
-    public GoogleAiService(IConfiguration configuration, IHttpClientFactory httpClientFactory)
+    public GoogleAiService(IConfiguration configuration, IHttpClientFactory httpClientFactory,DatabaseContext context)
     {
         _httpClientFactory = httpClientFactory;
 
@@ -88,5 +92,28 @@ public class GoogleAiService
         {
             throw new Exception($"Error parsing Gemini API response: {ex.Message}", ex);
         }
+    }
+
+    public async Task<List<object>> GetLearningPathsByUserAsync(int userId)
+    {
+        var learningPaths = await _context.LearningPathRequests
+            .Where(lp => lp.UserId == userId)
+            .OrderByDescending(lp => lp.CreatedAt)
+            .Select(lp => new
+            {
+                lp.Id,
+                lp.Goal,
+                lp.Deadline,
+                lp.Level,
+                Topics = lp.Topics.Select(t => new
+                {
+                    t.TopicName,
+                    t.VideoLinks
+                }),
+                lp.CreatedAt
+            })
+            .ToListAsync();
+
+        return learningPaths.Cast<object>().ToList();
     }
 }

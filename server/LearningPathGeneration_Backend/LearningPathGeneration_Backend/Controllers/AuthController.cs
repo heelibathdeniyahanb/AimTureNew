@@ -226,5 +226,41 @@ public async Task<IActionResult> GetUserById(int id)
             }
         }
 
+        [HttpPost("forgot-password")]
+        public async Task<IActionResult> ForgotPassword([FromBody] ForgotPasswordDto dto)
+        {
+            try
+            {
+                await _userService.SendResetCodeAsync(dto.Email);
+                return Ok(new { message = "Reset code sent to email." });
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
+        [HttpPost("verify-reset-code")]
+        public async Task<IActionResult> VerifyResetCode([FromBody] VerifyResetCodeDto dto)
+        {
+            var isValid = await _userService.VerifyResetCodeAsync(dto.Email, dto.Code);
+            return isValid ? Ok(new { message = "Code verified" }) : BadRequest("Invalid or expired code");
+        }
+
+        [HttpPost("reset-password")]
+        public async Task<IActionResult> ResetPassword([FromBody] ResetPasswordDto dto)
+        {
+            try
+            {
+                await _userService.ResetPasswordAsync(dto.Email, dto.Code, dto.NewPassword);
+                return Ok(new { message = "Password reset successful" });
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
+
     }
 }

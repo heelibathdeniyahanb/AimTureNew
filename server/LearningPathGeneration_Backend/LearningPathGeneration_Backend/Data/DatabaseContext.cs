@@ -17,6 +17,7 @@ namespace LearningPathGeneration_Backend.Data
         public DbSet<Email>Emails { get; set; }
         public DbSet<Attachments>Attachments { get; set; }
         public DbSet<LearningPathTopic> LearningPathTopics { get; set; }
+        public DbSet<PasswordResetToken> PasswordResetTokens { get; set; }
 
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -40,6 +41,14 @@ namespace LearningPathGeneration_Backend.Data
                    v => JsonSerializer.Serialize(v, (JsonSerializerOptions)null),
                    v => JsonSerializer.Deserialize<List<string>>(v, (JsonSerializerOptions)null)
                );
+
+            // One User -> Many LearningPathRequests
+            modelBuilder.Entity<User>()
+                .HasMany(u => u.LearningPaths)
+                .WithOne(lp => lp.User)
+                .HasForeignKey(lp => lp.UserId)
+                .OnDelete(DeleteBehavior.Cascade); // Optional: cascade delete if user is removed
+
 
             base.OnModelCreating(modelBuilder);
         }

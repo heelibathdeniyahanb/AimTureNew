@@ -16,6 +16,9 @@ import UserContextProvider from './Components/UserContext';
 import MyLearningPath from './Pages/User/MyLearningPath';
 import UserProfilePage from './Pages/User/UserProfile';
 import AdminDashboardPage from './Pages/Admin/AdminDashboardPage';
+import AdminProfile from './Pages/Admin/AdminProfile';
+import Users from './Pages/Admin/Users';
+import EmailComposer from './Pages/Common/Email';
 
 function App() {
   return (
@@ -35,6 +38,9 @@ function App() {
           <Route path='/marketing/dashboard' element={<MarketingDashboard />} />
           <Route path='/register-form' element={<RegisterPage />} />
           <Route path='/user/dashboard/page' element={<UserDashboardPage/> }></Route>
+           <Route path='/admin/profile' element={<AdminProfile/>}></Route>
+            <Route path='/users' element={<Users/>}></Route>
+            <Route path='/email' element={<EmailComposer/>}></Route>
          
         
         

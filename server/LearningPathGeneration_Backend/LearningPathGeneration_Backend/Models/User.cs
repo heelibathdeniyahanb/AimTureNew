@@ -12,5 +12,8 @@
         public string PasswordHash { get; set; }
         public string Role { get; set; }
 
+        public ICollection<LearningPathRequest> LearningPaths { get; set; } = new List<LearningPathRequest>();
     }
+
 }
+
