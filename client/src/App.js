@@ -20,6 +20,8 @@ import AdminProfile from './Pages/Admin/AdminProfile';
 import Users from './Pages/Admin/Users';
 import EmailComposer from './Pages/Common/Email';
 
+import AllLearningPathsPage from './Pages/Admin/AllLearningPathsPage';
+
 function App() {
   return (
     <ThemeProvider> {/* Wrap your routes with ThemeProvider */}
@@ -41,6 +43,7 @@ function App() {
            <Route path='/admin/profile' element={<AdminProfile/>}></Route>
             <Route path='/users' element={<Users/>}></Route>
             <Route path='/email' element={<EmailComposer/>}></Route>
+            <Route path='/admin/learning-paths' element={<AllLearningPathsPage/>} />
          
         
         

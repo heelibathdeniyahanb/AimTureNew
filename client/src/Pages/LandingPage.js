@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Sun, Moon } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import logo from '../Images/aimture long.png';
 
 const LandingPage = () => {
   const [isDarkMode, setIsDarkMode] = useState(false);
@@ -39,8 +40,8 @@ const LandingPage = () => {
       <div className="max-w-7xl mx-auto">
         <header className="flex justify-between items-center mb-10">
           <div className="flex items-center space-x-4">
-            <div className="w-10 h-10 bg-teal-500 rounded-full shadow-lg"></div>
-            <h1 className="text-4xl font-bold">AimTure</h1>
+           <img src={logo} alt="logo" className="w-10 h-10 rounded-full shadow-lg object-cover"/>
+           
           </div>
           <nav className="flex items-center space-x-6">
             <Link to="#" className="text-gray-800 dark:text-white hover:text-teal-500">Contact</Link>

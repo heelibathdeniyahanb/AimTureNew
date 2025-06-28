@@ -18,6 +18,8 @@ namespace LearningPathGeneration_Backend.Data
         public DbSet<Attachments>Attachments { get; set; }
         public DbSet<LearningPathTopic> LearningPathTopics { get; set; }
         public DbSet<PasswordResetToken> PasswordResetTokens { get; set; }
+        public DbSet<Advertisement> Advertisements { get; set; }
+
 
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
