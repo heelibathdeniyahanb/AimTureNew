@@ -40,9 +40,11 @@ const EmailComposer = () => {
   };
 
   return (
-    <div className="min-h-screen flex bg-[#1e1e1e] text-white">
-      <AdminSidebar />
-      <div className="flex-grow p-6">
+    <div className="min-h-screen bg-[#1e1e1e] flex text-white">
+       <div className="fixed top-0 left-0 h-full w-[250px] bg-[#1e1e1e] z-10">
+        <AdminSidebar />
+      </div>
+      <div className="flex-grow ml-[260px]">
         <Header />
         <div className="bg-[#2a2a2a] p-6 rounded-lg shadow-lg max-w-3xl mx-auto mt-6">
           <h2 className="text-2xl font-bold text-white mb-6">Compose Email</h2>

@@ -1,3 +1,4 @@
+using LearningPathGeneration_Backend;
 using LearningPathGeneration_Backend.Controllers;
 using LearningPathGeneration_Backend.Data;
 using LearningPathGeneration_Backend.Services;
@@ -82,6 +83,8 @@ builder.Services.AddScoped<TokenService>();
 builder.Services.AddScoped<GoogleAiService>();
 builder.Services.AddScoped<YouTubeService>();
 builder.Services.AddTransient<EmailController>();
+builder.Services.AddScoped<IAdvertisementService, AdvertismentService>();
+builder.Services.AddAutoMapper(typeof(Program));
 builder.Services.AddHttpClient();
 
 var app = builder.Build();

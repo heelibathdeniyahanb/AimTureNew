@@ -116,9 +116,11 @@ const AllUsersPage = () => {
   });
 
   return (
-    <div className="min-h-screen flex bg-[#1e1e1e] text-white">
-      <AdminSidebar />
-      <div className="flex-grow p-6">
+   <div className="min-h-screen bg-[#1e1e1e] flex text-white">
+       <div className="fixed top-0 left-0 h-full w-[250px] bg-[#1e1e1e] z-10">
+        <AdminSidebar />
+      </div>
+      <div className="flex-grow ml-[254px] p-6">
         <Header />
         <div className="flex justify-between items-center mb-6">
           <h1 className="text-2xl font-bold">All Users</h1>

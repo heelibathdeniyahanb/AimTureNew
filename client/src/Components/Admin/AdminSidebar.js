@@ -1,5 +1,5 @@
-import React, { useContext } from 'react';
-import { FaTachometerAlt, FaUser, FaBook, FaCog, FaSignOutAlt, FaEnvelope } from 'react-icons/fa';
+import React, { useContext ,useState} from 'react';
+import { FaTachometerAlt, FaUser, FaBook, FaCog, FaSignOutAlt, FaEnvelope,FaTimes,FaBars, FaBullhorn } from 'react-icons/fa';
 import { useNavigate, Link, useLocation } from 'react-router-dom';
 import logo from '../../Images/aimture long.png';
 import { UserContext } from '../UserContext'; // Make sure the correct path to UserContext is used
@@ -10,6 +10,7 @@ const AdminSidebar = () => {
   const navigate = useNavigate();
   const location = useLocation();
    const context = useContext(UserContext);
+   const [isOpen, setIsOpen] = useState(false);
     //console.log(user.firstName)
     if (!context) {
       return null; // Return null or a fallback if context is not available
@@ -21,6 +22,8 @@ const AdminSidebar = () => {
     { name: 'Dashboard', icon: FaTachometerAlt, path: '/admin/dashboard/page' },
     { name: 'My Profile', icon: FaUser, path: '/admin/profile' },
     { name: 'Users', icon: FaUsers, path: '/users' },
+    { name: 'Learning Paths', icon: FaBook, path: '/admin/learning-paths' },
+    { name: 'Advertisements', icon: FaBullhorn, path: '/admin/advertisements' },
     { name: 'Email', icon: FaEnvelope, path: '/email' },
     { name: 'Settings', icon: FaCog, path: '/user-settings' },
   ];
@@ -44,47 +47,65 @@ const AdminSidebar = () => {
       console.error('An error occurred while logging out:', error);
     }
   };
+  const toggleSidebar = () => {
+    setIsOpen(!isOpen);
+  };
 
   return (
-    <div className="min-h-screen p-6 text-[#F0F4F8] flex flex-col">
-      <div className="flex items-center">
-        <img src={logo} alt="Logo" className="w-40 h-10" />
+    <>
+      {/* Mobile Header */}
+      <div className="flex items-center justify-between bg-[#18181b] text-gray-300 p-4 md:hidden shadow-md">
+        <img src={logo} alt="Logo" className="w-32 object-contain" />
+        <button onClick={toggleSidebar} className="text-2xl focus:outline-none">
+          {isOpen ? <FaTimes /> : <FaBars />}
+        </button>
       </div>
 
-      <div className="border border-gray-700 border-opacity-10 rounded-lg p-4 mt-10 flex flex-col h-full">
-        <div className="flex-grow">
-          <ul className="space-y-5">
+      {/* Sidebar */}
+      <div className={`fixed top-0 left-0 h-full bg-[#18181b] text-gray-300 flex flex-col shadow-lg font-poppins text-sm font-semibold 
+        transform ${isOpen ? 'translate-x-0' : '-translate-x-full'} transition-transform duration-300 ease-in-out
+        md:translate-x-0 md:static md:flex md:min-h-screen w-64 z-50
+      `}>
+        {/* Logo */}
+        <div className="flex items-center mb-8 p-6">
+          <img src={logo} alt="Logo" className="w-44 h-12 object-contain" />
+        </div>
+
+        {/* Menu */}
+        <div className="flex-1 flex flex-col justify-between px-4">
+          <ul className="space-y-4">
             {menuItems.map((item) => (
-              <li
-                key={item.name}
-                className={`flex items-center space-x-3 p-2 rounded-md 
-                  ${activeItem === item.name ? 'bg-gray-700' : 'hover:bg-gray-700'} 
-                  cursor-pointer`}
-              >
-                <Link to={item.path} className="flex items-center space-x-3 w-full">
-                  <item.icon className="text-gray-400" />
-                  <span className="text-gray-300 hover:text-white">{item.name}</span>
+              <li key={item.name}>
+                <Link
+                  to={item.path}
+                  onClick={() => setIsOpen(false)} // Close sidebar on mobile when clicking a link
+                  className={`flex items-center gap-3 p-3 rounded-lg transition-all duration-200
+                    ${activeItem === item.name ? 'bg-[#256d85] text-white' : 'hover:bg-[#262626] hover:text-white'}
+                  `}
+                >
+                  <item.icon className="text-lg" />
+                  <span className="text-md font-medium">{item.name}</span>
                 </Link>
               </li>
             ))}
           </ul>
-        </div>
 
-        <div className="mt-auto pt-5 border-t border-gray-700 border-opacity-10">
-         
-          
-          <ul>
-            <li
-              className="flex items-center space-x-3 hover:bg-gray-700 p-2 rounded-md cursor-pointer"
-              onClick={handleLogout}
+          {/* Logout */}
+          <div className="pt-8 border-t border-gray-700 mt-8">
+            <button
+              onClick={() => { handleLogout(); setIsOpen(false); }}
+              className="flex items-center gap-3 p-3 rounded-lg transition-all duration-200 w-full hover:bg-[#262626] hover:text-white"
             >
-              <FaSignOutAlt className="text-gray-400" />
-              <span className="text-gray-300 hover:text-white">Log Out</span>
-            </li>
-          </ul>
+              <FaSignOutAlt className="text-lg" />
+              <span className="text-md font-medium">Log Out</span>
+            </button>
+          </div>
         </div>
       </div>
-    </div>
+
+      {/* Overlay for mobile */}
+      {isOpen && <div className="fixed inset-0 bg-black opacity-40 z-40 md:hidden" onClick={toggleSidebar}></div>}
+    </>
   );
 };
 
