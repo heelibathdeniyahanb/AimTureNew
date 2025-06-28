@@ -13,11 +13,12 @@ namespace LearningPathGeneration_Backend.Services
 
         private readonly DatabaseContext _context;
         private readonly IMapper _mapper;
-
-        public AdvertismentService(DatabaseContext context, IMapper mapper)
+        private readonly ImageService _imageService;    
+        public AdvertismentService(DatabaseContext context, IMapper mapper, ImageService imageService)
         {
             _context = context;
             _mapper = mapper;
+            _imageService = imageService;
         }
 
         public async Task<List<AdvertisementDto>> GetAllAsync()
@@ -34,11 +35,25 @@ namespace LearningPathGeneration_Backend.Services
 
         public async Task<AdvertisementDto> CreateAsync(CreateAdvertisementDto dto)
         {
-            var ad = _mapper.Map<Advertisement>(dto);
+            string imageUrl = null;
+
+            if (dto.Image != null && dto.Image.Length > 0)
+            {
+                imageUrl = await _imageService.UploadImageAsync(dto.Image);
+            }
+
+            var ad = new Advertisement
+            {
+                Title = dto.Title,
+                Description = dto.Description,
+                ImageUrl = imageUrl
+            };
+
             _context.Advertisements.Add(ad);
             await _context.SaveChangesAsync();
             return _mapper.Map<AdvertisementDto>(ad);
         }
+
 
         public async Task<bool> UpdateAsync(int id, UpdateAdvertisementDto dto)
         {
