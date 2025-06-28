@@ -29,13 +29,13 @@ namespace LearningPathGeneration_Backend.Controllers
             if (ad == null) return NotFound();
             return Ok(ad);
         }
-
         [HttpPost]
-        public async Task<IActionResult> Create([FromBody] CreateAdvertisementDto dto)
+        public async Task<IActionResult> Create([FromForm] CreateAdvertisementDto dto)
         {
             var created = await _service.CreateAsync(dto);
             return CreatedAtAction(nameof(GetById), new { id = created.Id }, created);
         }
+
 
         [HttpPut("{id}")]
         public async Task<IActionResult> Update(int id, [FromBody] UpdateAdvertisementDto dto)

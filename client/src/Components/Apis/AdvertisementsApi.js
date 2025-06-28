@@ -17,3 +17,4 @@ export const fetchAdvertisements = async () => {
     }
   };
   
+  //https://localhost:7295/api/Upload/upload
