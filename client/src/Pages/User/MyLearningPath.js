@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import LearningPath from '../../Components/User/LearningPath';
+import LearningPathByUser from '../../Components/User/LearningPathByUser';
 
 export default function MyLearningPath() {
   return (
@@ -17,7 +18,7 @@ export default function MyLearningPath() {
 
       {/* Your learning path content goes here */}
       <div className="mt-3">
-        <LearningPath/>      </div>
+        <LearningPathByUser/>      </div>
     </div>
   );
 }
