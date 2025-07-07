@@ -51,8 +51,8 @@ const Login = () => {
           navigate("/admin/dashboard/Page");
         } else if (role === "User") {
           navigate("/user/dashboard/page");
-        } else if (role === "Marketing manager") {
-          navigate("/marketing/dashboard");
+        } else if (role === "Marketing Manager") {
+          navigate("/marketingManagerDashboard");
         } else {
           setError("Unauthorized role");
         }

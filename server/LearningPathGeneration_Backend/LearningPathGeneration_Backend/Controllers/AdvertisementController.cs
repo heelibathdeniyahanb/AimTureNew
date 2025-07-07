@@ -1,4 +1,6 @@
 ﻿using LearningPathGeneration_Backend.Dtos;
+using LearningPathGeneration_Backend.Interfaces;
+using LearningPathGeneration_Backend.Services;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -13,6 +15,19 @@ namespace LearningPathGeneration_Backend.Controllers
         public AdvertisementController(IAdvertisementService service)
         {
             _service = service;
+        }
+
+        [HttpGet("paged")]
+        public async Task<IActionResult> GetAll([FromQuery] string? search, [FromQuery] int page = 1, [FromQuery] int pageSize = 10)
+        {
+            var result = await _service.GetAllPagedAsync(search, page, pageSize);
+            var totalCount = await _service.GetTotalCountAsync(search); // Add this in service
+
+            return Ok(new
+            {
+                data = result,
+                totalCount = totalCount
+            });
         }
 
         [HttpGet]
@@ -36,14 +51,14 @@ namespace LearningPathGeneration_Backend.Controllers
             return CreatedAtAction(nameof(GetById), new { id = created.Id }, created);
         }
 
-
         [HttpPut("{id}")]
-        public async Task<IActionResult> Update(int id, [FromBody] UpdateAdvertisementDto dto)
+        public async Task<IActionResult> Update(int id, [FromForm] UpdateAdvertisementDto dto)
         {
-            var updated = await _service.UpdateAsync(id, dto);
-            if (!updated) return NotFound();
+            var success = await _service.UpdateAsync(id, dto);
+            if (!success) return NotFound();
             return NoContent();
         }
+
 
         [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(int id)

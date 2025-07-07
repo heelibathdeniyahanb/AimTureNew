@@ -14,6 +14,7 @@ export default function AdminProfile() {
       <div className="flex-grow ml-[260px]">
         <Header />
         <UserProfile/></div></div></div>
+        
 
   );
 };

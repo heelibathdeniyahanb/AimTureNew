@@ -1,7 +1,7 @@
 using Google.Api;
-using LearningPathGeneration_Backend;
 using LearningPathGeneration_Backend.Controllers;
 using LearningPathGeneration_Backend.Data;
+using LearningPathGeneration_Backend.Interfaces;
 using LearningPathGeneration_Backend.Models;
 using LearningPathGeneration_Backend.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -88,6 +88,9 @@ builder.Services.AddScoped<YouTubeService>();
 builder.Services.AddTransient<EmailController>();
 builder.Services.AddScoped<ImageService>();
 builder.Services.AddScoped<IAdvertisementService, AdvertismentService>();
+builder.Services.AddScoped<ISpecificationService, SpecificationService>();
+builder.Services.AddScoped<IAdvertisementProviderService, AdvertisementProviderService>();
+
 builder.Services.AddAutoMapper(typeof(Program));
 builder.Services.AddHttpClient();
 var configuration = builder.Configuration;
