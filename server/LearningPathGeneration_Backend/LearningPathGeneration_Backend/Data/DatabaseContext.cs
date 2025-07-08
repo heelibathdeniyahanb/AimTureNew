@@ -19,6 +19,10 @@ namespace LearningPathGeneration_Backend.Data
         public DbSet<LearningPathTopic> LearningPathTopics { get; set; }
         public DbSet<PasswordResetToken> PasswordResetTokens { get; set; }
         public DbSet<Advertisement> Advertisements { get; set; }
+        public DbSet<AdvertisementProvider> AdvertisementProviders { get; set; }
+        public DbSet<ProviderSpecifications> ProviderSpecifications { get; set; }
+        public DbSet<AdvertiserProviderSpecification> AdvertiserProviderSpecifications { get; set; }
+
 
 
 
@@ -50,6 +54,26 @@ namespace LearningPathGeneration_Backend.Data
                 .WithOne(lp => lp.User)
                 .HasForeignKey(lp => lp.UserId)
                 .OnDelete(DeleteBehavior.Cascade); // Optional: cascade delete if user is removed
+
+          modelBuilder.Entity<Advertisement>()
+             .HasOne(a => a.AdvertisementProvider)
+           .WithMany(p => p.Advertisements)
+           .HasForeignKey(a => a.AdvertisementProviderId)
+           .OnDelete(DeleteBehavior.Cascade)
+        .HasConstraintName("fk_ad_adprovider");
+
+            modelBuilder.Entity<AdvertiserProviderSpecification>()
+        .HasKey(x => new { x.AdvertisementProviderId, x.SpecificationId });
+
+            modelBuilder.Entity<AdvertiserProviderSpecification>()
+                .HasOne(x => x.AdvertisementProvider)
+                .WithMany(p => p.AdvertisementProviderSpecifications)
+                .HasForeignKey(x => x.AdvertisementProviderId);
+
+            modelBuilder.Entity<AdvertiserProviderSpecification>()
+                .HasOne(x => x.Specification)
+                .WithMany(s => s.AdvertisementProviderSpecifications)
+                .HasForeignKey(x => x.SpecificationId);
 
 
             base.OnModelCreating(modelBuilder);

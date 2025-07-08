@@ -5,6 +5,7 @@ using Org.BouncyCastle.Crypto;
 using System;
 using Microsoft.EntityFrameworkCore;
 using AutoMapper;
+using LearningPathGeneration_Backend.Interfaces;
 
 namespace LearningPathGeneration_Backend.Services
 {
@@ -19,6 +20,28 @@ namespace LearningPathGeneration_Backend.Services
             _context = context;
             _mapper = mapper;
             _imageService = imageService;
+        }
+
+        public async Task<List<AdvertisementDto>> GetAllPagedAsync(string? search, int page = 1, int pageSize = 10)
+        {
+            var query = _context.Advertisements.AsQueryable();
+
+            if (!string.IsNullOrWhiteSpace(search))
+            {
+                search = search.ToLower();
+                query = query.Where(a =>
+                    a.Title.ToLower().Contains(search) ||
+                    a.Description.ToLower().Contains(search));
+            }
+
+
+            query = query
+                .OrderByDescending(a => a.CreatedAt) // Sort by newest
+                .Skip((page - 1) * pageSize)
+                .Take(pageSize);
+
+            var ads = await query.ToListAsync();
+            return _mapper.Map<List<AdvertisementDto>>(ads);
         }
 
         public async Task<List<AdvertisementDto>> GetAllAsync()
@@ -46,11 +69,15 @@ namespace LearningPathGeneration_Backend.Services
             {
                 Title = dto.Title,
                 Description = dto.Description,
-                ImageUrl = imageUrl
+                ImageUrl = imageUrl,
+                AdvertisementProviderId = dto.AdvertisementProviderId,
+                CreatedUserId = dto.CreatedUserId
             };
 
             _context.Advertisements.Add(ad);
             await _context.SaveChangesAsync();
+            await _context.Entry(ad).Reference(a => a.AdvertisementProvider).LoadAsync();
+            await _context.Entry(ad).Reference(a => a.CreatedUser).LoadAsync();
             return _mapper.Map<AdvertisementDto>(ad);
         }
 
@@ -74,5 +101,21 @@ namespace LearningPathGeneration_Backend.Services
             await _context.SaveChangesAsync();
             return true;
         }
+
+        public async Task<int> GetTotalCountAsync(string? search)
+        {
+            var query = _context.Advertisements.AsQueryable();
+
+            if (!string.IsNullOrWhiteSpace(search))
+            {
+                search = search.ToLower();
+                query = query.Where(a =>
+                    a.Title.ToLower().Contains(search) ||
+                    a.Description.ToLower().Contains(search));
+            }
+
+            return await query.CountAsync();
+        }
+
     }
 }

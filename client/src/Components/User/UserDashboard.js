@@ -2,12 +2,13 @@ import { useNavigate } from "react-router-dom";
 import { fetchAdvertisements } from "../Apis/AdvertisementsApi";
 import { useState, useEffect,useContext } from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faFire, faTint, faCloud } from '@fortawesome/free-solid-svg-icons';
+import { faFire, faTint, faCloud,faMagicWandSparkles,faWandSparkles,faZap } from '@fortawesome/free-solid-svg-icons';
 import { fetchLearningPaths } from "../Apis/LearningPathApi";
 import { createLearningPath } from "../Apis/LearningPathApi";
 import { ToastContainer, toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 import { UserContext } from "../UserContext";
+import { LuTarget,LuBook, LuBookOpen } from "react-icons/lu";
 
 
 const UserDashboard = () => {
@@ -115,11 +116,13 @@ const UserDashboard = () => {
     <div className="min-h-screen bg-[#1E1E1E] p-8 space-y-6 text-[#f0f4f8] transition-colors duration-500 flex font-poppins">
       {/* Left Side Dashboard Content */}
       <div className="flex-1">
+         <p className="text-muted-foreground">Continue your learning journey with AI-powered recommendations</p>
       <div className="flex justify-end"> {/* Align to the right */}
+       
       <button
   onClick={() => setIsModalOpen(true)}
-  className="bg-[#2d6166] text-sm text-[#f0f4f8] border-[#56b2bb] border-2 px-4 py-2 rounded-xl font-semibold hover:bg-[#19191a] hover:border-[#56b2bb] transition"
->
+  className="bg-[#2d6166] text-sm text-[#f0f4f8] border-[#56b2bb] border-2 px-4 py-2 rounded-xl font-semibold hover:bg-[#19191a] hover:border-[#56b2bb] transition flex space x-4"
+><LuTarget className="h-4 w-4 mr-2" ></LuTarget>
   New Learning Path
 </button>
 
@@ -128,17 +131,22 @@ const UserDashboard = () => {
         {/* Dashboard Cards */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 ">
           {/* Number of Learning Paths */}
-          <div className="bg-[#19191A] p-6 rounded-2xl shadow-md flex flex-col justify-between hover:shadow-lg transition border border-[#2a2a2a] ">
-            <h2 className="text-xl font-bold mb-4 font-poppins">Learning Paths</h2>
-            <p className="text-4xl font-bold text-[#56b2bb] font-sans">{learningPaths.length}</p>
-
-          </div>
-
           
+  {/* Title */}
+  <div className="bg-[#19191A] p-6 rounded-2xl shadow-md hover:shadow-lg transition border border-[#2a2a2a] flex items-center w-full max-w-sm">
+      {/* Icon */}
+      <LuBookOpen className="h-8 w-8 text-blue-400 mr-4" />
 
-         
-          
-        </div>
+      {/* Text */}
+      <div>
+        <p className="text-2xl font-bold text-white">{learningPaths.length}</p>
+        <p className="text-sm text-gray-400">LearningPaths</p>
+      </div>
+    </div>
+
+
+
+</div>
 
     {/* Deadlines Section */}
 <div className="bg-[#19191A] p-6 rounded-2xl shadow-md flex flex-col transition border border-[#2a2a2a] mt-5">
@@ -185,6 +193,7 @@ const UserDashboard = () => {
 </div>
       {/* Right Side - Advertisements */}
       <div className="w-1/4 h-full ml-6 flex flex-col">
+       <h3 className="text-lg font-semibold text-foreground mb-4">Recommended for You</h3>
         {advertisements.map((ad) => (
           <div key={ad.id} className="flex-1 bg-[#56b2bb] p-4 mb-4 text-white font-semibold rounded-xl shadow-md flex justify-center items-center">
             <a href={ad.link} className="block text-center"><img
@@ -197,20 +206,27 @@ const UserDashboard = () => {
       </div>
       {isModalOpen && (
   <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
-    <div className="bg-[#19191A] p-8 rounded-2xl w-full max-w-md shadow-lg space-y-6 relative">
-      <h2 className="text-2xl font-bold text-white">Create New Learning Path</h2>
+    <div className="bg-[#19191A] p-8 rounded-2xl w-full max-w-2xl mx-auto shadow-lg space-y-6 relative mb-16">
+      <div className="flex items-center justify-center space-x-2 text-card-foreground">
+      <FontAwesomeIcon icon={faMagicWandSparkles} className="h-6 w-6 text-yellow-400" />
+      <span className="text-2xl font-bold text-white">Create New Learning Path</span></div>
+
+      <p className="text-muted-foreground text-sm"> Tell us your goal, deadline, and experience level for a personalized learning journey</p>
 
       <div className="space-y-4">
+        <label className="text-sm font-medium text-card-foreground">What do you want to learn?</label>
         <input
           type="text"
-          placeholder="Path Name"
-          className="w-full p-3 rounded-lg bg-[#2a2a2a] text-white focus:outline-none"
+          placeholder="e.g., Python Programming, Digital Marketing, Data Science..."
+          className="w-full p-3 rounded-lg bg-[#2a2a2a] text-white focus:outline-none mt-1"
           value={newPath.goal}
           onChange={(e) => setNewPath({ ...newPath, goal: e.target.value })}
         />
-
+ <div className="grid grid-cols-2 gap-4">
+  <div>
+  <label className="text-sm font-medium text-card-foreground">Experience Level</label>
         <select
-  className="w-full p-3 rounded-lg bg-[#2a2a2a] text-white focus:outline-none"
+  className="w-full p-3 rounded-lg bg-[#2a2a2a] text-white focus:outline-none mt-1"
   value={newPath.level}
   onChange={(e) => setNewPath({ ...newPath, level: e.target.value })}
 >
@@ -218,26 +234,34 @@ const UserDashboard = () => {
   <option value="Beginner">Beginner</option>
   <option value="Intermediate">Intermediate</option>
   <option value="Advanced">Advanced</option>
-</select>
-
+</select></div>
+<div>
+ <label className="text-sm font-medium text-card-foreground">Target Deadline</label>
         <input
           type="date"
-          className="w-full p-3 rounded-lg bg-[#2a2a2a] text-white focus:outline-none"
+          className="w-full p-3 rounded-lg bg-[#2a2a2a] text-white focus:outline-none mt-1"
           value={newPath.deadline}
           onChange={(e) => setNewPath({ ...newPath, deadline: e.target.value })}
-        />
-      </div>
+        /></div>
+      </div></div>
 
-      <div className="flex justify-end space-x-4 mt-6">
+      <div className="grid grid-cols-2 gap-4 space-x-4 mt-6">
         <button
           onClick={handleCreateLearningPath}
-          className="bg-[#56b2bb] px-4 py-2 rounded-lg text-white font-semibold hover:bg-[#56b1bb]"
-        >
-          Create
+          className="bg-blue-600 w-full px-4 py-2 rounded-lg text-white font-semibold hover:bg-blue-700"
+        > {isLoading ? (
+                    <>
+                      <FontAwesomeIcon icon={faWandSparkles} className="h-4 w-4 mr-2 animate-spin" />
+                      Generating AI Path...
+                    </>
+                  ) :( <>  <FontAwesomeIcon icon={faZap} className="h-4 w-4 mr-2"></FontAwesomeIcon> 
+          Generate</>)}
+          
+         
         </button>
         <button
           onClick={() => setIsModalOpen(false)}
-          className="bg-red-500 px-4 py-2 rounded-lg text-white font-semibold hover:bg-red-600"
+          className=" border-2 border-black px-4 py-2 rounded-lg text-white font-semibold hover:bg-black"
         >
           Cancel
         </button>

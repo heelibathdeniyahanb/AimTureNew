@@ -11,6 +11,11 @@ namespace LearningPathGeneration_Backend.Profiles
             CreateMap<Advertisement, AdvertisementDto>();
             CreateMap<CreateAdvertisementDto, Advertisement>();
             CreateMap<UpdateAdvertisementDto, Advertisement>();
+            CreateMap<AdvertiserProviderSpecification, SpecificationDto>();
+            CreateMap<AdvertisementProvider, AdvertisemntProviderDto>()
+                .ForMember(dest => dest.Specifications, opt =>
+                    opt.MapFrom(src => src.AdvertisementProviderSpecifications.Select(ps => ps.Specification)));
+
         }
     }
 }
