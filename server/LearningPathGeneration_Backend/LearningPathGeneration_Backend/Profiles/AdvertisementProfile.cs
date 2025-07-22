@@ -15,6 +15,13 @@ namespace LearningPathGeneration_Backend.Profiles
             CreateMap<AdvertisementProvider, AdvertisemntProviderDto>()
                 .ForMember(dest => dest.Specifications, opt =>
                     opt.MapFrom(src => src.AdvertisementProviderSpecifications.Select(ps => ps.Specification)));
+            CreateMap<Advertisement, AdvertisementDto>()
+    .ForMember(dest => dest.ProviderName, opt => opt.MapFrom(src => src.AdvertisementProvider.FullName))
+    .ForMember(dest => dest.CreatedUserName, opt => opt.MapFrom(src => src.CreatedUser.FirstName));
+
+            
+
+
 
         }
     }
