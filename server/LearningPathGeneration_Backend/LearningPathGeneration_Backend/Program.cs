@@ -90,6 +90,7 @@ builder.Services.AddScoped<ImageService>();
 builder.Services.AddScoped<IAdvertisementService, AdvertismentService>();
 builder.Services.AddScoped<ISpecificationService, SpecificationService>();
 builder.Services.AddScoped<IAdvertisementProviderService, AdvertisementProviderService>();
+builder.Services.AddScoped<IAdSpecificationService,AdSpecificationService>();
 
 builder.Services.AddAutoMapper(typeof(Program));
 builder.Services.AddHttpClient();

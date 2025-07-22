@@ -3,6 +3,7 @@ using LearningPathGeneration_Backend.Interfaces;
 using LearningPathGeneration_Backend.Services;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using System.Runtime.InteropServices;
 
 namespace LearningPathGeneration_Backend.Controllers
 {

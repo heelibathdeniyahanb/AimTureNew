@@ -19,9 +19,10 @@
     {
         public string Title { get; set; }
         public string? Description { get; set; }
-        public IFormFile Image { get; set; }
+        public IFormFile? Image { get; set; }
         public int AdvertisementProviderId { get; set; }  
         public int CreatedUserId { get; set; }
+        public List<int> SpecificationIds { get; set; }
 
     }
 

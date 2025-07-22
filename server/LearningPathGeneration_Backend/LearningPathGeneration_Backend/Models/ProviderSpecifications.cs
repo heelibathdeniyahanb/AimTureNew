@@ -6,5 +6,6 @@
         public string Name { get; set; }
 
         public ICollection<AdvertiserProviderSpecification> AdvertisementProviderSpecifications { get; set; }
+        public ICollection<AdSpecification> AdvertisementSpecifications { get; set; }
     }
 }

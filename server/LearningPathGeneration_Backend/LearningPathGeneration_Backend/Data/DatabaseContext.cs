@@ -22,6 +22,8 @@ namespace LearningPathGeneration_Backend.Data
         public DbSet<AdvertisementProvider> AdvertisementProviders { get; set; }
         public DbSet<ProviderSpecifications> ProviderSpecifications { get; set; }
         public DbSet<AdvertiserProviderSpecification> AdvertiserProviderSpecifications { get; set; }
+        public DbSet<AdSpecification>AdvertisemnetSpecifications { get; set; }
+       
 
 
 
@@ -75,6 +77,18 @@ namespace LearningPathGeneration_Backend.Data
                 .WithMany(s => s.AdvertisementProviderSpecifications)
                 .HasForeignKey(x => x.SpecificationId);
 
+            modelBuilder.Entity<AdSpecification>()
+       .HasKey(x => new { x.AdvertisementId, x.SpecificationId });
+
+            modelBuilder.Entity<AdSpecification>()
+                .HasOne(x => x.Advertisement)
+                .WithMany(p => p.AdvertisementSpecifications)
+                .HasForeignKey(x => x.AdvertisementId);
+
+            modelBuilder.Entity<AdSpecification>()
+                .HasOne(x => x.Specification)
+                .WithMany(s => s.AdvertisementSpecifications)
+                .HasForeignKey(x => x.SpecificationId);
 
             base.OnModelCreating(modelBuilder);
         }

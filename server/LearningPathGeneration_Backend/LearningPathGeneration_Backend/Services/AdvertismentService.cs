@@ -24,7 +24,11 @@ namespace LearningPathGeneration_Backend.Services
 
         public async Task<List<AdvertisementDto>> GetAllPagedAsync(string? search, int page = 1, int pageSize = 10)
         {
-            var query = _context.Advertisements.AsQueryable();
+            var query = _context.Advertisements
+                 .Include(a => a.AdvertisementProvider)
+                .Include(a => a.CreatedUser)
+                
+                .AsQueryable();
 
             if (!string.IsNullOrWhiteSpace(search))
             {
@@ -46,9 +50,14 @@ namespace LearningPathGeneration_Backend.Services
 
         public async Task<List<AdvertisementDto>> GetAllAsync()
         {
-            var ads = await _context.Advertisements.ToListAsync();
+            var ads = await _context.Advertisements
+                .Include(a => a.AdvertisementProvider)
+                .Include(a => a.CreatedUser)
+                .ToListAsync();
+
             return _mapper.Map<List<AdvertisementDto>>(ads);
         }
+
 
         public async Task<AdvertisementDto> GetByIdAsync(int id)
         {
