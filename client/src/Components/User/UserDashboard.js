@@ -10,6 +10,8 @@ import 'react-toastify/dist/ReactToastify.css';
 import { UserContext } from "../UserContext";
 import { LuTarget,LuBook, LuBookOpen } from "react-icons/lu";
 
+import { FaStar, FaBolt } from "react-icons/fa";
+
 
 const UserDashboard = () => {
   const navigate = useNavigate();
@@ -20,6 +22,9 @@ const UserDashboard = () => {
   const [isTopicModalOpen, setIsTopicModalOpen] = useState(false);
   const context = useContext(UserContext);
     const {user}=context;
+    const colors = ["from-blue-500 to-indigo-500", "from-purple-500 to-pink-500"];
+     const defaultCTA = "Learn More"; 
+
 
   const [isLoading, setIsLoading] = useState(false);
   const [newPath, setNewPath] = useState({
@@ -192,18 +197,65 @@ const UserDashboard = () => {
 
 </div>
       {/* Right Side - Advertisements */}
-      <div className="w-1/4 h-full ml-6 flex flex-col">
-       <h3 className="text-lg font-semibold text-foreground mb-4">Recommended for You</h3>
-        {advertisements.map((ad) => (
-          <div key={ad.id} className="flex-1 bg-[#56b2bb] p-4 mb-4 text-white font-semibold rounded-xl shadow-md flex justify-center items-center">
-            <a href={ad.link} className="block text-center"><img
-                  src={ad.imageUrl} // Assuming the API returns 'imageUrl' for the ad image
-                  alt="Advertisement"
-                  className="w-full h-full object-cover rounded-xl" // Ensures the image covers the space with rounded corners
-                /></a>
-          </div>
-        ))}
+     <div className="w-1/4 h-full ml-6 flex flex-col">
+  <h3 className="text-lg font-semibold text-foreground mb-4">Recommended for You</h3>
+
+  {advertisements && advertisements.length > 0 && advertisements.some(ad => ad.imageUrl) ? (
+    // ✅ If there is any image in advertisements, show this layout
+    advertisements.map((ad) => (
+      <div
+        key={ad.id}
+        className="flex-1 bg-[#56b2bb] p-4 mb-4 text-white font-semibold rounded-xl shadow-md flex justify-center items-center"
+      >
+        <a href={ad.link} className="block text-center">
+          <img
+            src={ad.imageUrl}
+            alt="Advertisement"
+            className="w-full h-full object-cover rounded-xl"
+          />
+        </a>
       </div>
+    ))
+  ) : (
+    // ✅ Otherwise, show targeted ads layout
+    advertisements.map((ad,index) => (
+      <div
+            key={ad.id}
+            className={`bg-gradient-to-br ${colors[index % colors.length]} text-white rounded-xl shadow-lg overflow-hidden mb-4`}
+          >
+            <div className="p-6">
+              <div className="flex items-start justify-between mb-3">
+                <span className="px-2 py-1 text-xs rounded bg-white bg-opacity-20 capitalize">
+                  {ad.type}
+                </span>
+                {ad.rating && (
+                  <div className="flex items-center text-sm">
+                    <FaStar className="h-4 w-4 mr-1 text-yellow-300" />
+                    {ad.rating}
+                  </div>
+                )}
+              </div>
+
+              <h3 className="font-bold text-lg mb-2">{ad.title}</h3>
+              <p className="text-sm opacity-90 mb-3">{ad.description}</p>
+
+              <div className="flex items-center justify-between mb-4">
+                <span className="text-sm opacity-80">by {ad.providerName}</span>
+                {ad.price && <span className="font-semibold">{ad.price}</span>}
+              </div>
+
+              <button className="w-full flex items-center justify-center gap-2 bg-white text-gray-900 py-2 rounded-lg font-semibold hover:bg-gray-100 transition">
+                <FaBolt className="h-4 w-4" />
+                {defaultCTA}
+              </button>
+
+              <p className="text-xs opacity-70 mt-2 text-center">*Sponsored</p>
+            </div>
+          </div>
+    ))
+  )}
+</div>
+
       {isModalOpen && (
   <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
     <div className="bg-[#19191A] p-8 rounded-2xl w-full max-w-2xl mx-auto shadow-lg space-y-6 relative mb-16">
