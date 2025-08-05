@@ -1,37 +1,57 @@
 import React, { useEffect, useState, useContext } from "react";
-import { getLearningPathsByUser } from "../Apis/LearningPathApi";
+import { getLearningPathsByUser, markTopicCompleted } from "../Apis/LearningPathApi";
 import { UserContext } from "../UserContext";
 
 export default function LearningPathByUser() {
   const [learningPaths, setLearningPaths] = useState([]);
   const [selectedPath, setSelectedPath] = useState(null);
-
   const context = useContext(UserContext);
   const user = context?.user;
 
   useEffect(() => {
-    // Don't fetch if user or user.id is missing
-    if (!user || !user.id) {
-      console.warn("User or user.id is missing, skipping fetch.");
-      return;
-    }
+    if (!user?.id) return;
 
-    const getPaths = async () => {
+    const fetchPaths = async () => {
       try {
         const paths = await getLearningPathsByUser(user.id);
         setLearningPaths(paths);
-      } catch (error) {
-        console.error("Failed to fetch learning paths:", error);
+      } catch (err) {
+        console.error("Failed to fetch learning paths:", err);
       }
     };
 
-    getPaths();
+    fetchPaths();
   }, [user]);
 
   const handleSelectPath = (path) => {
     setSelectedPath(path);
-    console.log("Selected learning path:", path);
   };
+
+  // ✅ Toggle Completion Status
+  const handleToggleCompletion = async (topicId, currentStatus) => {
+    try {
+      await markTopicCompleted(topicId, !currentStatus);
+
+      // ✅ Update local state to reflect change immediately
+      const updatedPath = {
+        ...selectedPath,
+        topics: selectedPath.topics.map((t) =>
+          t.id === topicId ? { ...t, isCompleted: !currentStatus } : t
+        )
+      };
+      setSelectedPath(updatedPath);
+
+      // ✅ Update learningPaths list as well
+      setLearningPaths((prev) =>
+        prev.map((lp) =>
+          lp.id === selectedPath.id ? updatedPath : lp
+        )
+      );
+    } catch (err) {
+      console.error("Failed to update topic completion:", err);
+    }
+  };
+
   return (
     <div className="min-h-screen bg-[#1E1E1E] text-[#f0f4f8] pt-3 flex font-poppins space-x-6">
       {/* Sidebar */}
@@ -49,6 +69,10 @@ export default function LearningPathByUser() {
               <p className="text-xs text-gray-400">
                 {new Date(path.createdAt).toLocaleDateString()}
               </p>
+              {/* ✅ Show Completion Percentage */}
+              <p className="text-xs text-green-400">
+                {path.completionPercentage}% Completed
+              </p>
             </div>
           ))
         ) : (
@@ -60,19 +84,44 @@ export default function LearningPathByUser() {
       <div className="flex-1 bg-[#19191A] p-6 rounded-2xl shadow-md border border-[#2a2a2a] overflow-y-auto max-h-[80vh]">
         {selectedPath ? (
           <div>
-          
             <h2 className="text-xl font-bold mb-4 font-nunito">{selectedPath.goal}</h2>
             <p className="text-gray-400 mb-2 font-sans">
               Deadline: {new Date(selectedPath.deadline).toLocaleDateString()}
             </p>
 
+            {/* ✅ Show Overall Progress */}
+            <div className="w-full bg-gray-700 rounded h-3 mb-4">
+              <div
+                className="bg-green-500 h-3 rounded"
+                style={{ width: `${selectedPath.completionPercentage || 0}%` }}
+              ></div>
+            </div>
+            <p className="text-sm text-green-400 mb-2">
+              {selectedPath.completionPercentage || 0}% Completed
+            </p>
+
             <h3 className="text-xl font-semibold mb-2 font-nunito">Topics</h3>
             <ul className="list-disc list-inside mb-4">
-              {selectedPath.topics?.map((topic, index) => (
-                <li key={index} className="mb-2">
-                  <div className="flex">
-                  <strong>{topic.topicName}</strong> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                  <h3 className="">{new Date(topic.topicDeadline).toLocaleDateString()}</h3></div>
+              {selectedPath.topics?.map((topic) => (
+                <li key={topic.id} className="mb-3">
+                  <div className="flex items-center space-x-3">
+                    {/* ✅ Checkbox to toggle completion */}
+                    <input
+                      type="checkbox"
+                      checked={topic.isCompleted}
+                      onChange={() => handleToggleCompletion(topic.id, topic.isCompleted)}
+                      className="w-4 h-4 cursor-pointer accent-green-500"
+                     
+                    />
+                    <strong className={topic.isCompleted ? "line-through text-gray-400" : ""}>
+                      {topic.topicName}
+                    </strong>
+                    <span className="text-xs text-gray-400">
+                      {new Date(topic.topicDeadline).toLocaleDateString()}
+                    </span>
+                  </div>
+
+                  {/* Video Links */}
                   <ul className="mt-1 pl-4 list-decimal text-sm">
                     {topic.videoLinks?.map((link, idx) => (
                       <li key={idx}>

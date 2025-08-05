@@ -268,13 +268,17 @@ Topic Name | Weight
                     Topics = lp.Topics
     .OrderBy(t => t.TopicDeadline)
     .Select(t => new {
+
         t.TopicName,
         t.VideoLinks,
-        t.TopicDeadline
+        t.TopicDeadline,
+        t.IsCompleted
     }),
 
 
-                    lp.CreatedAt
+                    lp.CreatedAt,
+                    CompletionPercentage = lp.Topics.Count() == 0 ? 0 :
+                    (lp.Topics.Count(t => t.IsCompleted) * 100 / lp.Topics.Count())
                 })
                 .ToListAsync();
 
@@ -325,11 +329,15 @@ Topic Name | Weight
                     Topics = lp.Topics
                         .OrderBy(t => t.TopicDeadline) // ✅ ensures correct order
                         .Select(t => new {
+                            t.Id,
                             t.TopicName,
                             t.TopicDeadline,
-                            t.VideoLinks
+                            t.VideoLinks,
+                            t.IsCompleted
                         }),
-                    lp.CreatedAt
+                    lp.CreatedAt,
+                    CompletionPercentage = lp.Topics.Count() == 0 ? 0 :
+                    (lp.Topics.Count(t => t.IsCompleted) * 100 / lp.Topics.Count())
                 })
                 .ToListAsync();
 
@@ -359,9 +367,14 @@ Topic Name | Weight
                         .Select(t => new {
                             t.TopicName,
                             t.VideoLinks,
-                            t.TopicDeadline
+                            t.TopicDeadline,
+                            t.IsCompleted
                         }),
-                    lp.CreatedAt
+                    lp.CreatedAt,
+
+                    CompletionPercentage=lp.Topics.Count()==0 ? 0 : 
+                    (lp.Topics.Count(t=>t.IsCompleted)*100/lp.Topics.Count())
+
                 })
                 .FirstOrDefaultAsync();
 
@@ -376,6 +389,27 @@ Topic Name | Weight
         }
     }
 
+
+    [HttpPatch("topic/{topicId}/complete")]
+    public async Task<IActionResult> MarkTopicAsCompleted(int topicId)
+    {
+        try
+        {
+            var topic = await _context.LearningPathTopics.FindAsync(topicId);
+            if (topic == null)
+                return NotFound(new { error = "Topic not found." });
+
+            topic.IsCompleted = true;
+            _context.LearningPathTopics.Update(topic);
+            await _context.SaveChangesAsync();
+
+            return Ok(new { message = "Topic marked as completed successfully." });
+        }
+        catch (Exception ex)
+        {
+            return StatusCode(500, new { error = "An unexpected error occurred.", details = ex.Message });
+        }
+    }
 
 
 
