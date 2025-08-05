@@ -60,6 +60,7 @@ export default function LearningPathByUser() {
       <div className="flex-1 bg-[#19191A] p-6 rounded-2xl shadow-md border border-[#2a2a2a] overflow-y-auto max-h-[80vh]">
         {selectedPath ? (
           <div>
+          
             <h2 className="text-xl font-bold mb-4 font-nunito">{selectedPath.goal}</h2>
             <p className="text-gray-400 mb-2 font-sans">
               Deadline: {new Date(selectedPath.deadline).toLocaleDateString()}
@@ -69,7 +70,9 @@ export default function LearningPathByUser() {
             <ul className="list-disc list-inside mb-4">
               {selectedPath.topics?.map((topic, index) => (
                 <li key={index} className="mb-2">
-                  <strong>{topic.topicName}</strong>
+                  <div className="flex">
+                  <strong>{topic.topicName}</strong> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  <h3 className="">{new Date(topic.topicDeadline).toLocaleDateString()}</h3></div>
                   <ul className="mt-1 pl-4 list-decimal text-sm">
                     {topic.videoLinks?.map((link, idx) => (
                       <li key={idx}>

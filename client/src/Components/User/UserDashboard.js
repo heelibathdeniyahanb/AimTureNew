@@ -335,6 +335,7 @@ const UserDashboard = () => {
           selectedPath.topics.map((topic, index) => (
             <div key={index} className="bg-[#2a2a2a] p-4 rounded-xl text-white shadow-sm">
               <h3 className="font-bold text-lg mb-2">{topic.topicName}</h3>
+               <h2 className="font-bold text-lg mb-2">{topic.topicDeadline}</h2>
               {topic.videoLinks && topic.videoLinks.length > 0 ? (
                 <ul className="list-disc pl-6 space-y-1 text-sm text-blue-400">
                   {topic.videoLinks.map((link, idx) => (
