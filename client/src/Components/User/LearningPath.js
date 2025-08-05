@@ -58,6 +58,7 @@ export default function LearningPath() {
               {selectedPath.topics?.map((topic, index) => (
                 <li key={index} className="mb-2">
                   <strong>{topic.topicName}</strong>
+                   <h3>{topic.topicDeadline}</h3>
                   <ul className="mt-1 pl-4 list-decimal text-sm">
                     {topic.videoLinks?.map((link, idx) => (
                       <li key={idx}>
