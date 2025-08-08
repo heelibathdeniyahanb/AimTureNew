@@ -23,6 +23,7 @@ namespace LearningPathGeneration_Backend.Data
         public DbSet<ProviderSpecifications> ProviderSpecifications { get; set; }
         public DbSet<AdvertiserProviderSpecification> AdvertiserProviderSpecifications { get; set; }
         public DbSet<AdSpecification>AdvertisemnetSpecifications { get; set; }
+        public DbSet<Quote> Quotes { get; set; }
        
 
 
