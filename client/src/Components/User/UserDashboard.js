@@ -20,6 +20,8 @@ const UserDashboard = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedPath, setSelectedPath] = useState(null);
   const [isTopicModalOpen, setIsTopicModalOpen] = useState(false);
+  const [quoteText, setQuote] = useState("");
+  const [author, setAuthor] = useState("");
   const context = useContext(UserContext);
     const {user}=context;
     const colors = ["from-blue-500 to-indigo-500", "from-purple-500 to-pink-500"];
@@ -116,12 +118,36 @@ const UserDashboard = () => {
     }
   };
   
+  useEffect(() => {
+  const fetchQuote = async () => {
+    try {
+      const res = await fetch("https://localhost:7295/api/Quotes/random-quote");
+      if (!res.ok) throw new Error("Failed to fetch quote");
+      const data = await res.json();
+      setQuote(data.quoteText);
+      setAuthor(data.author);
+    } catch (error) {
+      console.error(error);
+      setQuote("Keep pushing forward!");
+      setAuthor("Anonymous");
+    }
+  };
+
+  fetchQuote();
+  const interval = setInterval(fetchQuote, 15000);
+  return () => clearInterval(interval);
+}, []);
+
 
   return (
     <div className="min-h-screen bg-[#1E1E1E] p-8 space-y-6 text-[#f0f4f8] transition-colors duration-500 flex font-poppins">
       {/* Left Side Dashboard Content */}
       <div className="flex-1">
-         <p className="text-muted-foreground">Continue your learning journey with AI-powered recommendations</p>
+         
+         <div className="p-4 rounded-lg shadow-lg bg-white max-w-lg">
+      <p className="text-lg italic text-gray-800">{quoteText}</p>
+      <p className="text-right mt-2 text-sm text-gray-500">- {author}</p>
+    </div>
       <div className="flex justify-end"> {/* Align to the right */}
        
       <button

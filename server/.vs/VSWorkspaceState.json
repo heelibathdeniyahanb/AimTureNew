@@ -8,6 +8,6 @@
     "\\LearningPathGeneration_Backend\\LearningPathGeneration_Backend\\Profiles",
     "\\LearningPathGeneration_Backend\\LearningPathGeneration_Backend\\Services"
   ],
-  "SelectedNode": "\\LearningPathGeneration_Backend\\LearningPathGeneration_Backend\\Models\\LearningPathTopic.cs",
+  "SelectedNode": "\\LearningPathGeneration_Backend\\LearningPathGeneration_Backend\\Controllers\\GoogleAiController.cs",
   "PreviewInSolutionExplorer": false
 }
