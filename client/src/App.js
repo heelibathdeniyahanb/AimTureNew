@@ -28,6 +28,8 @@ import Advertisemnets from './Components/MarketingManager/Advertisemnets';
 import MMAdvertisement from './Pages/MarketingManager/MMAdvertisement';
 import MMEmail from './Pages/MarketingManager/MMEmail';
 import MMServiceProvider from './Pages/MarketingManager/MMServiceProvider';
+import CDashboard from './Pages/Contributor/CDashboard';
+import CProfile from './Pages/Contributor/CProfile';
 
 function App() {
   return (
@@ -56,6 +58,8 @@ function App() {
             <Route path='/advertisements' element={<MMAdvertisement/>}></Route>
             <Route path='/marketing/email' element={<MMEmail/>}></Route>
             <Route path='/serviceProviders' element={<MMServiceProvider/>}></Route>
+            <Route path='/contributor/dashboard' element={<CDashboard/>}></Route>
+            <Route path='/contributor/profile' element={<CProfile/>}></Route>
          
         
         

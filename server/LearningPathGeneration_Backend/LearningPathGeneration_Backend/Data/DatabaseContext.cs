@@ -24,6 +24,8 @@ namespace LearningPathGeneration_Backend.Data
         public DbSet<AdvertiserProviderSpecification> AdvertiserProviderSpecifications { get; set; }
         public DbSet<AdSpecification>AdvertisemnetSpecifications { get; set; }
         public DbSet<Quote> Quotes { get; set; }
+        public DbSet<ContributorProfile> ContributorProfiles { get; set; }
+
        
 
 
@@ -90,6 +92,13 @@ namespace LearningPathGeneration_Backend.Data
                 .HasOne(x => x.Specification)
                 .WithMany(s => s.AdvertisementSpecifications)
                 .HasForeignKey(x => x.SpecificationId);
+
+            // One-to-one relationship between User and ContributorProfile
+            modelBuilder.Entity<ContributorProfile>()
+                .HasOne(c => c.User)
+                .WithOne()
+                .HasForeignKey<ContributorProfile>(c => c.UserId)
+                .OnDelete(DeleteBehavior.Cascade);
 
             base.OnModelCreating(modelBuilder);
         }
