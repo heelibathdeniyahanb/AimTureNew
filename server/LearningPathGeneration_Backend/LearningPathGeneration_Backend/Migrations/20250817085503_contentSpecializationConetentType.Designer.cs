@@ -3,6 +3,7 @@ using System;
 using LearningPathGeneration_Backend.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
@@ -11,9 +12,11 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace LearningPathGeneration_Backend.Migrations
 {
     [DbContext(typeof(DatabaseContext))]
-    partial class DatabaseContextModelSnapshot : ModelSnapshot
+    [Migration("20250817085503_contentSpecializationConetentType")]
+    partial class contentSpecializationConetentType
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -188,6 +191,7 @@ namespace LearningPathGeneration_Backend.Migrations
                         .HasColumnType("text");
 
                     b.Property<string>("Url")
+                        .IsRequired()
                         .HasColumnType("text");
 
                     b.HasKey("Id");
@@ -211,7 +215,7 @@ namespace LearningPathGeneration_Backend.Migrations
 
                     b.HasIndex("ContentSpecializationId");
 
-                    b.ToTable("ContentSpecializationJoins");
+                    b.ToTable("ContentSpecializationJoin");
                 });
 
             modelBuilder.Entity("LearningPathGeneration_Backend.Models.ContentSpecializationcs", b =>

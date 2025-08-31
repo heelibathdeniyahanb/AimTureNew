@@ -3,6 +3,7 @@ using System;
 using LearningPathGeneration_Backend.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
@@ -11,9 +12,11 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace LearningPathGeneration_Backend.Migrations
 {
     [DbContext(typeof(DatabaseContext))]
-    partial class DatabaseContextModelSnapshot : ModelSnapshot
+    [Migration("20250809062022_addContributorProfileModal")]
+    partial class addContributorProfileModal
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -157,95 +160,6 @@ namespace LearningPathGeneration_Backend.Migrations
                     b.HasIndex("EmailId");
 
                     b.ToTable("Attachments");
-                });
-
-            modelBuilder.Entity("LearningPathGeneration_Backend.Models.Content", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("integer");
-
-                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
-
-                    b.Property<int>("ContentTypeId")
-                        .HasColumnType("integer");
-
-                    b.Property<int>("ContributorId")
-                        .HasColumnType("integer");
-
-                    b.Property<DateTime>("CreatedAt")
-                        .HasColumnType("timestamp with time zone");
-
-                    b.Property<string>("Description")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<bool>("IsApproved")
-                        .HasColumnType("boolean");
-
-                    b.Property<string>("Title")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<string>("Url")
-                        .HasColumnType("text");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("ContentTypeId");
-
-                    b.HasIndex("ContributorId");
-
-                    b.ToTable("Contents");
-                });
-
-            modelBuilder.Entity("LearningPathGeneration_Backend.Models.ContentSpecializationJoin", b =>
-                {
-                    b.Property<int>("ContentId")
-                        .HasColumnType("integer");
-
-                    b.Property<int>("ContentSpecializationId")
-                        .HasColumnType("integer");
-
-                    b.HasKey("ContentId", "ContentSpecializationId");
-
-                    b.HasIndex("ContentSpecializationId");
-
-                    b.ToTable("ContentSpecializationJoins");
-                });
-
-            modelBuilder.Entity("LearningPathGeneration_Backend.Models.ContentSpecializationcs", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("integer");
-
-                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("ContentSpecializations");
-                });
-
-            modelBuilder.Entity("LearningPathGeneration_Backend.Models.ContentType", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("integer");
-
-                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("ContentTypes");
                 });
 
             modelBuilder.Entity("LearningPathGeneration_Backend.Models.ContributorProfile", b =>
@@ -560,44 +474,6 @@ namespace LearningPathGeneration_Backend.Migrations
                     b.Navigation("Email");
                 });
 
-            modelBuilder.Entity("LearningPathGeneration_Backend.Models.Content", b =>
-                {
-                    b.HasOne("LearningPathGeneration_Backend.Models.ContentType", "ContentType")
-                        .WithMany("Contents")
-                        .HasForeignKey("ContentTypeId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
-                    b.HasOne("LearningPathGeneration_Backend.Models.ContributorProfile", "Contributor")
-                        .WithMany("Contents")
-                        .HasForeignKey("ContributorId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("ContentType");
-
-                    b.Navigation("Contributor");
-                });
-
-            modelBuilder.Entity("LearningPathGeneration_Backend.Models.ContentSpecializationJoin", b =>
-                {
-                    b.HasOne("LearningPathGeneration_Backend.Models.Content", "Content")
-                        .WithMany("ContentSpecializations")
-                        .HasForeignKey("ContentId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("LearningPathGeneration_Backend.Models.ContentSpecializationcs", "ContentSpecialization")
-                        .WithMany("ContentSpecializations")
-                        .HasForeignKey("ContentSpecializationId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Content");
-
-                    b.Navigation("ContentSpecialization");
-                });
-
             modelBuilder.Entity("LearningPathGeneration_Backend.Models.ContributorProfile", b =>
                 {
                     b.HasOne("LearningPathGeneration_Backend.Models.User", "User")
@@ -641,26 +517,6 @@ namespace LearningPathGeneration_Backend.Migrations
                     b.Navigation("AdvertisementProviderSpecifications");
 
                     b.Navigation("Advertisements");
-                });
-
-            modelBuilder.Entity("LearningPathGeneration_Backend.Models.Content", b =>
-                {
-                    b.Navigation("ContentSpecializations");
-                });
-
-            modelBuilder.Entity("LearningPathGeneration_Backend.Models.ContentSpecializationcs", b =>
-                {
-                    b.Navigation("ContentSpecializations");
-                });
-
-            modelBuilder.Entity("LearningPathGeneration_Backend.Models.ContentType", b =>
-                {
-                    b.Navigation("Contents");
-                });
-
-            modelBuilder.Entity("LearningPathGeneration_Backend.Models.ContributorProfile", b =>
-                {
-                    b.Navigation("Contents");
                 });
 
             modelBuilder.Entity("LearningPathGeneration_Backend.Models.Email", b =>

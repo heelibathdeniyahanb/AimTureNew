@@ -43,6 +43,8 @@ namespace LearningPathGeneration_Backend.Services
             var spec = _mapper.Map<AdSpecification>(dto);
             _context.AdvertisemnetSpecifications.Add(spec);
             await _context.SaveChangesAsync();
+            // load related spec name
+            await _context.Entry(spec).Reference(x => x.Specification).LoadAsync();
             return _mapper.Map<AdSpecificationDto>(spec);
 
             

@@ -50,6 +50,7 @@ namespace LearningPathGeneration_Backend.Controllers
             var gender = user.Gender;
             var id=user.Id;
             var email = user.Email;
+            var mobileNo = user.MobileNo;
 
             var cookieOptions = new CookieOptions
             {
@@ -62,7 +63,7 @@ namespace LearningPathGeneration_Backend.Controllers
 
            
 
-            return Ok(new { message = "Logged in successfully", token, role,id,firstName,lastName,email,dateOfBirth ,gender});
+            return Ok(new { message = "Logged in successfully", token, role,id,firstName,lastName,email,dateOfBirth ,gender, mobileNo});
         }
 
         [HttpGet("get-current-user")]
@@ -95,7 +96,7 @@ namespace LearningPathGeneration_Backend.Controllers
                     return NotFound("User not found");
                 }
 
-                return Ok(new { user.Id, user.Email, user.FirstName });
+                return Ok(new { user.Id, user.Email, user.FirstName, user.MobileNo });
             }
             catch (Exception ex)
             {
