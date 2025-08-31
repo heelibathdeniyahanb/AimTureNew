@@ -1,4 +1,6 @@
-﻿namespace LearningPathGeneration_Backend.Models
+﻿using System.Text.Json.Serialization;
+
+namespace LearningPathGeneration_Backend.Models
 {
     public class ContributorProfile
     {
@@ -14,7 +16,10 @@
         public string Bio { get; set; }
         public string PortfolioUrl { get; set; }
         public string LinkedInUrl { get; set; }
-
-
+        [JsonIgnore]
+        public ICollection<Content> Contents { get; set; } = new List<Content>();
     }
+
+
 }
+

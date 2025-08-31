@@ -12,6 +12,8 @@
         public int CreatedUserId { get; set; }
         public string CreatedUserName { get; set; }
 
+        public List<string> Specifications { get; set; }
+
 
     }
 

@@ -25,8 +25,13 @@ namespace LearningPathGeneration_Backend.Data
         public DbSet<AdSpecification>AdvertisemnetSpecifications { get; set; }
         public DbSet<Quote> Quotes { get; set; }
         public DbSet<ContributorProfile> ContributorProfiles { get; set; }
+        public DbSet<ContentSpecializationJoin> ContentSpecializationJoins { get; set; }
 
-       
+        public DbSet<Content> Contents { get; set; }
+
+        // Newly added tables
+        public DbSet<ContentSpecializationcs> ContentSpecializations { get; set; }
+        public DbSet<ContentType> ContentTypes { get; set; }
 
 
 
@@ -99,6 +104,32 @@ namespace LearningPathGeneration_Backend.Data
                 .WithOne()
                 .HasForeignKey<ContributorProfile>(c => c.UserId)
                 .OnDelete(DeleteBehavior.Cascade);
+
+            modelBuilder.Entity<ContributorProfile>()
+               .HasMany(c => c.Contents)
+               .WithOne(r => r.Contributor)
+               .HasForeignKey(r => r.ContributorId)
+               .OnDelete(DeleteBehavior.Cascade);
+
+            modelBuilder.Entity<ContentSpecializationJoin>()
+    .HasKey(cs => new { cs.ContentId, cs.ContentSpecializationId });
+
+            modelBuilder.Entity<ContentSpecializationJoin>()
+                .HasOne(cs => cs.Content)
+                .WithMany(c => c.ContentSpecializations)
+                .HasForeignKey(cs => cs.ContentId);
+
+            modelBuilder.Entity<ContentSpecializationJoin>()
+                .HasOne(cs => cs.ContentSpecialization)
+                .WithMany(s => s.ContentSpecializations)
+                .HasForeignKey(cs => cs.ContentSpecializationId);
+
+
+            modelBuilder.Entity<Content>()
+                .HasOne(c => c.ContentType)
+                .WithMany(ct => ct.Contents)
+                .HasForeignKey(c => c.ContentTypeId)
+                .OnDelete(DeleteBehavior.Restrict);
 
             base.OnModelCreating(modelBuilder);
         }

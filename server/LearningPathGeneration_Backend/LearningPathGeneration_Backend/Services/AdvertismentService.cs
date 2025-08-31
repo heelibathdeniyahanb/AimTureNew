@@ -27,7 +27,9 @@ namespace LearningPathGeneration_Backend.Services
             var query = _context.Advertisements
                  .Include(a => a.AdvertisementProvider)
                 .Include(a => a.CreatedUser)
-                
+                 .Include(a => a.AdvertisementSpecifications)
+        .ThenInclude(s => s.Specification)
+
                 .AsQueryable();
 
             if (!string.IsNullOrWhiteSpace(search))
@@ -53,6 +55,8 @@ namespace LearningPathGeneration_Backend.Services
             var ads = await _context.Advertisements
                 .Include(a => a.AdvertisementProvider)
                 .Include(a => a.CreatedUser)
+                 .Include(a => a.AdvertisementSpecifications)
+        .ThenInclude(s => s.Specification)
                 .ToListAsync();
 
             return _mapper.Map<List<AdvertisementDto>>(ads);
@@ -61,8 +65,15 @@ namespace LearningPathGeneration_Backend.Services
 
         public async Task<AdvertisementDto> GetByIdAsync(int id)
         {
-            var ad = await _context.Advertisements.FindAsync(id);
+            var ad = await _context.Advertisements
+     .Include(a => a.AdvertisementProvider)
+     .Include(a => a.CreatedUser)
+     .Include(a => a.AdvertisementSpecifications)
+         .ThenInclude(s => s.Specification)
+     .FirstOrDefaultAsync(a => a.Id == id);
+
             return ad == null ? null : _mapper.Map<AdvertisementDto>(ad);
+
         }
 
         public async Task<AdvertisementDto> CreateAsync(CreateAdvertisementDto dto)
@@ -80,7 +91,11 @@ namespace LearningPathGeneration_Backend.Services
                 Description = dto.Description,
                 ImageUrl = imageUrl,
                 AdvertisementProviderId = dto.AdvertisementProviderId,
-                CreatedUserId = dto.CreatedUserId
+                CreatedUserId = dto.CreatedUserId,
+                AdvertisementSpecifications = dto.SpecificationIds.Select(specId => new AdSpecification
+                {
+                    SpecificationId = specId
+                }).ToList()
             };
 
             _context.Advertisements.Add(ad);

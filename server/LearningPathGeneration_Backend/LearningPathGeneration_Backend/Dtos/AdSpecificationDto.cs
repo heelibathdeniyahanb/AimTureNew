@@ -2,15 +2,18 @@
 {
     public class AdSpecificationDto
     {
-       
-            public int Id { get; set; }
-            public string Name { get; set; }
-        }
 
-        public class CreateAdSpecificationDto
+        public int AdvertisementId { get; set; }
+        public int SpecificationId { get; set; }
+        public string SpecificationName { get; set; }
+
+    }
+
+    public class CreateAdSpecificationDto
         {
-            public string Name { get; set; }
-        }
+        public int AdvertisementId { get; set; }
+        public int SpecificationId { get; set; }
+    }
 
         public class UpdateAdSpecificationDto
         {
