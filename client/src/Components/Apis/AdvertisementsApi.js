@@ -68,3 +68,17 @@ export const deleteAdvertisement = async (id) => {
     return false;
   }
 };
+
+export const fetchRecommendedAdvertisements = async (userId) => {
+  try {
+    const response = await fetch(`https://localhost:7295/api/Advertisement/recommendations/${userId}`);
+    if (!response.ok) {
+      throw new Error('Failed to fetch recommended advertisements');
+    }
+    return await response.json();
+  } catch (error) {
+    console.error('Error fetching recommended advertisements:', error);
+    return []; // Return empty array on error
+  }
+};
+

@@ -22,6 +22,7 @@ namespace LearningPathGeneration_Backend.Services
         {
             var contents = await _context.Contents
                 .Include(c => c.Contributor)
+                 .ThenInclude(cp => cp.User)
                 .Include(c => c.ContentType)
                 .ToListAsync();
 
@@ -43,7 +44,10 @@ namespace LearningPathGeneration_Backend.Services
                     Description = c.Description,
                     Url = c.Url,
                     ContentTypeName = c.ContentType?.Name ?? "Unknown",
-                    ContributorName = c.Contributor?.User?.FirstName ?? "Unknown",
+                    isApproved = c.IsApproved,
+                    ContributorName = c.Contributor?.User != null
+                ? $"{c.Contributor.User.FirstName} {c.Contributor.User.LastName}"
+                : "Unknown",
                     SpecializationNames = specializationNames
                 });
             }

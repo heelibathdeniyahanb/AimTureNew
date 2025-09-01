@@ -3,6 +3,54 @@
   "WorkspaceRootPath": "C:\\Users\\LAPMART\\Desktop\\AimTureNew\\AimTureNew\\server\\LearningPathGeneration_Backend\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{387F2AF3-6047-4F86-BCE2-5FC2CFA56D74}|LearningPathGeneration_Backend\\LearningPathGeneration_Backend.csproj|c:\\users\\lapmart\\desktop\\aimturenew\\aimturenew\\server\\learningpathgeneration_backend\\learningpathgeneration_backend\\services\\contentservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{387F2AF3-6047-4F86-BCE2-5FC2CFA56D74}|LearningPathGeneration_Backend\\LearningPathGeneration_Backend.csproj|solutionrelative:learningpathgeneration_backend\\services\\contentservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{387F2AF3-6047-4F86-BCE2-5FC2CFA56D74}|LearningPathGeneration_Backend\\LearningPathGeneration_Backend.csproj|c:\\users\\lapmart\\desktop\\aimturenew\\aimturenew\\server\\learningpathgeneration_backend\\learningpathgeneration_backend\\dtos\\contentdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{387F2AF3-6047-4F86-BCE2-5FC2CFA56D74}|LearningPathGeneration_Backend\\LearningPathGeneration_Backend.csproj|solutionrelative:learningpathgeneration_backend\\dtos\\contentdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{387F2AF3-6047-4F86-BCE2-5FC2CFA56D74}|LearningPathGeneration_Backend\\LearningPathGeneration_Backend.csproj|c:\\users\\lapmart\\desktop\\aimturenew\\aimturenew\\server\\learningpathgeneration_backend\\learningpathgeneration_backend\\models\\content.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{387F2AF3-6047-4F86-BCE2-5FC2CFA56D74}|LearningPathGeneration_Backend\\LearningPathGeneration_Backend.csproj|solutionrelative:learningpathgeneration_backend\\models\\content.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{387F2AF3-6047-4F86-BCE2-5FC2CFA56D74}|LearningPathGeneration_Backend\\LearningPathGeneration_Backend.csproj|c:\\users\\lapmart\\desktop\\aimturenew\\aimturenew\\server\\learningpathgeneration_backend\\learningpathgeneration_backend\\models\\contributorprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{387F2AF3-6047-4F86-BCE2-5FC2CFA56D74}|LearningPathGeneration_Backend\\LearningPathGeneration_Backend.csproj|solutionrelative:learningpathgeneration_backend\\models\\contributorprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{387F2AF3-6047-4F86-BCE2-5FC2CFA56D74}|LearningPathGeneration_Backend\\LearningPathGeneration_Backend.csproj|c:\\users\\lapmart\\desktop\\aimturenew\\aimturenew\\server\\learningpathgeneration_backend\\learningpathgeneration_backend\\controllers\\contentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{387F2AF3-6047-4F86-BCE2-5FC2CFA56D74}|LearningPathGeneration_Backend\\LearningPathGeneration_Backend.csproj|solutionrelative:learningpathgeneration_backend\\controllers\\contentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{387F2AF3-6047-4F86-BCE2-5FC2CFA56D74}|LearningPathGeneration_Backend\\LearningPathGeneration_Backend.csproj|c:\\users\\lapmart\\desktop\\aimturenew\\aimturenew\\server\\learningpathgeneration_backend\\learningpathgeneration_backend\\services\\advertismentservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{387F2AF3-6047-4F86-BCE2-5FC2CFA56D74}|LearningPathGeneration_Backend\\LearningPathGeneration_Backend.csproj|solutionrelative:learningpathgeneration_backend\\services\\advertismentservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{387F2AF3-6047-4F86-BCE2-5FC2CFA56D74}|LearningPathGeneration_Backend\\LearningPathGeneration_Backend.csproj|c:\\users\\lapmart\\desktop\\aimturenew\\aimturenew\\server\\learningpathgeneration_backend\\learningpathgeneration_backend\\models\\advertisement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{387F2AF3-6047-4F86-BCE2-5FC2CFA56D74}|LearningPathGeneration_Backend\\LearningPathGeneration_Backend.csproj|solutionrelative:learningpathgeneration_backend\\models\\advertisement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{387F2AF3-6047-4F86-BCE2-5FC2CFA56D74}|LearningPathGeneration_Backend\\LearningPathGeneration_Backend.csproj|c:\\users\\lapmart\\desktop\\aimturenew\\aimturenew\\server\\learningpathgeneration_backend\\learningpathgeneration_backend\\dtos\\advertisemntdtos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{387F2AF3-6047-4F86-BCE2-5FC2CFA56D74}|LearningPathGeneration_Backend\\LearningPathGeneration_Backend.csproj|solutionrelative:learningpathgeneration_backend\\dtos\\advertisemntdtos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{387F2AF3-6047-4F86-BCE2-5FC2CFA56D74}|LearningPathGeneration_Backend\\LearningPathGeneration_Backend.csproj|c:\\users\\lapmart\\desktop\\aimturenew\\aimturenew\\server\\learningpathgeneration_backend\\learningpathgeneration_backend\\controllers\\specificationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{387F2AF3-6047-4F86-BCE2-5FC2CFA56D74}|LearningPathGeneration_Backend\\LearningPathGeneration_Backend.csproj|solutionrelative:learningpathgeneration_backend\\controllers\\specificationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{387F2AF3-6047-4F86-BCE2-5FC2CFA56D74}|LearningPathGeneration_Backend\\LearningPathGeneration_Backend.csproj|c:\\users\\lapmart\\desktop\\aimturenew\\aimturenew\\server\\learningpathgeneration_backend\\learningpathgeneration_backend\\controllers\\googleaicontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{387F2AF3-6047-4F86-BCE2-5FC2CFA56D74}|LearningPathGeneration_Backend\\LearningPathGeneration_Backend.csproj|solutionrelative:learningpathgeneration_backend\\controllers\\googleaicontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{387F2AF3-6047-4F86-BCE2-5FC2CFA56D74}|LearningPathGeneration_Backend\\LearningPathGeneration_Backend.csproj|c:\\users\\lapmart\\desktop\\aimturenew\\aimturenew\\server\\learningpathgeneration_backend\\learningpathgeneration_backend\\models\\learningpathrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{387F2AF3-6047-4F86-BCE2-5FC2CFA56D74}|LearningPathGeneration_Backend\\LearningPathGeneration_Backend.csproj|solutionrelative:learningpathgeneration_backend\\models\\learningpathrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{387F2AF3-6047-4F86-BCE2-5FC2CFA56D74}|LearningPathGeneration_Backend\\LearningPathGeneration_Backend.csproj|c:\\users\\lapmart\\desktop\\aimturenew\\aimturenew\\server\\learningpathgeneration_backend\\learningpathgeneration_backend\\data\\databasecontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{387F2AF3-6047-4F86-BCE2-5FC2CFA56D74}|LearningPathGeneration_Backend\\LearningPathGeneration_Backend.csproj|solutionrelative:learningpathgeneration_backend\\data\\databasecontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{387F2AF3-6047-4F86-BCE2-5FC2CFA56D74}|LearningPathGeneration_Backend\\LearningPathGeneration_Backend.csproj|c:\\users\\lapmart\\desktop\\aimturenew\\aimturenew\\server\\learningpathgeneration_backend\\learningpathgeneration_backend\\controllers\\advertisementcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{387F2AF3-6047-4F86-BCE2-5FC2CFA56D74}|LearningPathGeneration_Backend\\LearningPathGeneration_Backend.csproj|solutionrelative:learningpathgeneration_backend\\controllers\\advertisementcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -17,18 +65,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{387F2AF3-6047-4F86-BCE2-5FC2CFA56D74}|LearningPathGeneration_Backend\\LearningPathGeneration_Backend.csproj|c:\\users\\lapmart\\desktop\\aimturenew\\aimturenew\\server\\learningpathgeneration_backend\\learningpathgeneration_backend\\models\\adspecification.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{387F2AF3-6047-4F86-BCE2-5FC2CFA56D74}|LearningPathGeneration_Backend\\LearningPathGeneration_Backend.csproj|solutionrelative:learningpathgeneration_backend\\models\\adspecification.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{387F2AF3-6047-4F86-BCE2-5FC2CFA56D74}|LearningPathGeneration_Backend\\LearningPathGeneration_Backend.csproj|c:\\users\\lapmart\\desktop\\aimturenew\\aimturenew\\server\\learningpathgeneration_backend\\learningpathgeneration_backend\\models\\advertisement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{387F2AF3-6047-4F86-BCE2-5FC2CFA56D74}|LearningPathGeneration_Backend\\LearningPathGeneration_Backend.csproj|solutionrelative:learningpathgeneration_backend\\models\\advertisement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{387F2AF3-6047-4F86-BCE2-5FC2CFA56D74}|LearningPathGeneration_Backend\\LearningPathGeneration_Backend.csproj|c:\\users\\lapmart\\desktop\\aimturenew\\aimturenew\\server\\learningpathgeneration_backend\\learningpathgeneration_backend\\services\\advertismentservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{387F2AF3-6047-4F86-BCE2-5FC2CFA56D74}|LearningPathGeneration_Backend\\LearningPathGeneration_Backend.csproj|solutionrelative:learningpathgeneration_backend\\services\\advertismentservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{387F2AF3-6047-4F86-BCE2-5FC2CFA56D74}|LearningPathGeneration_Backend\\LearningPathGeneration_Backend.csproj|c:\\users\\lapmart\\desktop\\aimturenew\\aimturenew\\server\\learningpathgeneration_backend\\learningpathgeneration_backend\\controllers\\googleaicontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{387F2AF3-6047-4F86-BCE2-5FC2CFA56D74}|LearningPathGeneration_Backend\\LearningPathGeneration_Backend.csproj|solutionrelative:learningpathgeneration_backend\\controllers\\googleaicontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{387F2AF3-6047-4F86-BCE2-5FC2CFA56D74}|LearningPathGeneration_Backend\\LearningPathGeneration_Backend.csproj|c:\\users\\lapmart\\desktop\\aimturenew\\aimturenew\\server\\learningpathgeneration_backend\\learningpathgeneration_backend\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -71,36 +107,16 @@
       "RelativeMoniker": "D:0:0:{387F2AF3-6047-4F86-BCE2-5FC2CFA56D74}|LearningPathGeneration_Backend\\LearningPathGeneration_Backend.csproj|solutionrelative:learningpathgeneration_backend\\profiles\\advertisementprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{387F2AF3-6047-4F86-BCE2-5FC2CFA56D74}|LearningPathGeneration_Backend\\LearningPathGeneration_Backend.csproj|c:\\users\\lapmart\\desktop\\aimturenew\\aimturenew\\server\\learningpathgeneration_backend\\learningpathgeneration_backend\\services\\contentservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{387F2AF3-6047-4F86-BCE2-5FC2CFA56D74}|LearningPathGeneration_Backend\\LearningPathGeneration_Backend.csproj|solutionrelative:learningpathgeneration_backend\\services\\contentservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{387F2AF3-6047-4F86-BCE2-5FC2CFA56D74}|LearningPathGeneration_Backend\\LearningPathGeneration_Backend.csproj|c:\\users\\lapmart\\desktop\\aimturenew\\aimturenew\\server\\learningpathgeneration_backend\\learningpathgeneration_backend\\services\\imageservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{387F2AF3-6047-4F86-BCE2-5FC2CFA56D74}|LearningPathGeneration_Backend\\LearningPathGeneration_Backend.csproj|solutionrelative:learningpathgeneration_backend\\services\\imageservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{387F2AF3-6047-4F86-BCE2-5FC2CFA56D74}|LearningPathGeneration_Backend\\LearningPathGeneration_Backend.csproj|c:\\users\\lapmart\\desktop\\aimturenew\\aimturenew\\server\\learningpathgeneration_backend\\learningpathgeneration_backend\\controllers\\contentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{387F2AF3-6047-4F86-BCE2-5FC2CFA56D74}|LearningPathGeneration_Backend\\LearningPathGeneration_Backend.csproj|solutionrelative:learningpathgeneration_backend\\controllers\\contentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{387F2AF3-6047-4F86-BCE2-5FC2CFA56D74}|LearningPathGeneration_Backend\\LearningPathGeneration_Backend.csproj|c:\\users\\lapmart\\desktop\\aimturenew\\aimturenew\\server\\learningpathgeneration_backend\\learningpathgeneration_backend\\interfaces\\icontentservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{387F2AF3-6047-4F86-BCE2-5FC2CFA56D74}|LearningPathGeneration_Backend\\LearningPathGeneration_Backend.csproj|solutionrelative:learningpathgeneration_backend\\interfaces\\icontentservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{387F2AF3-6047-4F86-BCE2-5FC2CFA56D74}|LearningPathGeneration_Backend\\LearningPathGeneration_Backend.csproj|c:\\users\\lapmart\\desktop\\aimturenew\\aimturenew\\server\\learningpathgeneration_backend\\learningpathgeneration_backend\\data\\databasecontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{387F2AF3-6047-4F86-BCE2-5FC2CFA56D74}|LearningPathGeneration_Backend\\LearningPathGeneration_Backend.csproj|solutionrelative:learningpathgeneration_backend\\data\\databasecontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{387F2AF3-6047-4F86-BCE2-5FC2CFA56D74}|LearningPathGeneration_Backend\\LearningPathGeneration_Backend.csproj|c:\\users\\lapmart\\desktop\\aimturenew\\aimturenew\\server\\learningpathgeneration_backend\\learningpathgeneration_backend\\dtos\\contentdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{387F2AF3-6047-4F86-BCE2-5FC2CFA56D74}|LearningPathGeneration_Backend\\LearningPathGeneration_Backend.csproj|solutionrelative:learningpathgeneration_backend\\dtos\\contentdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{387F2AF3-6047-4F86-BCE2-5FC2CFA56D74}|LearningPathGeneration_Backend\\LearningPathGeneration_Backend.csproj|c:\\users\\lapmart\\desktop\\aimturenew\\aimturenew\\server\\learningpathgeneration_backend\\learningpathgeneration_backend\\models\\contentspecializationcs.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{387F2AF3-6047-4F86-BCE2-5FC2CFA56D74}|LearningPathGeneration_Backend\\LearningPathGeneration_Backend.csproj|solutionrelative:learningpathgeneration_backend\\models\\contentspecializationcs.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{387F2AF3-6047-4F86-BCE2-5FC2CFA56D74}|LearningPathGeneration_Backend\\LearningPathGeneration_Backend.csproj|c:\\users\\lapmart\\desktop\\aimturenew\\aimturenew\\server\\learningpathgeneration_backend\\learningpathgeneration_backend\\dtos\\advertisemntdtos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{387F2AF3-6047-4F86-BCE2-5FC2CFA56D74}|LearningPathGeneration_Backend\\LearningPathGeneration_Backend.csproj|solutionrelative:learningpathgeneration_backend\\dtos\\advertisemntdtos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{387F2AF3-6047-4F86-BCE2-5FC2CFA56D74}|LearningPathGeneration_Backend\\LearningPathGeneration_Backend.csproj|c:\\users\\lapmart\\desktop\\aimturenew\\aimturenew\\server\\learningpathgeneration_backend\\learningpathgeneration_backend\\models\\cloudinarysettings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -131,16 +147,8 @@
       "RelativeMoniker": "D:0:0:{387F2AF3-6047-4F86-BCE2-5FC2CFA56D74}|LearningPathGeneration_Backend\\LearningPathGeneration_Backend.csproj|solutionrelative:learningpathgeneration_backend\\migrations\\20250714034954_adspecification.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{387F2AF3-6047-4F86-BCE2-5FC2CFA56D74}|LearningPathGeneration_Backend\\LearningPathGeneration_Backend.csproj|c:\\users\\lapmart\\desktop\\aimturenew\\aimturenew\\server\\learningpathgeneration_backend\\learningpathgeneration_backend\\models\\content.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{387F2AF3-6047-4F86-BCE2-5FC2CFA56D74}|LearningPathGeneration_Backend\\LearningPathGeneration_Backend.csproj|solutionrelative:learningpathgeneration_backend\\models\\content.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{387F2AF3-6047-4F86-BCE2-5FC2CFA56D74}|LearningPathGeneration_Backend\\LearningPathGeneration_Backend.csproj|c:\\users\\lapmart\\desktop\\aimturenew\\aimturenew\\server\\learningpathgeneration_backend\\learningpathgeneration_backend\\migrations\\20250817085503_contentspecializationconetenttype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{387F2AF3-6047-4F86-BCE2-5FC2CFA56D74}|LearningPathGeneration_Backend\\LearningPathGeneration_Backend.csproj|solutionrelative:learningpathgeneration_backend\\migrations\\20250817085503_contentspecializationconetenttype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{387F2AF3-6047-4F86-BCE2-5FC2CFA56D74}|LearningPathGeneration_Backend\\LearningPathGeneration_Backend.csproj|c:\\users\\lapmart\\desktop\\aimturenew\\aimturenew\\server\\learningpathgeneration_backend\\learningpathgeneration_backend\\models\\contributorprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{387F2AF3-6047-4F86-BCE2-5FC2CFA56D74}|LearningPathGeneration_Backend\\LearningPathGeneration_Backend.csproj|solutionrelative:learningpathgeneration_backend\\models\\contributorprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{387F2AF3-6047-4F86-BCE2-5FC2CFA56D74}|LearningPathGeneration_Backend\\LearningPathGeneration_Backend.csproj|c:\\users\\lapmart\\desktop\\aimturenew\\aimturenew\\server\\learningpathgeneration_backend\\learningpathgeneration_backend\\models\\contentspecializationjoin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -235,10 +243,6 @@
       "RelativeMoniker": "D:0:0:{387F2AF3-6047-4F86-BCE2-5FC2CFA56D74}|LearningPathGeneration_Backend\\LearningPathGeneration_Backend.csproj|solutionrelative:learningpathgeneration_backend\\dtos\\learningpathrequestdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{387F2AF3-6047-4F86-BCE2-5FC2CFA56D74}|LearningPathGeneration_Backend\\LearningPathGeneration_Backend.csproj|c:\\users\\lapmart\\desktop\\aimturenew\\aimturenew\\server\\learningpathgeneration_backend\\learningpathgeneration_backend\\models\\learningpathrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{387F2AF3-6047-4F86-BCE2-5FC2CFA56D74}|LearningPathGeneration_Backend\\LearningPathGeneration_Backend.csproj|solutionrelative:learningpathgeneration_backend\\models\\learningpathrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{387F2AF3-6047-4F86-BCE2-5FC2CFA56D74}|LearningPathGeneration_Backend\\LearningPathGeneration_Backend.csproj|c:\\users\\lapmart\\desktop\\aimturenew\\aimturenew\\server\\learningpathgeneration_backend\\learningpathgeneration_backend\\services\\youtubeservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{387F2AF3-6047-4F86-BCE2-5FC2CFA56D74}|LearningPathGeneration_Backend\\LearningPathGeneration_Backend.csproj|solutionrelative:learningpathgeneration_backend\\services\\youtubeservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -249,10 +253,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{387F2AF3-6047-4F86-BCE2-5FC2CFA56D74}|LearningPathGeneration_Backend\\LearningPathGeneration_Backend.csproj|c:\\users\\lapmart\\desktop\\aimturenew\\aimturenew\\server\\learningpathgeneration_backend\\learningpathgeneration_backend\\dtos\\specificationdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{387F2AF3-6047-4F86-BCE2-5FC2CFA56D74}|LearningPathGeneration_Backend\\LearningPathGeneration_Backend.csproj|solutionrelative:learningpathgeneration_backend\\dtos\\specificationdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{387F2AF3-6047-4F86-BCE2-5FC2CFA56D74}|LearningPathGeneration_Backend\\LearningPathGeneration_Backend.csproj|c:\\users\\lapmart\\desktop\\aimturenew\\aimturenew\\server\\learningpathgeneration_backend\\learningpathgeneration_backend\\controllers\\specificationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{387F2AF3-6047-4F86-BCE2-5FC2CFA56D74}|LearningPathGeneration_Backend\\LearningPathGeneration_Backend.csproj|solutionrelative:learningpathgeneration_backend\\controllers\\specificationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{387F2AF3-6047-4F86-BCE2-5FC2CFA56D74}|LearningPathGeneration_Backend\\LearningPathGeneration_Backend.csproj|c:\\users\\lapmart\\desktop\\aimturenew\\aimturenew\\server\\learningpathgeneration_backend\\learningpathgeneration_backend\\interfaces\\iadspecificationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -417,7 +417,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 7,
           "Children": [
             {
               "$type": "Document",
@@ -449,7 +449,175 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "AdvertisemntDtos.cs",
+              "DocumentMoniker": "C:\\Users\\LAPMART\\Desktop\\AimTureNew\\AimTureNew\\server\\LearningPathGeneration_Backend\\LearningPathGeneration_Backend\\Dtos\\AdvertisemntDtos.cs",
+              "RelativeDocumentMoniker": "LearningPathGeneration_Backend\\Dtos\\AdvertisemntDtos.cs",
+              "ToolTip": "C:\\Users\\LAPMART\\Desktop\\AimTureNew\\AimTureNew\\server\\LearningPathGeneration_Backend\\LearningPathGeneration_Backend\\Dtos\\AdvertisemntDtos.cs",
+              "RelativeToolTip": "LearningPathGeneration_Backend\\Dtos\\AdvertisemntDtos.cs",
+              "ViewState": "AQIAAAYAAAAAAAAAAAAowA8AAABhAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-28T09:40:26.077Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "ContentController.cs",
+              "DocumentMoniker": "C:\\Users\\LAPMART\\Desktop\\AimTureNew\\AimTureNew\\server\\LearningPathGeneration_Backend\\LearningPathGeneration_Backend\\Controllers\\ContentController.cs",
+              "RelativeDocumentMoniker": "LearningPathGeneration_Backend\\Controllers\\ContentController.cs",
+              "ToolTip": "C:\\Users\\LAPMART\\Desktop\\AimTureNew\\AimTureNew\\server\\LearningPathGeneration_Backend\\LearningPathGeneration_Backend\\Controllers\\ContentController.cs",
+              "RelativeToolTip": "LearningPathGeneration_Backend\\Controllers\\ContentController.cs",
+              "ViewState": "AQIAAEEAAAAAAAAAAAAgwFoAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-24T07:52:43.98Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "ContentService.cs",
+              "DocumentMoniker": "C:\\Users\\LAPMART\\Desktop\\AimTureNew\\AimTureNew\\server\\LearningPathGeneration_Backend\\LearningPathGeneration_Backend\\Services\\ContentService.cs",
+              "RelativeDocumentMoniker": "LearningPathGeneration_Backend\\Services\\ContentService.cs",
+              "ToolTip": "C:\\Users\\LAPMART\\Desktop\\AimTureNew\\AimTureNew\\server\\LearningPathGeneration_Backend\\LearningPathGeneration_Backend\\Services\\ContentService.cs",
+              "RelativeToolTip": "LearningPathGeneration_Backend\\Services\\ContentService.cs",
+              "ViewState": "AQIAACQAAAAAAAAAAAAqwC4AAAAuAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-23T16:44:04.446Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Content.cs",
+              "DocumentMoniker": "C:\\Users\\LAPMART\\Desktop\\AimTureNew\\AimTureNew\\server\\LearningPathGeneration_Backend\\LearningPathGeneration_Backend\\Models\\Content.cs",
+              "RelativeDocumentMoniker": "LearningPathGeneration_Backend\\Models\\Content.cs",
+              "ToolTip": "C:\\Users\\LAPMART\\Desktop\\AimTureNew\\AimTureNew\\server\\LearningPathGeneration_Backend\\LearningPathGeneration_Backend\\Models\\Content.cs",
+              "RelativeToolTip": "LearningPathGeneration_Backend\\Models\\Content.cs",
+              "ViewState": "AQIAAAgAAAAAAAAAAAAkwBQAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-17T07:46:30.619Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "ContributorProfile.cs",
+              "DocumentMoniker": "C:\\Users\\LAPMART\\Desktop\\AimTureNew\\AimTureNew\\server\\LearningPathGeneration_Backend\\LearningPathGeneration_Backend\\Models\\ContributorProfile.cs",
+              "RelativeDocumentMoniker": "LearningPathGeneration_Backend\\Models\\ContributorProfile.cs",
+              "ToolTip": "C:\\Users\\LAPMART\\Desktop\\AimTureNew\\AimTureNew\\server\\LearningPathGeneration_Backend\\LearningPathGeneration_Backend\\Models\\ContributorProfile.cs",
+              "RelativeToolTip": "LearningPathGeneration_Backend\\Models\\ContributorProfile.cs",
+              "ViewState": "AQIAAAUAAAAAAAAAAAAswBkAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-09T05:46:52.995Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "AdvertismentService.cs",
+              "DocumentMoniker": "C:\\Users\\LAPMART\\Desktop\\AimTureNew\\AimTureNew\\server\\LearningPathGeneration_Backend\\LearningPathGeneration_Backend\\Services\\AdvertismentService.cs",
+              "RelativeDocumentMoniker": "LearningPathGeneration_Backend\\Services\\AdvertismentService.cs",
+              "ToolTip": "C:\\Users\\LAPMART\\Desktop\\AimTureNew\\AimTureNew\\server\\LearningPathGeneration_Backend\\LearningPathGeneration_Backend\\Services\\AdvertismentService.cs",
+              "RelativeToolTip": "LearningPathGeneration_Backend\\Services\\AdvertismentService.cs",
+              "ViewState": "AQIAADUAAAAAAAAAAAAwwEMAAABLAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-28T09:42:45.604Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Advertisement.cs",
+              "DocumentMoniker": "C:\\Users\\LAPMART\\Desktop\\AimTureNew\\AimTureNew\\server\\LearningPathGeneration_Backend\\LearningPathGeneration_Backend\\Models\\Advertisement.cs",
+              "RelativeDocumentMoniker": "LearningPathGeneration_Backend\\Models\\Advertisement.cs",
+              "ToolTip": "C:\\Users\\LAPMART\\Desktop\\AimTureNew\\AimTureNew\\server\\LearningPathGeneration_Backend\\LearningPathGeneration_Backend\\Models\\Advertisement.cs",
+              "RelativeToolTip": "LearningPathGeneration_Backend\\Models\\Advertisement.cs",
+              "ViewState": "AQIAAAQAAAAAAAAAAAAkwAoAAAAtAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-28T09:38:09.774Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "ContentDto.cs",
+              "DocumentMoniker": "C:\\Users\\LAPMART\\Desktop\\AimTureNew\\AimTureNew\\server\\LearningPathGeneration_Backend\\LearningPathGeneration_Backend\\Dtos\\ContentDto.cs",
+              "RelativeDocumentMoniker": "LearningPathGeneration_Backend\\Dtos\\ContentDto.cs",
+              "ToolTip": "C:\\Users\\LAPMART\\Desktop\\AimTureNew\\AimTureNew\\server\\LearningPathGeneration_Backend\\LearningPathGeneration_Backend\\Dtos\\ContentDto.cs",
+              "RelativeToolTip": "LearningPathGeneration_Backend\\Dtos\\ContentDto.cs",
+              "ViewState": "AQIAABEAAAAAAAAAAAAAwB8AAAAsAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-24T07:54:19.884Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "GoogleAiController.cs",
+              "DocumentMoniker": "C:\\Users\\LAPMART\\Desktop\\AimTureNew\\AimTureNew\\server\\LearningPathGeneration_Backend\\LearningPathGeneration_Backend\\Controllers\\GoogleAiController.cs",
+              "RelativeDocumentMoniker": "LearningPathGeneration_Backend\\Controllers\\GoogleAiController.cs",
+              "ToolTip": "C:\\Users\\LAPMART\\Desktop\\AimTureNew\\AimTureNew\\server\\LearningPathGeneration_Backend\\LearningPathGeneration_Backend\\Controllers\\GoogleAiController.cs",
+              "RelativeToolTip": "LearningPathGeneration_Backend\\Controllers\\GoogleAiController.cs",
+              "ViewState": "AQIAAP8AAAAAAAAAAAAywBEBAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-13T01:50:54.69Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "SpecificationController.cs",
+              "DocumentMoniker": "C:\\Users\\LAPMART\\Desktop\\AimTureNew\\AimTureNew\\server\\LearningPathGeneration_Backend\\LearningPathGeneration_Backend\\Controllers\\SpecificationController.cs",
+              "RelativeDocumentMoniker": "LearningPathGeneration_Backend\\Controllers\\SpecificationController.cs",
+              "ToolTip": "C:\\Users\\LAPMART\\Desktop\\AimTureNew\\AimTureNew\\server\\LearningPathGeneration_Backend\\LearningPathGeneration_Backend\\Controllers\\SpecificationController.cs",
+              "RelativeToolTip": "LearningPathGeneration_Backend\\Controllers\\SpecificationController.cs",
+              "ViewState": "AQIAABsAAAAAAAAAAAAowCUAAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-07T07:00:20.548Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "LearningPathRequest.cs",
+              "DocumentMoniker": "C:\\Users\\LAPMART\\Desktop\\AimTureNew\\AimTureNew\\server\\LearningPathGeneration_Backend\\LearningPathGeneration_Backend\\Models\\LearningPathRequest.cs",
+              "RelativeDocumentMoniker": "LearningPathGeneration_Backend\\Models\\LearningPathRequest.cs",
+              "ToolTip": "C:\\Users\\LAPMART\\Desktop\\AimTureNew\\AimTureNew\\server\\LearningPathGeneration_Backend\\LearningPathGeneration_Backend\\Models\\LearningPathRequest.cs",
+              "RelativeToolTip": "LearningPathGeneration_Backend\\Models\\LearningPathRequest.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-28T16:20:42.036Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "DatabaseContext.cs",
+              "DocumentMoniker": "C:\\Users\\LAPMART\\Desktop\\AimTureNew\\AimTureNew\\server\\LearningPathGeneration_Backend\\LearningPathGeneration_Backend\\Data\\DatabaseContext.cs",
+              "RelativeDocumentMoniker": "LearningPathGeneration_Backend\\Data\\DatabaseContext.cs",
+              "ToolTip": "C:\\Users\\LAPMART\\Desktop\\AimTureNew\\AimTureNew\\server\\LearningPathGeneration_Backend\\LearningPathGeneration_Backend\\Data\\DatabaseContext.cs",
+              "RelativeToolTip": "LearningPathGeneration_Backend\\Data\\DatabaseContext.cs",
+              "ViewState": "AQIAAAwAAAAAAAAAAAAewA8AAAAoAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-09T19:21:48.798Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "ProviderSpecifications.cs",
+              "DocumentMoniker": "C:\\Users\\LAPMART\\Desktop\\AimTureNew\\AimTureNew\\server\\LearningPathGeneration_Backend\\LearningPathGeneration_Backend\\Models\\ProviderSpecifications.cs",
+              "RelativeDocumentMoniker": "LearningPathGeneration_Backend\\Models\\ProviderSpecifications.cs",
+              "ToolTip": "C:\\Users\\LAPMART\\Desktop\\AimTureNew\\AimTureNew\\server\\LearningPathGeneration_Backend\\LearningPathGeneration_Backend\\Models\\ProviderSpecifications.cs",
+              "RelativeToolTip": "LearningPathGeneration_Backend\\Models\\ProviderSpecifications.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAAFAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-07T05:22:34.641Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
               "Title": "AdvertisementController.cs",
               "DocumentMoniker": "C:\\Users\\LAPMART\\Desktop\\AimTureNew\\AimTureNew\\server\\LearningPathGeneration_Backend\\LearningPathGeneration_Backend\\Controllers\\AdvertisementController.cs",
               "RelativeDocumentMoniker": "LearningPathGeneration_Backend\\Controllers\\AdvertisementController.cs",
@@ -462,59 +630,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "KeywordService.cs",
-              "DocumentMoniker": "C:\\Users\\LAPMART\\Desktop\\AimTureNew\\AimTureNew\\server\\LearningPathGeneration_Backend\\LearningPathGeneration_Backend\\Services\\KeywordService.cs",
-              "RelativeDocumentMoniker": "LearningPathGeneration_Backend\\Services\\KeywordService.cs",
-              "ToolTip": "C:\\Users\\LAPMART\\Desktop\\AimTureNew\\AimTureNew\\server\\LearningPathGeneration_Backend\\LearningPathGeneration_Backend\\Services\\KeywordService.cs",
-              "RelativeToolTip": "LearningPathGeneration_Backend\\Services\\KeywordService.cs",
-              "ViewState": "AQIAADkAAAAAAAAAAAAiwFIAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-01T03:41:47.96Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\LAPMART\\Desktop\\AimTureNew\\AimTureNew\\server\\LearningPathGeneration_Backend\\LearningPathGeneration_Backend\\Program.cs",
-              "RelativeDocumentMoniker": "LearningPathGeneration_Backend\\Program.cs",
-              "ToolTip": "C:\\Users\\LAPMART\\Desktop\\AimTureNew\\AimTureNew\\server\\LearningPathGeneration_Backend\\LearningPathGeneration_Backend\\Program.cs",
-              "RelativeToolTip": "LearningPathGeneration_Backend\\Program.cs",
-              "ViewState": "AQIAAFAAAAAAAAAAAAAswGIAAAAtAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-09T19:24:35.03Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Advertisement.cs",
-              "DocumentMoniker": "C:\\Users\\LAPMART\\Desktop\\AimTureNew\\AimTureNew\\server\\LearningPathGeneration_Backend\\LearningPathGeneration_Backend\\Models\\Advertisement.cs",
-              "RelativeDocumentMoniker": "LearningPathGeneration_Backend\\Models\\Advertisement.cs",
-              "ToolTip": "C:\\Users\\LAPMART\\Desktop\\AimTureNew\\AimTureNew\\server\\LearningPathGeneration_Backend\\LearningPathGeneration_Backend\\Models\\Advertisement.cs",
-              "RelativeToolTip": "LearningPathGeneration_Backend\\Models\\Advertisement.cs",
-              "ViewState": "AQIAAAQAAAAAAAAAAAAYwAwAAAAqAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-28T09:38:09.774Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "AdvertismentService.cs",
-              "DocumentMoniker": "C:\\Users\\LAPMART\\Desktop\\AimTureNew\\AimTureNew\\server\\LearningPathGeneration_Backend\\LearningPathGeneration_Backend\\Services\\AdvertismentService.cs",
-              "RelativeDocumentMoniker": "LearningPathGeneration_Backend\\Services\\AdvertismentService.cs",
-              "ToolTip": "C:\\Users\\LAPMART\\Desktop\\AimTureNew\\AimTureNew\\server\\LearningPathGeneration_Backend\\LearningPathGeneration_Backend\\Services\\AdvertismentService.cs",
-              "RelativeToolTip": "LearningPathGeneration_Backend\\Services\\AdvertismentService.cs",
-              "ViewState": "AQIAALkAAAAAAAAAAAAuwMQAAAAmAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-28T09:42:45.604Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 15,
               "Title": "AdSpecification.cs",
               "DocumentMoniker": "C:\\Users\\LAPMART\\Desktop\\AimTureNew\\AimTureNew\\server\\LearningPathGeneration_Backend\\LearningPathGeneration_Backend\\Models\\AdSpecification.cs",
               "RelativeDocumentMoniker": "LearningPathGeneration_Backend\\Models\\AdSpecification.cs",
@@ -522,38 +638,35 @@
               "RelativeToolTip": "LearningPathGeneration_Backend\\Models\\AdSpecification.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAlAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-14T03:43:35.921Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-07-14T03:43:35.921Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "ProviderSpecifications.cs",
-              "DocumentMoniker": "C:\\Users\\LAPMART\\Desktop\\AimTureNew\\AimTureNew\\server\\LearningPathGeneration_Backend\\LearningPathGeneration_Backend\\Models\\ProviderSpecifications.cs",
-              "RelativeDocumentMoniker": "LearningPathGeneration_Backend\\Models\\ProviderSpecifications.cs",
-              "ToolTip": "C:\\Users\\LAPMART\\Desktop\\AimTureNew\\AimTureNew\\server\\LearningPathGeneration_Backend\\LearningPathGeneration_Backend\\Models\\ProviderSpecifications.cs",
-              "RelativeToolTip": "LearningPathGeneration_Backend\\Models\\ProviderSpecifications.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAAFAAAA",
+              "DocumentIndex": 16,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\LAPMART\\Desktop\\AimTureNew\\AimTureNew\\server\\LearningPathGeneration_Backend\\LearningPathGeneration_Backend\\Program.cs",
+              "RelativeDocumentMoniker": "LearningPathGeneration_Backend\\Program.cs",
+              "ToolTip": "C:\\Users\\LAPMART\\Desktop\\AimTureNew\\AimTureNew\\server\\LearningPathGeneration_Backend\\LearningPathGeneration_Backend\\Program.cs",
+              "RelativeToolTip": "LearningPathGeneration_Backend\\Program.cs",
+              "ViewState": "AQIAAFAAAAAAAAAAAAAswGIAAAAtAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-07T05:22:34.641Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-09-09T19:24:35.03Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "GoogleAiController.cs",
-              "DocumentMoniker": "C:\\Users\\LAPMART\\Desktop\\AimTureNew\\AimTureNew\\server\\LearningPathGeneration_Backend\\LearningPathGeneration_Backend\\Controllers\\GoogleAiController.cs",
-              "RelativeDocumentMoniker": "LearningPathGeneration_Backend\\Controllers\\GoogleAiController.cs",
-              "ToolTip": "C:\\Users\\LAPMART\\Desktop\\AimTureNew\\AimTureNew\\server\\LearningPathGeneration_Backend\\LearningPathGeneration_Backend\\Controllers\\GoogleAiController.cs",
-              "RelativeToolTip": "LearningPathGeneration_Backend\\Controllers\\GoogleAiController.cs",
-              "ViewState": "AQIAAKkBAAAAAAAAAAAgwN0BAAAAAAAA",
+              "DocumentIndex": 13,
+              "Title": "KeywordService.cs",
+              "DocumentMoniker": "C:\\Users\\LAPMART\\Desktop\\AimTureNew\\AimTureNew\\server\\LearningPathGeneration_Backend\\LearningPathGeneration_Backend\\Services\\KeywordService.cs",
+              "RelativeDocumentMoniker": "LearningPathGeneration_Backend\\Services\\KeywordService.cs",
+              "ToolTip": "C:\\Users\\LAPMART\\Desktop\\AimTureNew\\AimTureNew\\server\\LearningPathGeneration_Backend\\LearningPathGeneration_Backend\\Services\\KeywordService.cs",
+              "RelativeToolTip": "LearningPathGeneration_Backend\\Services\\KeywordService.cs",
+              "ViewState": "AQIAADkAAAAAAAAAAAAiwFIAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-13T01:50:54.69Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-01T03:41:47.96Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 17,
               "Title": "IAdvertisementService.cs",
               "DocumentMoniker": "C:\\Users\\LAPMART\\Desktop\\AimTureNew\\AimTureNew\\server\\LearningPathGeneration_Backend\\LearningPathGeneration_Backend\\Interfaces\\IAdvertisementService.cs",
               "RelativeDocumentMoniker": "LearningPathGeneration_Backend\\Interfaces\\IAdvertisementService.cs",
@@ -561,12 +674,11 @@
               "RelativeToolTip": "LearningPathGeneration_Backend\\Interfaces\\IAdvertisementService.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAqwA0AAAAKAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-28T09:41:44.396Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-28T09:41:44.396Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 18,
               "Title": "IKeywordExtractionService.cs",
               "DocumentMoniker": "C:\\Users\\LAPMART\\Desktop\\AimTureNew\\AimTureNew\\server\\LearningPathGeneration_Backend\\LearningPathGeneration_Backend\\Interfaces\\IKeywordExtractionService.cs",
               "RelativeDocumentMoniker": "LearningPathGeneration_Backend\\Interfaces\\IKeywordExtractionService.cs",
@@ -574,12 +686,11 @@
               "RelativeToolTip": "LearningPathGeneration_Backend\\Interfaces\\IKeywordExtractionService.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAHAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-01T02:35:08.668Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-01T02:35:08.668Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 19,
               "Title": "GoogleAiService.cs",
               "DocumentMoniker": "C:\\Users\\LAPMART\\Desktop\\AimTureNew\\AimTureNew\\server\\LearningPathGeneration_Backend\\LearningPathGeneration_Backend\\Services\\GoogleAiService.cs",
               "RelativeDocumentMoniker": "LearningPathGeneration_Backend\\Services\\GoogleAiService.cs",
@@ -587,12 +698,11 @@
               "RelativeToolTip": "LearningPathGeneration_Backend\\Services\\GoogleAiService.cs",
               "ViewState": "AQIAACgAAAAAAAAAAAAqwHUAAAAFAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-12T23:22:27.627Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-09-12T23:22:27.627Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 20,
               "Title": "IGoogleAiIService.cs",
               "DocumentMoniker": "C:\\Users\\LAPMART\\Desktop\\AimTureNew\\AimTureNew\\server\\LearningPathGeneration_Backend\\LearningPathGeneration_Backend\\Interfaces\\IGoogleAiIService.cs",
               "RelativeDocumentMoniker": "LearningPathGeneration_Backend\\Interfaces\\IGoogleAiIService.cs",
@@ -600,12 +710,11 @@
               "RelativeToolTip": "LearningPathGeneration_Backend\\Interfaces\\IGoogleAiIService.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAEAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-01T03:57:30.078Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-01T03:57:30.078Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 21,
               "Title": "KeyWordRequestDto.cs",
               "DocumentMoniker": "C:\\Users\\LAPMART\\Desktop\\AimTureNew\\AimTureNew\\server\\LearningPathGeneration_Backend\\LearningPathGeneration_Backend\\Dtos\\KeyWordRequestDto.cs",
               "RelativeDocumentMoniker": "LearningPathGeneration_Backend\\Dtos\\KeyWordRequestDto.cs",
@@ -613,12 +722,11 @@
               "RelativeToolTip": "LearningPathGeneration_Backend\\Dtos\\KeyWordRequestDto.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAQAAAA4AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-01T01:57:46.508Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-01T01:57:46.508Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 22,
               "Title": "AdSpecificationDto.cs",
               "DocumentMoniker": "C:\\Users\\LAPMART\\Desktop\\AimTureNew\\AimTureNew\\server\\LearningPathGeneration_Backend\\LearningPathGeneration_Backend\\Dtos\\AdSpecificationDto.cs",
               "RelativeDocumentMoniker": "LearningPathGeneration_Backend\\Dtos\\AdSpecificationDto.cs",
@@ -626,12 +734,11 @@
               "RelativeToolTip": "LearningPathGeneration_Backend\\Dtos\\AdSpecificationDto.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAAAiAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-20T07:41:02.585Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-07-20T07:41:02.585Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 23,
               "Title": "AdvertisemntProviderController.cs",
               "DocumentMoniker": "C:\\Users\\LAPMART\\Desktop\\AimTureNew\\AimTureNew\\server\\LearningPathGeneration_Backend\\LearningPathGeneration_Backend\\Controllers\\AdvertisemntProviderController.cs",
               "RelativeDocumentMoniker": "LearningPathGeneration_Backend\\Controllers\\AdvertisemntProviderController.cs",
@@ -639,12 +746,11 @@
               "RelativeToolTip": "LearningPathGeneration_Backend\\Controllers\\AdvertisemntProviderController.cs",
               "ViewState": "AQIAAAwAAAAAAAAAAAAuwDEAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-07T09:40:34.825Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-07-07T09:40:34.825Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 24,
               "Title": "IAdvertisementProviderService.cs",
               "DocumentMoniker": "C:\\Users\\LAPMART\\Desktop\\AimTureNew\\AimTureNew\\server\\LearningPathGeneration_Backend\\LearningPathGeneration_Backend\\Interfaces\\IAdvertisementProviderService.cs",
               "RelativeDocumentMoniker": "LearningPathGeneration_Backend\\Interfaces\\IAdvertisementProviderService.cs",
@@ -652,12 +758,11 @@
               "RelativeToolTip": "LearningPathGeneration_Backend\\Interfaces\\IAdvertisementProviderService.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAAnAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-07T09:33:19.392Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-07-07T09:33:19.392Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 25,
               "Title": "AdvertisementProfile.cs",
               "DocumentMoniker": "C:\\Users\\LAPMART\\Desktop\\AimTureNew\\AimTureNew\\server\\LearningPathGeneration_Backend\\LearningPathGeneration_Backend\\Profiles\\AdvertisementProfile.cs",
               "RelativeDocumentMoniker": "LearningPathGeneration_Backend\\Profiles\\AdvertisementProfile.cs",
@@ -665,12 +770,11 @@
               "RelativeToolTip": "LearningPathGeneration_Backend\\Profiles\\AdvertisementProfile.cs",
               "ViewState": "AQIAAAQAAAAAAAAAAAAAAB4AAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-28T09:57:48.216Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-28T09:57:48.216Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 23,
+              "DocumentIndex": 28,
               "Title": "ContentSpecializationcs.cs",
               "DocumentMoniker": "C:\\Users\\LAPMART\\Desktop\\AimTureNew\\AimTureNew\\server\\LearningPathGeneration_Backend\\LearningPathGeneration_Backend\\Models\\ContentSpecializationcs.cs",
               "RelativeDocumentMoniker": "LearningPathGeneration_Backend\\Models\\ContentSpecializationcs.cs",
@@ -682,33 +786,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
-              "Title": "ContentService.cs",
-              "DocumentMoniker": "C:\\Users\\LAPMART\\Desktop\\AimTureNew\\AimTureNew\\server\\LearningPathGeneration_Backend\\LearningPathGeneration_Backend\\Services\\ContentService.cs",
-              "RelativeDocumentMoniker": "LearningPathGeneration_Backend\\Services\\ContentService.cs",
-              "ToolTip": "C:\\Users\\LAPMART\\Desktop\\AimTureNew\\AimTureNew\\server\\LearningPathGeneration_Backend\\LearningPathGeneration_Backend\\Services\\ContentService.cs",
-              "RelativeToolTip": "LearningPathGeneration_Backend\\Services\\ContentService.cs",
-              "ViewState": "AQIAAIQAAAAAAAAAAAAAAJIAAAA7AAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-23T16:44:04.446Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 21,
-              "Title": "DatabaseContext.cs",
-              "DocumentMoniker": "C:\\Users\\LAPMART\\Desktop\\AimTureNew\\AimTureNew\\server\\LearningPathGeneration_Backend\\LearningPathGeneration_Backend\\Data\\DatabaseContext.cs",
-              "RelativeDocumentMoniker": "LearningPathGeneration_Backend\\Data\\DatabaseContext.cs",
-              "ToolTip": "C:\\Users\\LAPMART\\Desktop\\AimTureNew\\AimTureNew\\server\\LearningPathGeneration_Backend\\LearningPathGeneration_Backend\\Data\\DatabaseContext.cs",
-              "RelativeToolTip": "LearningPathGeneration_Backend\\Data\\DatabaseContext.cs",
-              "ViewState": "AQIAAGoAAAAAAAAAAAAgwIwAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-09T19:21:48.798Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 26,
               "Title": "ImageService.cs",
               "DocumentMoniker": "C:\\Users\\LAPMART\\Desktop\\AimTureNew\\AimTureNew\\server\\LearningPathGeneration_Backend\\LearningPathGeneration_Backend\\Services\\ImageService.cs",
               "RelativeDocumentMoniker": "LearningPathGeneration_Backend\\Services\\ImageService.cs",
@@ -716,37 +794,11 @@
               "RelativeToolTip": "LearningPathGeneration_Backend\\Services\\ImageService.cs",
               "ViewState": "AQIAALcAAAAAAAAAAAAgwNMAAAABAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-28T18:03:10.237Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-28T18:03:10.237Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 24,
-              "Title": "AdvertisemntDtos.cs",
-              "DocumentMoniker": "C:\\Users\\LAPMART\\Desktop\\AimTureNew\\AimTureNew\\server\\LearningPathGeneration_Backend\\LearningPathGeneration_Backend\\Dtos\\AdvertisemntDtos.cs",
-              "RelativeDocumentMoniker": "LearningPathGeneration_Backend\\Dtos\\AdvertisemntDtos.cs",
-              "ToolTip": "C:\\Users\\LAPMART\\Desktop\\AimTureNew\\AimTureNew\\server\\LearningPathGeneration_Backend\\LearningPathGeneration_Backend\\Dtos\\AdvertisemntDtos.cs",
-              "RelativeToolTip": "LearningPathGeneration_Backend\\Dtos\\AdvertisemntDtos.cs",
-              "ViewState": "AQIAAAYAAAAAAAAAAAAowA4AAAA4AAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-28T09:40:26.077Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 19,
-              "Title": "ContentController.cs",
-              "DocumentMoniker": "C:\\Users\\LAPMART\\Desktop\\AimTureNew\\AimTureNew\\server\\LearningPathGeneration_Backend\\LearningPathGeneration_Backend\\Controllers\\ContentController.cs",
-              "RelativeDocumentMoniker": "LearningPathGeneration_Backend\\Controllers\\ContentController.cs",
-              "ToolTip": "C:\\Users\\LAPMART\\Desktop\\AimTureNew\\AimTureNew\\server\\LearningPathGeneration_Backend\\LearningPathGeneration_Backend\\Controllers\\ContentController.cs",
-              "RelativeToolTip": "LearningPathGeneration_Backend\\Controllers\\ContentController.cs",
-              "ViewState": "AQIAADoAAAAAAAAAAAAAAE0AAAAiAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-24T07:52:43.98Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 20,
+              "DocumentIndex": 27,
               "Title": "IContentService.cs",
               "DocumentMoniker": "C:\\Users\\LAPMART\\Desktop\\AimTureNew\\AimTureNew\\server\\LearningPathGeneration_Backend\\LearningPathGeneration_Backend\\Interfaces\\IContentService.cs",
               "RelativeDocumentMoniker": "LearningPathGeneration_Backend\\Interfaces\\IContentService.cs",
@@ -754,25 +806,11 @@
               "RelativeToolTip": "LearningPathGeneration_Backend\\Interfaces\\IContentService.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAA+AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-23T16:42:13.582Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-23T16:42:13.582Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 22,
-              "Title": "ContentDto.cs",
-              "DocumentMoniker": "C:\\Users\\LAPMART\\Desktop\\AimTureNew\\AimTureNew\\server\\LearningPathGeneration_Backend\\LearningPathGeneration_Backend\\Dtos\\ContentDto.cs",
-              "RelativeDocumentMoniker": "LearningPathGeneration_Backend\\Dtos\\ContentDto.cs",
-              "ToolTip": "C:\\Users\\LAPMART\\Desktop\\AimTureNew\\AimTureNew\\server\\LearningPathGeneration_Backend\\LearningPathGeneration_Backend\\Dtos\\ContentDto.cs",
-              "RelativeToolTip": "LearningPathGeneration_Backend\\Dtos\\ContentDto.cs",
-              "ViewState": "AQIAABYAAAAAAAAAAAAQwBoAAABRAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-24T07:54:19.884Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 25,
+              "DocumentIndex": 29,
               "Title": "CloudinarySettings.cs",
               "DocumentMoniker": "C:\\Users\\LAPMART\\Desktop\\AimTureNew\\AimTureNew\\server\\LearningPathGeneration_Backend\\LearningPathGeneration_Backend\\Models\\CloudinarySettings.cs",
               "RelativeDocumentMoniker": "LearningPathGeneration_Backend\\Models\\CloudinarySettings.cs",
@@ -784,7 +822,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 26,
+              "DocumentIndex": 30,
               "Title": "AdSpecificationServicecs.cs",
               "DocumentMoniker": "C:\\Users\\LAPMART\\Desktop\\AimTureNew\\AimTureNew\\server\\LearningPathGeneration_Backend\\LearningPathGeneration_Backend\\Services\\AdSpecificationServicecs.cs",
               "RelativeDocumentMoniker": "LearningPathGeneration_Backend\\Services\\AdSpecificationServicecs.cs",
@@ -796,7 +834,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 27,
+              "DocumentIndex": 31,
               "Title": "AdSpecificationController.cs",
               "DocumentMoniker": "C:\\Users\\LAPMART\\Desktop\\AimTureNew\\AimTureNew\\server\\LearningPathGeneration_Backend\\LearningPathGeneration_Backend\\Controllers\\AdSpecificationController.cs",
               "RelativeDocumentMoniker": "LearningPathGeneration_Backend\\Controllers\\AdSpecificationController.cs",
@@ -808,7 +846,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 28,
+              "DocumentIndex": 32,
               "Title": "SpecificationProfile.cs",
               "DocumentMoniker": "C:\\Users\\LAPMART\\Desktop\\AimTureNew\\AimTureNew\\server\\LearningPathGeneration_Backend\\LearningPathGeneration_Backend\\Profiles\\SpecificationProfile.cs",
               "RelativeDocumentMoniker": "LearningPathGeneration_Backend\\Profiles\\SpecificationProfile.cs",
@@ -820,7 +858,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 31,
+              "DocumentIndex": 35,
               "Title": "20250714034954_AdSpecification.cs",
               "DocumentMoniker": "C:\\Users\\LAPMART\\Desktop\\AimTureNew\\AimTureNew\\server\\LearningPathGeneration_Backend\\LearningPathGeneration_Backend\\Migrations\\20250714034954_AdSpecification.cs",
               "RelativeDocumentMoniker": "LearningPathGeneration_Backend\\Migrations\\20250714034954_AdSpecification.cs",
@@ -832,7 +870,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 30,
+              "DocumentIndex": 34,
               "Title": "20250826102147_serialization.cs",
               "DocumentMoniker": "C:\\Users\\LAPMART\\Desktop\\AimTureNew\\AimTureNew\\server\\LearningPathGeneration_Backend\\LearningPathGeneration_Backend\\Migrations\\20250826102147_serialization.cs",
               "RelativeDocumentMoniker": "LearningPathGeneration_Backend\\Migrations\\20250826102147_serialization.cs",
@@ -844,7 +882,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 29,
+              "DocumentIndex": 33,
               "Title": "20250824075908_join.cs",
               "DocumentMoniker": "C:\\Users\\LAPMART\\Desktop\\AimTureNew\\AimTureNew\\server\\LearningPathGeneration_Backend\\LearningPathGeneration_Backend\\Migrations\\20250824075908_join.cs",
               "RelativeDocumentMoniker": "LearningPathGeneration_Backend\\Migrations\\20250824075908_join.cs",
@@ -856,31 +894,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 34,
-              "Title": "ContributorProfile.cs",
-              "DocumentMoniker": "C:\\Users\\LAPMART\\Desktop\\AimTureNew\\AimTureNew\\server\\LearningPathGeneration_Backend\\LearningPathGeneration_Backend\\Models\\ContributorProfile.cs",
-              "RelativeDocumentMoniker": "LearningPathGeneration_Backend\\Models\\ContributorProfile.cs",
-              "ToolTip": "C:\\Users\\LAPMART\\Desktop\\AimTureNew\\AimTureNew\\server\\LearningPathGeneration_Backend\\LearningPathGeneration_Backend\\Models\\ContributorProfile.cs",
-              "RelativeToolTip": "LearningPathGeneration_Backend\\Models\\ContributorProfile.cs",
-              "ViewState": "AQIAAAsAAAAAAAAAAAAmwBkAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-09T05:46:52.995Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 32,
-              "Title": "Content.cs",
-              "DocumentMoniker": "C:\\Users\\LAPMART\\Desktop\\AimTureNew\\AimTureNew\\server\\LearningPathGeneration_Backend\\LearningPathGeneration_Backend\\Models\\Content.cs",
-              "RelativeDocumentMoniker": "LearningPathGeneration_Backend\\Models\\Content.cs",
-              "ToolTip": "C:\\Users\\LAPMART\\Desktop\\AimTureNew\\AimTureNew\\server\\LearningPathGeneration_Backend\\LearningPathGeneration_Backend\\Models\\Content.cs",
-              "RelativeToolTip": "LearningPathGeneration_Backend\\Models\\Content.cs",
-              "ViewState": "AQIAAA0AAAAAAAAAAAA4wBMAAAAeAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-17T07:46:30.619Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 33,
+              "DocumentIndex": 36,
               "Title": "20250817085503_contentSpecializationConetentType.cs",
               "DocumentMoniker": "C:\\Users\\LAPMART\\Desktop\\AimTureNew\\AimTureNew\\server\\LearningPathGeneration_Backend\\LearningPathGeneration_Backend\\Migrations\\20250817085503_contentSpecializationConetentType.cs",
               "RelativeDocumentMoniker": "LearningPathGeneration_Backend\\Migrations\\20250817085503_contentSpecializationConetentType.cs",
@@ -892,7 +906,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 35,
+              "DocumentIndex": 37,
               "Title": "ContentSpecializationJoin.cs",
               "DocumentMoniker": "C:\\Users\\LAPMART\\Desktop\\AimTureNew\\AimTureNew\\server\\LearningPathGeneration_Backend\\LearningPathGeneration_Backend\\Models\\ContentSpecializationJoin.cs",
               "RelativeDocumentMoniker": "LearningPathGeneration_Backend\\Models\\ContentSpecializationJoin.cs",
@@ -904,7 +918,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 36,
+              "DocumentIndex": 38,
               "Title": "20250809062022_addContributorProfileModal.cs",
               "DocumentMoniker": "C:\\Users\\LAPMART\\Desktop\\AimTureNew\\AimTureNew\\server\\LearningPathGeneration_Backend\\LearningPathGeneration_Backend\\Migrations\\20250809062022_addContributorProfileModal.cs",
               "RelativeDocumentMoniker": "LearningPathGeneration_Backend\\Migrations\\20250809062022_addContributorProfileModal.cs",
@@ -916,7 +930,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 37,
+              "DocumentIndex": 39,
               "Title": "AdvertiserProviderSpecification.cs",
               "DocumentMoniker": "C:\\Users\\LAPMART\\Desktop\\AimTureNew\\AimTureNew\\server\\LearningPathGeneration_Backend\\LearningPathGeneration_Backend\\Models\\AdvertiserProviderSpecification.cs",
               "RelativeDocumentMoniker": "LearningPathGeneration_Backend\\Models\\AdvertiserProviderSpecification.cs",
@@ -928,7 +942,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 39,
+              "DocumentIndex": 41,
               "Title": "AuthController.cs",
               "DocumentMoniker": "C:\\Users\\LAPMART\\Desktop\\AimTureNew\\AimTureNew\\server\\LearningPathGeneration_Backend\\LearningPathGeneration_Backend\\Controllers\\AuthController.cs",
               "RelativeDocumentMoniker": "LearningPathGeneration_Backend\\Controllers\\AuthController.cs",
@@ -940,7 +954,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 38,
+              "DocumentIndex": 40,
               "Title": "ContributorController.cs",
               "DocumentMoniker": "C:\\Users\\LAPMART\\Desktop\\AimTureNew\\AimTureNew\\server\\LearningPathGeneration_Backend\\LearningPathGeneration_Backend\\Controllers\\ContributorController.cs",
               "RelativeDocumentMoniker": "LearningPathGeneration_Backend\\Controllers\\ContributorController.cs",
@@ -952,7 +966,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 40,
+              "DocumentIndex": 42,
               "Title": "ContentTypeController.cs",
               "DocumentMoniker": "C:\\Users\\LAPMART\\Desktop\\AimTureNew\\AimTureNew\\server\\LearningPathGeneration_Backend\\LearningPathGeneration_Backend\\Controllers\\ContentTypeController.cs",
               "RelativeDocumentMoniker": "LearningPathGeneration_Backend\\Controllers\\ContentTypeController.cs",
@@ -964,7 +978,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 42,
+              "DocumentIndex": 44,
               "Title": "IContentTypeService.cs",
               "DocumentMoniker": "C:\\Users\\LAPMART\\Desktop\\AimTureNew\\AimTureNew\\server\\LearningPathGeneration_Backend\\LearningPathGeneration_Backend\\Interfaces\\IContentTypeService.cs",
               "RelativeDocumentMoniker": "LearningPathGeneration_Backend\\Interfaces\\IContentTypeService.cs",
@@ -976,7 +990,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 43,
+              "DocumentIndex": 45,
               "Title": "ContentTypeDto.cs",
               "DocumentMoniker": "C:\\Users\\LAPMART\\Desktop\\AimTureNew\\AimTureNew\\server\\LearningPathGeneration_Backend\\LearningPathGeneration_Backend\\Dtos\\ContentTypeDto.cs",
               "RelativeDocumentMoniker": "LearningPathGeneration_Backend\\Dtos\\ContentTypeDto.cs",
@@ -988,7 +1002,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 41,
+              "DocumentIndex": 43,
               "Title": "ContentTypeService.cs",
               "DocumentMoniker": "C:\\Users\\LAPMART\\Desktop\\AimTureNew\\AimTureNew\\server\\LearningPathGeneration_Backend\\LearningPathGeneration_Backend\\Services\\ContentTypeService.cs",
               "RelativeDocumentMoniker": "LearningPathGeneration_Backend\\Services\\ContentTypeService.cs",
@@ -1000,7 +1014,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 44,
+              "DocumentIndex": 46,
               "Title": "UpdateUserDto.cs",
               "DocumentMoniker": "C:\\Users\\LAPMART\\Desktop\\AimTureNew\\AimTureNew\\server\\LearningPathGeneration_Backend\\LearningPathGeneration_Backend\\Dtos\\UpdateUserDto.cs",
               "RelativeDocumentMoniker": "LearningPathGeneration_Backend\\Dtos\\UpdateUserDto.cs",
@@ -1012,7 +1026,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 45,
+              "DocumentIndex": 47,
               "Title": "ContributorCreateDto.cs",
               "DocumentMoniker": "C:\\Users\\LAPMART\\Desktop\\AimTureNew\\AimTureNew\\server\\LearningPathGeneration_Backend\\LearningPathGeneration_Backend\\Dtos\\ContributorCreateDto.cs",
               "RelativeDocumentMoniker": "LearningPathGeneration_Backend\\Dtos\\ContributorCreateDto.cs",
@@ -1024,7 +1038,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 47,
+              "DocumentIndex": 49,
               "Title": "ContributorUpdateDto.cs",
               "DocumentMoniker": "C:\\Users\\LAPMART\\Desktop\\AimTureNew\\AimTureNew\\server\\LearningPathGeneration_Backend\\LearningPathGeneration_Backend\\Dtos\\ContributorUpdateDto.cs",
               "RelativeDocumentMoniker": "LearningPathGeneration_Backend\\Dtos\\ContributorUpdateDto.cs",
@@ -1036,7 +1050,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 46,
+              "DocumentIndex": 48,
               "Title": "ContributorService.cs",
               "DocumentMoniker": "C:\\Users\\LAPMART\\Desktop\\AimTureNew\\AimTureNew\\server\\LearningPathGeneration_Backend\\LearningPathGeneration_Backend\\Services\\ContributorService.cs",
               "RelativeDocumentMoniker": "LearningPathGeneration_Backend\\Services\\ContributorService.cs",
@@ -1048,7 +1062,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 50,
+              "DocumentIndex": 52,
               "Title": "User.cs",
               "DocumentMoniker": "C:\\Users\\LAPMART\\Desktop\\AimTureNew\\AimTureNew\\server\\LearningPathGeneration_Backend\\LearningPathGeneration_Backend\\Models\\User.cs",
               "RelativeDocumentMoniker": "LearningPathGeneration_Backend\\Models\\User.cs",
@@ -1060,7 +1074,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 49,
+              "DocumentIndex": 51,
               "Title": "TokenService.cs",
               "DocumentMoniker": "C:\\Users\\LAPMART\\Desktop\\AimTureNew\\AimTureNew\\server\\LearningPathGeneration_Backend\\LearningPathGeneration_Backend\\Services\\TokenService.cs",
               "RelativeDocumentMoniker": "LearningPathGeneration_Backend\\Services\\TokenService.cs",
@@ -1072,7 +1086,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 48,
+              "DocumentIndex": 50,
               "Title": "UserService.cs",
               "DocumentMoniker": "C:\\Users\\LAPMART\\Desktop\\AimTureNew\\AimTureNew\\server\\LearningPathGeneration_Backend\\LearningPathGeneration_Backend\\Services\\UserService.cs",
               "RelativeDocumentMoniker": "LearningPathGeneration_Backend\\Services\\UserService.cs",
@@ -1084,7 +1098,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 51,
+              "DocumentIndex": 53,
               "Title": "LoginDto.cs",
               "DocumentMoniker": "C:\\Users\\LAPMART\\Desktop\\AimTureNew\\AimTureNew\\server\\LearningPathGeneration_Backend\\LearningPathGeneration_Backend\\Dtos\\LoginDto.cs",
               "RelativeDocumentMoniker": "LearningPathGeneration_Backend\\Dtos\\LoginDto.cs",
@@ -1096,7 +1110,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 56,
+              "DocumentIndex": 58,
               "Title": "LearningPathTopic.cs",
               "DocumentMoniker": "C:\\Users\\LAPMART\\Desktop\\AimTureNew\\AimTureNew\\server\\LearningPathGeneration_Backend\\LearningPathGeneration_Backend\\Models\\LearningPathTopic.cs",
               "RelativeDocumentMoniker": "LearningPathGeneration_Backend\\Models\\LearningPathTopic.cs",
@@ -1108,7 +1122,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 53,
+              "DocumentIndex": 55,
               "Title": "Quote.cs",
               "DocumentMoniker": "C:\\Users\\LAPMART\\Desktop\\AimTureNew\\AimTureNew\\server\\LearningPathGeneration_Backend\\LearningPathGeneration_Backend\\Models\\Quote.cs",
               "RelativeDocumentMoniker": "LearningPathGeneration_Backend\\Models\\Quote.cs",
@@ -1120,7 +1134,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 55,
+              "DocumentIndex": 57,
               "Title": "EmailController.cs",
               "DocumentMoniker": "C:\\Users\\LAPMART\\Desktop\\AimTureNew\\AimTureNew\\server\\LearningPathGeneration_Backend\\LearningPathGeneration_Backend\\Controllers\\EmailController.cs",
               "RelativeDocumentMoniker": "LearningPathGeneration_Backend\\Controllers\\EmailController.cs",
@@ -1132,7 +1146,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 54,
+              "DocumentIndex": 56,
               "Title": "QuotesController.cs",
               "DocumentMoniker": "C:\\Users\\LAPMART\\Desktop\\AimTureNew\\AimTureNew\\server\\LearningPathGeneration_Backend\\LearningPathGeneration_Backend\\Controllers\\QuotesController.cs",
               "RelativeDocumentMoniker": "LearningPathGeneration_Backend\\Controllers\\QuotesController.cs",
@@ -1144,7 +1158,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 52,
+              "DocumentIndex": 54,
               "Title": "AdvertisementProvider.cs",
               "DocumentMoniker": "C:\\Users\\LAPMART\\Desktop\\AimTureNew\\AimTureNew\\server\\LearningPathGeneration_Backend\\LearningPathGeneration_Backend\\Models\\AdvertisementProvider.cs",
               "RelativeDocumentMoniker": "LearningPathGeneration_Backend\\Models\\AdvertisementProvider.cs",
@@ -1192,7 +1206,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 57,
+              "DocumentIndex": 59,
               "Title": "LearningPathRequestDto.cs",
               "DocumentMoniker": "C:\\Users\\LAPMART\\Desktop\\AimTureNew\\AimTureNew\\server\\LearningPathGeneration_Backend\\LearningPathGeneration_Backend\\Dtos\\LearningPathRequestDto.cs",
               "RelativeDocumentMoniker": "LearningPathGeneration_Backend\\Dtos\\LearningPathRequestDto.cs",
@@ -1204,19 +1218,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 58,
-              "Title": "LearningPathRequest.cs",
-              "DocumentMoniker": "C:\\Users\\LAPMART\\Desktop\\AimTureNew\\AimTureNew\\server\\LearningPathGeneration_Backend\\LearningPathGeneration_Backend\\Models\\LearningPathRequest.cs",
-              "RelativeDocumentMoniker": "LearningPathGeneration_Backend\\Models\\LearningPathRequest.cs",
-              "ToolTip": "C:\\Users\\LAPMART\\Desktop\\AimTureNew\\AimTureNew\\server\\LearningPathGeneration_Backend\\LearningPathGeneration_Backend\\Models\\LearningPathRequest.cs",
-              "RelativeToolTip": "LearningPathGeneration_Backend\\Models\\LearningPathRequest.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAATAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-28T16:20:42.036Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 59,
+              "DocumentIndex": 60,
               "Title": "YouTubeService.cs",
               "DocumentMoniker": "C:\\Users\\LAPMART\\Desktop\\AimTureNew\\AimTureNew\\server\\LearningPathGeneration_Backend\\LearningPathGeneration_Backend\\Services\\YouTubeService.cs",
               "RelativeDocumentMoniker": "LearningPathGeneration_Backend\\Services\\YouTubeService.cs",
@@ -1228,7 +1230,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 60,
+              "DocumentIndex": 61,
               "Title": "AdvertisementProviderProfile.cs",
               "DocumentMoniker": "C:\\Users\\LAPMART\\Desktop\\AimTureNew\\AimTureNew\\server\\LearningPathGeneration_Backend\\LearningPathGeneration_Backend\\Profiles\\AdvertisementProviderProfile.cs",
               "RelativeDocumentMoniker": "LearningPathGeneration_Backend\\Profiles\\AdvertisementProviderProfile.cs",
@@ -1240,7 +1242,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 61,
+              "DocumentIndex": 62,
               "Title": "SpecificationDto.cs",
               "DocumentMoniker": "C:\\Users\\LAPMART\\Desktop\\AimTureNew\\AimTureNew\\server\\LearningPathGeneration_Backend\\LearningPathGeneration_Backend\\Dtos\\SpecificationDto.cs",
               "RelativeDocumentMoniker": "LearningPathGeneration_Backend\\Dtos\\SpecificationDto.cs",
@@ -1249,18 +1251,6 @@
               "ViewState": "AQIAAAMAAAAAAAAAAAAmwBIAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-07-07T05:43:35.517Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 62,
-              "Title": "SpecificationController.cs",
-              "DocumentMoniker": "C:\\Users\\LAPMART\\Desktop\\AimTureNew\\AimTureNew\\server\\LearningPathGeneration_Backend\\LearningPathGeneration_Backend\\Controllers\\SpecificationController.cs",
-              "RelativeDocumentMoniker": "LearningPathGeneration_Backend\\Controllers\\SpecificationController.cs",
-              "ToolTip": "C:\\Users\\LAPMART\\Desktop\\AimTureNew\\AimTureNew\\server\\LearningPathGeneration_Backend\\LearningPathGeneration_Backend\\Controllers\\SpecificationController.cs",
-              "RelativeToolTip": "LearningPathGeneration_Backend\\Controllers\\SpecificationController.cs",
-              "ViewState": "AQIAABsAAAAAAAAAAAAowCUAAAAJAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-07T07:00:20.548Z"
             },
             {
               "$type": "Document",

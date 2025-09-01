@@ -438,14 +438,14 @@ const renderContentPreview = (content) => {
           <FaEye className="text-3xl text-[#56B2BB]" />
           <div>
             <h2 className="text-lg">Total Views</h2>
-            <p className="text-2xl font-bold">15,430</p>
+            <p className="text-2xl font-bold">5</p>
           </div>
         </div>
         <div className="bg-[#292929] p-6 rounded-2xl shadow-lg flex items-center gap-4 hover:scale-105 transition">
           <FaThumbsUp className="text-3xl text-[#56B2BB]" />
           <div>
             <h2 className="text-lg">Total Likes</h2>
-            <p className="text-2xl font-bold">3,210</p>
+            <p className="text-2xl font-bold">2</p>
           </div>
         </div>
         <div className="bg-[#292929] p-6 rounded-2xl shadow-lg flex items-center gap-4 hover:scale-105 transition">

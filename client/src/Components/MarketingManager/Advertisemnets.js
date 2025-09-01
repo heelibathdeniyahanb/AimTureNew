@@ -141,16 +141,43 @@ export default function Advertisements() {
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
           {ads.map((ad) => (
             <div key={ad.id} className="bg-[#19191a] rounded-2xl shadow p-4 hover:shadow-xl transform hover:scale-[1.02] transition border border-[#767676]/40">
-              <h2 className="text-lg font-semibold text-white">{ad.title}</h2>
-              <p className="text-[#d9d9d9] mt-1">{ad.description}</p>
-              {ad.imageUrl && (
-                <img src={ad.imageUrl} alt="Ad" onClick={() => setPreviewImageUrl(ad.imageUrl)} className="mt-3 w-full h-40 object-cover rounded cursor-pointer hover:opacity-90" />
-              )}
-              <div className="flex justify-end space-x-2 mt-4">
-                <button onClick={() => setEditAd(ad)} className="text-sm text-[#56b2bb] hover:underline">Edit</button>
-                <button onClick={() => handleDeleteAd(ad.id)} className="text-sm text-red-500 hover:underline">Delete</button>
-              </div>
-            </div>
+  {/* Title */}
+  <h2 className="text-lg font-semibold text-white">{ad.title}</h2>
+
+  {/* Description */}
+  {ad.description && <p className="text-[#d9d9d9] mt-1">{ad.description}</p>}
+
+  {/* Image (if exists) */}
+  {ad.imageUrl ? (
+    <img src={ad.imageUrl} alt="Ad" onClick={() => setPreviewImageUrl(ad.imageUrl)} className="mt-3 w-full h-40 object-cover rounded cursor-pointer hover:opacity-90" />
+  ) : (
+    <div className="mt-3 w-full h-40 bg-[#2a2a2a] flex items-center justify-center text-gray-400 rounded">
+      No Image Available
+    </div>
+  )}
+
+  {/* Provider + Created By */}
+  <p className="text-sm text-gray-400 mt-2">
+    Provider: {ad.providerName || ad.advertisementProvider?.fullName || 'Unknown'}
+  </p>
+  <p className="text-sm text-gray-400">
+    Created By: {ad.createdUserName || "Unknown"}
+  </p>
+
+  {/* Specifications / Categories */}
+  {ad.specification?.length > 0 && (
+    <p className="text-sm text-gray-300 mt-1">
+      Categories: {ad.specification.map((s) => s.name).join(', ')}
+    </p>
+  )}
+
+  {/* Actions */}
+  <div className="flex justify-end space-x-2 mt-4">
+    <button onClick={() => setEditAd(ad)} className="text-sm text-[#56b2bb] hover:underline">Edit</button>
+    <button onClick={() => handleDeleteAd(ad.id)} className="text-sm text-red-500 hover:underline">Delete</button>
+  </div>
+</div>
+
           ))}
         </div>
       )}

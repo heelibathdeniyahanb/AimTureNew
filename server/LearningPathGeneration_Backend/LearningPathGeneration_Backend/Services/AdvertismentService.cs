@@ -27,11 +27,10 @@ namespace LearningPathGeneration_Backend.Services
         public async Task<List<AdvertisementDto>> GetAllPagedAsync(string? search, int page = 1, int pageSize = 10)
         {
             var query = _context.Advertisements
-                 .Include(a => a.AdvertisementProvider)
+                .Include(a => a.AdvertisementProvider)
                 .Include(a => a.CreatedUser)
-                 .Include(a => a.AdvertisementSpecifications)
-        .ThenInclude(s => s.Specification)
-
+                .Include(a => a.AdvertisementSpecifications)
+                    .ThenInclude(s => s.Specification)
                 .AsQueryable();
 
             if (!string.IsNullOrWhiteSpace(search))
@@ -42,27 +41,69 @@ namespace LearningPathGeneration_Backend.Services
                     a.Description.ToLower().Contains(search));
             }
 
-
+            // Pagination & sorting
             query = query
-                .OrderByDescending(a => a.CreatedAt) // Sort by newest
+                .OrderByDescending(a => a.CreatedAt)
                 .Skip((page - 1) * pageSize)
                 .Take(pageSize);
 
             var ads = await query.ToListAsync();
-            return _mapper.Map<List<AdvertisementDto>>(ads);
+
+            // Manual mapping to ensure specification names list is correct
+            var adDtos = ads.Select(a => new AdvertisementDto
+            {
+                Id = a.Id,
+                Title = a.Title,
+                Description = a.Description,
+                ImageUrl = a.ImageUrl,
+               
+                CreatedUserName = $"{a.CreatedUser.FirstName} {a.CreatedUser.LastName}",
+                ProviderName = a.AdvertisementProvider.FullName,
+                Specification = a.AdvertisementSpecifications?
+                                  .Select(s => new SpecificationDto
+                                  {
+                                      Id = s.Specification.Id,
+                                      Name = s.Specification.Name
+                                  })
+                                  .ToList() ?? new List<SpecificationDto>()
+            }).ToList();
+
+            return adDtos;
         }
+
 
         public async Task<List<AdvertisementDto>> GetAllAsync()
         {
             var ads = await _context.Advertisements
                 .Include(a => a.AdvertisementProvider)
                 .Include(a => a.CreatedUser)
-                 .Include(a => a.AdvertisementSpecifications)
-        .ThenInclude(s => s.Specification)
+                .Include(a => a.AdvertisementSpecifications)
+                    .ThenInclude(s => s.Specification)
                 .ToListAsync();
 
-            return _mapper.Map<List<AdvertisementDto>>(ads);
+            var result = ads.Select(a => new AdvertisementDto
+            {
+                Id = a.Id,
+                Title = a.Title,
+                Description = a.Description,
+                ImageUrl = a.ImageUrl,
+              
+                CreatedUserName = a.CreatedUser != null
+                                  ? $"{a.CreatedUser.FirstName} {a.CreatedUser.LastName}"
+                                  : "Unknown",
+                ProviderName = a.AdvertisementProvider?.FullName ?? "Unknown",
+                Specification = a.AdvertisementSpecifications?
+                                  .Select(s => new SpecificationDto
+                                  {
+                                      Id = s.Specification.Id,
+                                      Name = s.Specification.Name
+                                  })
+                                  .ToList() ?? new List<SpecificationDto>()
+            }).ToList();
+
+            return result;
         }
+
 
 
         public async Task<AdvertisementDto> GetByIdAsync(int id)

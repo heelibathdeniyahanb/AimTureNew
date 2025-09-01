@@ -258,6 +258,8 @@ Topic Name | Weight
         try
         {
             var learningPaths = await _context.LearningPathRequests
+                 .Include(lp => lp.User)
+                  .Include(lp => lp.Topics)
                 .OrderByDescending(lp => lp.CreatedAt)
                 .Select(lp => new
                 {
@@ -265,7 +267,8 @@ Topic Name | Weight
                     lp.Goal,
                     lp.Deadline,
                     lp.Level,
-                    Topics = lp.Topics
+                    CreatedByName = lp.User != null ? lp.User.FirstName + " " + lp.User.LastName : "Unknown"
+,                   Topics = lp.Topics
     .OrderBy(t => t.TopicDeadline)
     .Select(t => new {
 
