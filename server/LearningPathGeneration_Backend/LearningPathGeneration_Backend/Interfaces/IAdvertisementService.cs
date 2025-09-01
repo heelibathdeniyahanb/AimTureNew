@@ -11,5 +11,7 @@ namespace LearningPathGeneration_Backend.Interfaces
         Task<AdvertisementDto> CreateAsync(CreateAdvertisementDto dto);
         Task<bool> UpdateAsync(int id, UpdateAdvertisementDto dto);
         Task<bool> DeleteAsync(int id);
+        //Task<Dictionary<string, List<AdvertisementDto>>> GetByUserGoalsAsync(int userId);
+
     }
 }

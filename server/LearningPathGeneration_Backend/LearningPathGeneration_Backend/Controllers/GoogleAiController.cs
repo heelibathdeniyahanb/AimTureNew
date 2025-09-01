@@ -258,6 +258,8 @@ Topic Name | Weight
         try
         {
             var learningPaths = await _context.LearningPathRequests
+                 .Include(lp => lp.User)
+                  .Include(lp => lp.Topics)
                 .OrderByDescending(lp => lp.CreatedAt)
                 .Select(lp => new
                 {
@@ -265,7 +267,8 @@ Topic Name | Weight
                     lp.Goal,
                     lp.Deadline,
                     lp.Level,
-                    Topics = lp.Topics
+                    CreatedByName = lp.User != null ? lp.User.FirstName + " " + lp.User.LastName : "Unknown"
+,                   Topics = lp.Topics
     .OrderBy(t => t.TopicDeadline)
     .Select(t => new {
 
@@ -372,8 +375,8 @@ Topic Name | Weight
                         }),
                     lp.CreatedAt,
 
-                    CompletionPercentage=lp.Topics.Count()==0 ? 0 : 
-                    (lp.Topics.Count(t=>t.IsCompleted)*100/lp.Topics.Count())
+                    CompletionPercentage = lp.Topics.Count() == 0 ? 0 :
+                    (lp.Topics.Count(t => t.IsCompleted) * 100 / lp.Topics.Count())
 
                 })
                 .FirstOrDefaultAsync();
@@ -411,8 +414,78 @@ Topic Name | Weight
         }
     }
 
+    [HttpGet("extract-keywords/user/{userId}")]
+    public async Task<IActionResult> ExtractKeywordsFromUserGoals(int userId)
+    {
+        try
+        {
+            // 1️⃣ Get all goals for the user's learning path requests
+            var userGoals = await _context.LearningPathRequests
+                .Where(lp => lp.UserId == userId)
+                .Select(lp => lp.Goal)
+                .ToListAsync();
+
+            if (!userGoals.Any())
+                return NotFound(new { error = "No learning paths found for this user." });
+
+            // 2️⃣ Combine all goals into a single text
+            var combinedText = string.Join(". ", userGoals);
+
+            // 3️⃣ Prepare prompt for AI
+            var prompt = $@"
+You are an expert at extracting keywords from text.  
+From the text below, do the following:  
+1. Extract 5-10 main keywords.  
+2. Expand any abbreviations or short forms into full words.  
+3. For each keyword, suggest 2-5 related keywords or concepts.  
+
+Return the result as JSON in the following format:
+
+[
+  {{
+    ""keyword"": ""<main keyword>"",
+    ""expanded"": ""<expanded form if any, else same as keyword>"",
+    ""related"": [""related1"", ""related2"", ...]
+  }},
+  ...
+]
+
+Text: {combinedText}";
+
+            // 4️⃣ Call AI service
+            var aiResponse = await _googleAiService.AskQuestionAsync(prompt);
+
+            // 5️⃣ Clean AI response from ```json ... ``` wrapping
+            aiResponse = aiResponse.Replace("```json", "")
+                                   .Replace("```", "")
+                                   .Trim();
+
+            // 6️⃣ Deserialize JSON properly
+            var keywords = JsonConvert.DeserializeObject<List<KeywordDto>>(aiResponse);
+
+            return Ok(new { keywords });
+        }
+        catch (HttpRequestException ex)
+        {
+            return StatusCode(502, new { error = "Error communicating with AI service.", details = ex.Message });
+        }
+        catch (JsonReaderException ex)
+        {
+            return StatusCode(500, new { error = "Failed to parse AI response.", details = ex.Message });
+        }
+        catch (Exception ex)
+        {
+            return StatusCode(500, new { error = "An unexpected error occurred.", details = ex.Message });
+        }
+    }
 
 
 
 
 }
+
+
+
+
+
+

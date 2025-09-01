@@ -13,6 +13,7 @@
         public string CreatedUserName { get; set; }
 
         public List<string> Specifications { get; set; }
+        public List<SpecificationDto> Specification { get; set; } = new List<SpecificationDto>();
 
 
     }

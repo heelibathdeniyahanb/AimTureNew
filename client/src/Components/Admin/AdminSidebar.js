@@ -1,5 +1,5 @@
 import React, { useContext ,useState} from 'react';
-import { FaTachometerAlt, FaUser, FaBook, FaCog, FaSignOutAlt, FaEnvelope,FaTimes,FaBars, FaBullhorn } from 'react-icons/fa';
+import { FaTachometerAlt, FaUser, FaBook, FaCog, FaSignOutAlt, FaEnvelope,FaTimes,FaBars, FaBullhorn, FaFilePdf } from 'react-icons/fa';
 import { useNavigate, Link, useLocation } from 'react-router-dom';
 import logo from '../../Images/aimture long.png';
 import { UserContext } from '../UserContext'; // Make sure the correct path to UserContext is used
@@ -24,6 +24,7 @@ const AdminSidebar = () => {
     { name: 'Users', icon: FaUsers, path: '/users' },
     { name: 'Learning Paths', icon: FaBook, path: '/admin/learning-paths' },
     { name: 'Advertisements', icon: FaBullhorn, path: '/admin/advertisements' },
+    {name: 'Resources', icon:FaFilePdf ,path: '/admin/resources'},
     { name: 'Email', icon: FaEnvelope, path: '/email' },
     { name: 'Settings', icon: FaCog, path: '/user-settings' },
   ];
@@ -72,8 +73,8 @@ const AdminSidebar = () => {
         </div>
 
         {/* Menu */}
-        <div className="flex-1 flex flex-col justify-between px-4">
-          <ul className="space-y-4">
+        <div className="flex-1 overflow-y-auto px-4">
+          <ul className="space-y-4 pb-4">
             {menuItems.map((item) => (
               <li key={item.name}>
                 <Link

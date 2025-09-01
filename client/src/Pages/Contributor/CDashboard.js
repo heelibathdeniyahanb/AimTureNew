@@ -1,6 +1,7 @@
 import React from 'react'
 import ContributorSideBar from '../../Components/Contributor/ContributorSidebar'
 import Header from '../../Components/User/Header'
+import CDashboardComponent from '../../Components/Contributor/CDashboardComponent'
 
 export default function CDashboard() {
   return (
@@ -11,7 +12,7 @@ export default function CDashboard() {
 
       <div className="flex-grow ml-[250px]">
         <Header />
-        {/* <MarketingManagerDashboard/> */}
+       <CDashboardComponent/>
       </div>
 
     </div>

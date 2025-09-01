@@ -1,11 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { fetchLearningPaths } from "../Apis/LearningPathApi";
 
-
 export default function AllLearningPaths() {
   const [learningPaths, setLearningPaths] = useState([]);
   const [selectedPath, setSelectedPath] = useState(null);
-  
 
   useEffect(() => {
     const getPaths = async () => {
@@ -35,7 +33,13 @@ export default function AllLearningPaths() {
             >
               <p className="text-sm font-semibold">{path.goal}</p>
               <p className="text-xs text-gray-400">
+                Created by: {path.createdByName || "Unknown"}
+              </p>
+              <p className="text-xs text-gray-400">
                 {new Date(path.createdAt).toLocaleDateString()}
+              </p>
+              <p className="text-xs text-gray-400">
+                Completion: {path.completionPercentage || 0}%
               </p>
             </div>
           ))
@@ -49,8 +53,15 @@ export default function AllLearningPaths() {
         {selectedPath ? (
           <div>
             <h2 className="text-xl font-bold mb-4 font-nunito">{selectedPath.goal}</h2>
+            
             <p className="text-gray-400 mb-2 font-sans">
-              Deadline: {new Date(selectedPath.deadline).toLocaleDateString()}
+              Created by: {selectedPath.createdByName || "Unknown"}
+            </p>
+            <p className="text-gray-400 mb-2 font-sans">
+              Created Date: {new Date(selectedPath.createdAt).toLocaleDateString()}
+            </p>
+            <p className="text-gray-400 mb-4 font-sans">
+              Completion: {selectedPath.completionPercentage || 0}%
             </p>
 
             <h3 className="text-xl font-semibold mb-2 font-nunito">Topics</h3>

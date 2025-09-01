@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react';
-import { FaTachometerAlt, FaUser, FaBook, FaCog, FaSignOutAlt, FaBars, FaTimes } from 'react-icons/fa';
+import { FaTachometerAlt, FaUser, FaBook, FaCog, FaSignOutAlt, FaBars, FaTimes, FaGlobe } from 'react-icons/fa';
 import { useNavigate, Link, useLocation } from 'react-router-dom';
 import logo from '../../Images/aimture long.png';
 import { UserContext } from '../UserContext';
@@ -18,6 +18,7 @@ const SideBar = () => {
     { name: 'Dashboard', icon: FaTachometerAlt, path: '/user/dashboard' },
     { name: 'My Profile', icon: FaUser, path: '/user/profile' },
     { name: 'My Learning Paths', icon: FaBook, path: '/learning/path' },
+    {name : 'Knowledge Base', icon: FaGlobe, path: '/knowlege-base'},
     { name: 'Settings', icon: FaCog, path: '/user-settings' },
   ];
 

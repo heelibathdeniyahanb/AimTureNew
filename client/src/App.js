@@ -30,6 +30,11 @@ import MMEmail from './Pages/MarketingManager/MMEmail';
 import MMServiceProvider from './Pages/MarketingManager/MMServiceProvider';
 import CDashboard from './Pages/Contributor/CDashboard';
 import CProfile from './Pages/Contributor/CProfile';
+import AdminAdvertisement from './Pages/Admin/AdminAdvertisement';
+import ContributorRegisterPage from './Pages/Contributor/ContributorRegisterPage';
+import CResources from './Pages/Contributor/CResources';
+import AdminApprovedContents from './Pages/Admin/AdminApprovedContents';
+import KnowledgeBase from './Pages/User/KnowlegeBase';
 
 function App() {
   return (
@@ -60,7 +65,11 @@ function App() {
             <Route path='/serviceProviders' element={<MMServiceProvider/>}></Route>
             <Route path='/contributor/dashboard' element={<CDashboard/>}></Route>
             <Route path='/contributor/profile' element={<CProfile/>}></Route>
-         
+            <Route path='/admin/advertisements' element={<AdminAdvertisement/>}></Route>
+            <Route path='/signup-provider' element={<ContributorRegisterPage/>}></Route>
+            <Route path='/resources' element={<CResources/>}></Route>
+            <Route path='/admin/resources' element={<AdminApprovedContents/>}></Route>
+            <Route path='/knowlege-base' element={<KnowledgeBase/>}></Route>
         
         
         </Routes>

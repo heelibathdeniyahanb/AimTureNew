@@ -94,6 +94,9 @@ builder.Services.AddScoped<IAdSpecificationService,AdSpecificationService>();
 builder.Services.AddScoped<ContributorService>();
 builder.Services.AddScoped<IContentService, ContentService>();
 builder.Services.AddScoped<IContentTypeService,ContentTypeService>();
+//builder.Services.AddScoped<IKeywordExtractionService, KeywordExtractionService>();
+//builder.Services.AddScoped<IGoogleAiService,GoogleAiService>();
+builder.Services.AddScoped<KeywordService>();
 
 builder.Services.AddAutoMapper(typeof(Program));
 builder.Services.AddHttpClient();

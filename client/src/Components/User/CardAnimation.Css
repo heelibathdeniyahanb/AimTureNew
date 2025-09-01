@@ -1,0 +1,68 @@
+/* CardAnimations.css */
+
+/* FIRE */
+.card-fire {
+  position: relative;
+  background: linear-gradient(135deg, #ff7e5f, #ff3f3f);
+  overflow: hidden;
+  color: #fff; /* Default text color for fire */
+}
+
+.card-fire::after {
+  content: "";
+  position: absolute;
+  width: 200%;
+  height: 200%;
+  top: -50%;
+  left: -50%;
+  background: radial-gradient(circle, rgba(255,255,255,0.2), transparent 70%);
+  animation: fireFlicker 2s infinite alternate;
+  pointer-events: none;
+}
+
+@keyframes fireFlicker {
+  0% { transform: translate(0,0) scale(1); opacity: 0.5; }
+  50% { transform: translate(10%, -10%) scale(1.1); opacity: 0.8; }
+  100% { transform: translate(-5%, 5%) scale(0.9); opacity: 0.6; }
+}
+
+/* ICE */
+.card-ice {
+  position: relative;
+  background: linear-gradient(135deg, #b3e5fc, #81d4fa);
+  overflow: hidden;
+  color: #034066; /* Dark text for ice */
+}
+
+.card-ice::before {
+  content: "";
+  position: absolute;
+  width: 200%;
+  height: 200%;
+  top: -50%;
+  left: -50%;
+  background: radial-gradient(circle, rgba(255,255,255,0.2), transparent 70%);
+  animation: iceFlow 5s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes iceFlow {
+  0% { transform: translateX(0) translateY(0); }
+  100% { transform: translateX(20%) translateY(10%); }
+}
+
+/* WATER / RAINDROPS */
+.card-water {
+  position: relative;
+  background: linear-gradient(135deg, #4facfe, #00f2fe);
+  overflow: hidden;
+  color: #e0f7ff; /* Light text */
+}
+
+/* CLOUD */
+.card-cloud {
+  position: relative;
+  background: linear-gradient(135deg, #cfd9df, #e2ebf0);
+  overflow: hidden;
+  color: #333; /* Dark text for light bg */
+}
