@@ -19,8 +19,22 @@ import AdminDashboardPage from './Pages/Admin/AdminDashboardPage';
 import AdminProfile from './Pages/Admin/AdminProfile';
 import Users from './Pages/Admin/Users';
 import EmailComposer from './Pages/Common/Email';
+import MarketingManagerDashboard from './Components/MarketingManager/MarketingDashboard';
 
 import AllLearningPathsPage from './Pages/Admin/AllLearningPathsPage';
+import MMDashboardPage from './Pages/MarketingManager/MMDashboardPage';
+import MMProfile from './Pages/MarketingManager/MMProfile';
+import Advertisemnets from './Components/MarketingManager/Advertisemnets';
+import MMAdvertisement from './Pages/MarketingManager/MMAdvertisement';
+import MMEmail from './Pages/MarketingManager/MMEmail';
+import MMServiceProvider from './Pages/MarketingManager/MMServiceProvider';
+import CDashboard from './Pages/Contributor/CDashboard';
+import CProfile from './Pages/Contributor/CProfile';
+import AdminAdvertisement from './Pages/Admin/AdminAdvertisement';
+import ContributorRegisterPage from './Pages/Contributor/ContributorRegisterPage';
+import CResources from './Pages/Contributor/CResources';
+import AdminApprovedContents from './Pages/Admin/AdminApprovedContents';
+import KnowledgeBase from './Pages/User/KnowlegeBase';
 
 function App() {
   return (
@@ -44,7 +58,18 @@ function App() {
             <Route path='/users' element={<Users/>}></Route>
             <Route path='/email' element={<EmailComposer/>}></Route>
             <Route path='/admin/learning-paths' element={<AllLearningPathsPage/>} />
-         
+            <Route path='/marketingManagerDashboard' element={<MMDashboardPage/>}></Route>
+            <Route path='/marketingManagerProfile' element={<MMProfile/>}></Route>
+            <Route path='/advertisements' element={<MMAdvertisement/>}></Route>
+            <Route path='/marketing/email' element={<MMEmail/>}></Route>
+            <Route path='/serviceProviders' element={<MMServiceProvider/>}></Route>
+            <Route path='/contributor/dashboard' element={<CDashboard/>}></Route>
+            <Route path='/contributor/profile' element={<CProfile/>}></Route>
+            <Route path='/admin/advertisements' element={<AdminAdvertisement/>}></Route>
+            <Route path='/signup-provider' element={<ContributorRegisterPage/>}></Route>
+            <Route path='/resources' element={<CResources/>}></Route>
+            <Route path='/admin/resources' element={<AdminApprovedContents/>}></Route>
+            <Route path='/knowlege-base' element={<KnowledgeBase/>}></Route>
         
         
         </Routes>

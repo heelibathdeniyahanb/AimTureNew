@@ -19,6 +19,20 @@ namespace LearningPathGeneration_Backend.Data
         public DbSet<LearningPathTopic> LearningPathTopics { get; set; }
         public DbSet<PasswordResetToken> PasswordResetTokens { get; set; }
         public DbSet<Advertisement> Advertisements { get; set; }
+        public DbSet<AdvertisementProvider> AdvertisementProviders { get; set; }
+        public DbSet<ProviderSpecifications> ProviderSpecifications { get; set; }
+        public DbSet<AdvertiserProviderSpecification> AdvertiserProviderSpecifications { get; set; }
+        public DbSet<AdSpecification>AdvertisemnetSpecifications { get; set; }
+        public DbSet<Quote> Quotes { get; set; }
+        public DbSet<ContributorProfile> ContributorProfiles { get; set; }
+        public DbSet<ContentSpecializationJoin> ContentSpecializationJoins { get; set; }
+
+        public DbSet<Content> Contents { get; set; }
+
+        // Newly added tables
+        public DbSet<ContentSpecializationcs> ContentSpecializations { get; set; }
+        public DbSet<ContentType> ContentTypes { get; set; }
+
 
 
 
@@ -51,6 +65,71 @@ namespace LearningPathGeneration_Backend.Data
                 .HasForeignKey(lp => lp.UserId)
                 .OnDelete(DeleteBehavior.Cascade); // Optional: cascade delete if user is removed
 
+          modelBuilder.Entity<Advertisement>()
+             .HasOne(a => a.AdvertisementProvider)
+           .WithMany(p => p.Advertisements)
+           .HasForeignKey(a => a.AdvertisementProviderId)
+           .OnDelete(DeleteBehavior.Cascade)
+        .HasConstraintName("fk_ad_adprovider");
+
+            modelBuilder.Entity<AdvertiserProviderSpecification>()
+        .HasKey(x => new { x.AdvertisementProviderId, x.SpecificationId });
+
+            modelBuilder.Entity<AdvertiserProviderSpecification>()
+                .HasOne(x => x.AdvertisementProvider)
+                .WithMany(p => p.AdvertisementProviderSpecifications)
+                .HasForeignKey(x => x.AdvertisementProviderId);
+
+            modelBuilder.Entity<AdvertiserProviderSpecification>()
+                .HasOne(x => x.Specification)
+                .WithMany(s => s.AdvertisementProviderSpecifications)
+                .HasForeignKey(x => x.SpecificationId);
+
+            modelBuilder.Entity<AdSpecification>()
+       .HasKey(x => new { x.AdvertisementId, x.SpecificationId });
+
+            modelBuilder.Entity<AdSpecification>()
+                .HasOne(x => x.Advertisement)
+                .WithMany(p => p.AdvertisementSpecifications)
+                .HasForeignKey(x => x.AdvertisementId);
+
+            modelBuilder.Entity<AdSpecification>()
+                .HasOne(x => x.Specification)
+                .WithMany(s => s.AdvertisementSpecifications)
+                .HasForeignKey(x => x.SpecificationId);
+
+            // One-to-one relationship between User and ContributorProfile
+            modelBuilder.Entity<ContributorProfile>()
+                .HasOne(c => c.User)
+                .WithOne()
+                .HasForeignKey<ContributorProfile>(c => c.UserId)
+                .OnDelete(DeleteBehavior.Cascade);
+
+            modelBuilder.Entity<ContributorProfile>()
+               .HasMany(c => c.Contents)
+               .WithOne(r => r.Contributor)
+               .HasForeignKey(r => r.ContributorId)
+               .OnDelete(DeleteBehavior.Cascade);
+
+            modelBuilder.Entity<ContentSpecializationJoin>()
+    .HasKey(cs => new { cs.ContentId, cs.ContentSpecializationId });
+
+            modelBuilder.Entity<ContentSpecializationJoin>()
+                .HasOne(cs => cs.Content)
+                .WithMany(c => c.ContentSpecializations)
+                .HasForeignKey(cs => cs.ContentId);
+
+            modelBuilder.Entity<ContentSpecializationJoin>()
+                .HasOne(cs => cs.ContentSpecialization)
+                .WithMany(s => s.ContentSpecializations)
+                .HasForeignKey(cs => cs.ContentSpecializationId);
+
+
+            modelBuilder.Entity<Content>()
+                .HasOne(c => c.ContentType)
+                .WithMany(ct => ct.Contents)
+                .HasForeignKey(c => c.ContentTypeId)
+                .OnDelete(DeleteBehavior.Restrict);
 
             base.OnModelCreating(modelBuilder);
         }

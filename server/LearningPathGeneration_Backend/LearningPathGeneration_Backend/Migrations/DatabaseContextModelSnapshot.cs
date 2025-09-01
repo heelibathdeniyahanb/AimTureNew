@@ -22,6 +22,21 @@ namespace LearningPathGeneration_Backend.Migrations
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
 
+            modelBuilder.Entity("LearningPathGeneration_Backend.Models.AdSpecification", b =>
+                {
+                    b.Property<int>("AdvertisementId")
+                        .HasColumnType("integer");
+
+                    b.Property<int>("SpecificationId")
+                        .HasColumnType("integer");
+
+                    b.HasKey("AdvertisementId", "SpecificationId");
+
+                    b.HasIndex("SpecificationId");
+
+                    b.ToTable("AdvertisemnetSpecifications");
+                });
+
             modelBuilder.Entity("LearningPathGeneration_Backend.Models.Advertisement", b =>
                 {
                     b.Property<int>("Id")
@@ -30,14 +45,19 @@ namespace LearningPathGeneration_Backend.Migrations
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
+                    b.Property<int>("AdvertisementProviderId")
+                        .HasColumnType("integer");
+
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("timestamp with time zone");
+
+                    b.Property<int>("CreatedUserId")
+                        .HasColumnType("integer");
 
                     b.Property<string>("Description")
                         .HasColumnType("text");
 
                     b.Property<string>("ImageUrl")
-                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("Title")
@@ -46,7 +66,54 @@ namespace LearningPathGeneration_Backend.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("AdvertisementProviderId");
+
+                    b.HasIndex("CreatedUserId");
+
                     b.ToTable("Advertisements");
+                });
+
+            modelBuilder.Entity("LearningPathGeneration_Backend.Models.AdvertisementProvider", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("FullName")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("InstituteName")
+                        .HasColumnType("text");
+
+                    b.Property<string>("Phone")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("AdvertisementProviders");
+                });
+
+            modelBuilder.Entity("LearningPathGeneration_Backend.Models.AdvertiserProviderSpecification", b =>
+                {
+                    b.Property<int>("AdvertisementProviderId")
+                        .HasColumnType("integer");
+
+                    b.Property<int>("SpecificationId")
+                        .HasColumnType("integer");
+
+                    b.HasKey("AdvertisementProviderId", "SpecificationId");
+
+                    b.HasIndex("SpecificationId");
+
+                    b.ToTable("AdvertiserProviderSpecifications");
                 });
 
             modelBuilder.Entity("LearningPathGeneration_Backend.Models.AnalyzeRequest", b =>
@@ -90,6 +157,134 @@ namespace LearningPathGeneration_Backend.Migrations
                     b.HasIndex("EmailId");
 
                     b.ToTable("Attachments");
+                });
+
+            modelBuilder.Entity("LearningPathGeneration_Backend.Models.Content", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("ContentTypeId")
+                        .HasColumnType("integer");
+
+                    b.Property<int>("ContributorId")
+                        .HasColumnType("integer");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<bool>("IsApproved")
+                        .HasColumnType("boolean");
+
+                    b.Property<string>("Title")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("Url")
+                        .HasColumnType("text");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ContentTypeId");
+
+                    b.HasIndex("ContributorId");
+
+                    b.ToTable("Contents");
+                });
+
+            modelBuilder.Entity("LearningPathGeneration_Backend.Models.ContentSpecializationJoin", b =>
+                {
+                    b.Property<int>("ContentId")
+                        .HasColumnType("integer");
+
+                    b.Property<int>("ContentSpecializationId")
+                        .HasColumnType("integer");
+
+                    b.HasKey("ContentId", "ContentSpecializationId");
+
+                    b.HasIndex("ContentSpecializationId");
+
+                    b.ToTable("ContentSpecializationJoins");
+                });
+
+            modelBuilder.Entity("LearningPathGeneration_Backend.Models.ContentSpecializationcs", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("ContentSpecializations");
+                });
+
+            modelBuilder.Entity("LearningPathGeneration_Backend.Models.ContentType", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("ContentTypes");
+                });
+
+            modelBuilder.Entity("LearningPathGeneration_Backend.Models.ContributorProfile", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Bio")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("ExpertiseArea")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("LinkedInUrl")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("PortfolioUrl")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("Qualifications")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<int>("UserId")
+                        .HasColumnType("integer");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UserId")
+                        .IsUnique();
+
+                    b.ToTable("ContributorProfiles");
                 });
 
             modelBuilder.Entity("LearningPathGeneration_Backend.Models.Email", b =>
@@ -165,8 +360,14 @@ namespace LearningPathGeneration_Backend.Migrations
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
+                    b.Property<bool>("IsCompleted")
+                        .HasColumnType("boolean");
+
                     b.Property<int>("LearningPathRequestId")
                         .HasColumnType("integer");
+
+                    b.Property<DateTime>("TopicDeadline")
+                        .HasColumnType("timestamp with time zone");
 
                     b.Property<string>("TopicName")
                         .IsRequired()
@@ -205,6 +406,44 @@ namespace LearningPathGeneration_Backend.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("PasswordResetTokens");
+                });
+
+            modelBuilder.Entity("LearningPathGeneration_Backend.Models.ProviderSpecifications", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("ProviderSpecifications");
+                });
+
+            modelBuilder.Entity("LearningPathGeneration_Backend.Models.Quote", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Author")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("QuoteText")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Quotes");
                 });
 
             modelBuilder.Entity("LearningPathGeneration_Backend.Models.User", b =>
@@ -252,6 +491,64 @@ namespace LearningPathGeneration_Backend.Migrations
                     b.ToTable("Users");
                 });
 
+            modelBuilder.Entity("LearningPathGeneration_Backend.Models.AdSpecification", b =>
+                {
+                    b.HasOne("LearningPathGeneration_Backend.Models.Advertisement", "Advertisement")
+                        .WithMany("AdvertisementSpecifications")
+                        .HasForeignKey("AdvertisementId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("LearningPathGeneration_Backend.Models.ProviderSpecifications", "Specification")
+                        .WithMany("AdvertisementSpecifications")
+                        .HasForeignKey("SpecificationId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Advertisement");
+
+                    b.Navigation("Specification");
+                });
+
+            modelBuilder.Entity("LearningPathGeneration_Backend.Models.Advertisement", b =>
+                {
+                    b.HasOne("LearningPathGeneration_Backend.Models.AdvertisementProvider", "AdvertisementProvider")
+                        .WithMany("Advertisements")
+                        .HasForeignKey("AdvertisementProviderId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired()
+                        .HasConstraintName("fk_ad_adprovider");
+
+                    b.HasOne("LearningPathGeneration_Backend.Models.User", "CreatedUser")
+                        .WithMany()
+                        .HasForeignKey("CreatedUserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("AdvertisementProvider");
+
+                    b.Navigation("CreatedUser");
+                });
+
+            modelBuilder.Entity("LearningPathGeneration_Backend.Models.AdvertiserProviderSpecification", b =>
+                {
+                    b.HasOne("LearningPathGeneration_Backend.Models.AdvertisementProvider", "AdvertisementProvider")
+                        .WithMany("AdvertisementProviderSpecifications")
+                        .HasForeignKey("AdvertisementProviderId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("LearningPathGeneration_Backend.Models.ProviderSpecifications", "Specification")
+                        .WithMany("AdvertisementProviderSpecifications")
+                        .HasForeignKey("SpecificationId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("AdvertisementProvider");
+
+                    b.Navigation("Specification");
+                });
+
             modelBuilder.Entity("LearningPathGeneration_Backend.Models.Attachments", b =>
                 {
                     b.HasOne("LearningPathGeneration_Backend.Models.Email", "Email")
@@ -261,6 +558,55 @@ namespace LearningPathGeneration_Backend.Migrations
                         .IsRequired();
 
                     b.Navigation("Email");
+                });
+
+            modelBuilder.Entity("LearningPathGeneration_Backend.Models.Content", b =>
+                {
+                    b.HasOne("LearningPathGeneration_Backend.Models.ContentType", "ContentType")
+                        .WithMany("Contents")
+                        .HasForeignKey("ContentTypeId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("LearningPathGeneration_Backend.Models.ContributorProfile", "Contributor")
+                        .WithMany("Contents")
+                        .HasForeignKey("ContributorId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("ContentType");
+
+                    b.Navigation("Contributor");
+                });
+
+            modelBuilder.Entity("LearningPathGeneration_Backend.Models.ContentSpecializationJoin", b =>
+                {
+                    b.HasOne("LearningPathGeneration_Backend.Models.Content", "Content")
+                        .WithMany("ContentSpecializations")
+                        .HasForeignKey("ContentId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("LearningPathGeneration_Backend.Models.ContentSpecializationcs", "ContentSpecialization")
+                        .WithMany("ContentSpecializations")
+                        .HasForeignKey("ContentSpecializationId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Content");
+
+                    b.Navigation("ContentSpecialization");
+                });
+
+            modelBuilder.Entity("LearningPathGeneration_Backend.Models.ContributorProfile", b =>
+                {
+                    b.HasOne("LearningPathGeneration_Backend.Models.User", "User")
+                        .WithOne()
+                        .HasForeignKey("LearningPathGeneration_Backend.Models.ContributorProfile", "UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("LearningPathGeneration_Backend.Models.LearningPathRequest", b =>
@@ -285,6 +631,38 @@ namespace LearningPathGeneration_Backend.Migrations
                     b.Navigation("LearningPathRequest");
                 });
 
+            modelBuilder.Entity("LearningPathGeneration_Backend.Models.Advertisement", b =>
+                {
+                    b.Navigation("AdvertisementSpecifications");
+                });
+
+            modelBuilder.Entity("LearningPathGeneration_Backend.Models.AdvertisementProvider", b =>
+                {
+                    b.Navigation("AdvertisementProviderSpecifications");
+
+                    b.Navigation("Advertisements");
+                });
+
+            modelBuilder.Entity("LearningPathGeneration_Backend.Models.Content", b =>
+                {
+                    b.Navigation("ContentSpecializations");
+                });
+
+            modelBuilder.Entity("LearningPathGeneration_Backend.Models.ContentSpecializationcs", b =>
+                {
+                    b.Navigation("ContentSpecializations");
+                });
+
+            modelBuilder.Entity("LearningPathGeneration_Backend.Models.ContentType", b =>
+                {
+                    b.Navigation("Contents");
+                });
+
+            modelBuilder.Entity("LearningPathGeneration_Backend.Models.ContributorProfile", b =>
+                {
+                    b.Navigation("Contents");
+                });
+
             modelBuilder.Entity("LearningPathGeneration_Backend.Models.Email", b =>
                 {
                     b.Navigation("Attachment");
@@ -293,6 +671,13 @@ namespace LearningPathGeneration_Backend.Migrations
             modelBuilder.Entity("LearningPathGeneration_Backend.Models.LearningPathRequest", b =>
                 {
                     b.Navigation("Topics");
+                });
+
+            modelBuilder.Entity("LearningPathGeneration_Backend.Models.ProviderSpecifications", b =>
+                {
+                    b.Navigation("AdvertisementProviderSpecifications");
+
+                    b.Navigation("AdvertisementSpecifications");
                 });
 
             modelBuilder.Entity("LearningPathGeneration_Backend.Models.User", b =>

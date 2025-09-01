@@ -4,8 +4,10 @@
     "\\LearningPathGeneration_Backend",
     "\\LearningPathGeneration_Backend\\LearningPathGeneration_Backend",
     "\\LearningPathGeneration_Backend\\LearningPathGeneration_Backend\\Controllers",
+    "\\LearningPathGeneration_Backend\\LearningPathGeneration_Backend\\Models",
+    "\\LearningPathGeneration_Backend\\LearningPathGeneration_Backend\\Profiles",
     "\\LearningPathGeneration_Backend\\LearningPathGeneration_Backend\\Services"
   ],
-  "SelectedNode": "\\LearningPathGeneration_Backend\\LearningPathGeneration_Backend\\Controllers\\EmailController.cs",
+  "SelectedNode": "\\LearningPathGeneration_Backend\\LearningPathGeneration_Backend\\Controllers\\AdvertisementController.cs",
   "PreviewInSolutionExplorer": false
 }

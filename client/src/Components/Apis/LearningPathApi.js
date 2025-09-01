@@ -1,5 +1,6 @@
 // This file handles fetching learning paths from the API or providing demo data as fallback
 import { API_BASE_URL } from "./BaseUrl";
+import axios from "axios";
 
 const fetchLearningPaths = async () => {
     try {
@@ -95,6 +96,17 @@ export const getAllLearningPaths = async () => {
     return [];
   }
 };
+
+//mark topic as completed
+export const markTopicCompleted = async (topicId, isCompleted) => {
+  const res = await axios.patch(
+    `${API_BASE_URL}/GoogleAi/topic/${topicId}/complete`,
+    JSON.stringify(isCompleted), // ✅ send raw boolean
+    { headers: { "Content-Type": "application/json" } }
+  );
+  return res.data;
+};
+
 
 
   
