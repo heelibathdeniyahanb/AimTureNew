@@ -3,6 +3,7 @@ using LearningPathGeneration_Backend.Interfaces;
 using LearningPathGeneration_Backend.Models;
 using System;
 using Microsoft.EntityFrameworkCore;
+using LearningPathGeneration_Backend.Dtos;
 
 namespace LearningPathGeneration_Backend.Services
 {
@@ -17,25 +18,66 @@ namespace LearningPathGeneration_Backend.Services
             _imageService = imageService;
         }
 
-        public async Task<IEnumerable<Content>> GetAllAsync()
+        public async Task<IEnumerable<ContentResponseDto>> GetAllContentsAsync()
         {
-            return await _context.Contents
-                .Include(c => c.Contributor).ThenInclude(cp => cp.User)
+            var contents = await _context.Contents
+                .Include(c => c.Contributor)
                 .Include(c => c.ContentType)
-                .Include(c => c.ContentSpecializations)
-                    .ThenInclude(cs => cs.ContentSpecialization)
                 .ToListAsync();
+
+            var result = new List<ContentResponseDto>();
+
+            foreach (var c in contents)
+            {
+                // Get specialization names from join table
+                var specializationNames = await _context.ContentSpecializationJoins
+                    .Where(cs => cs.ContentId == c.Id)
+                    .Include(cs => cs.ContentSpecialization)
+                    .Select(cs => cs.ContentSpecialization.Name)
+                    .ToListAsync();
+
+                result.Add(new ContentResponseDto
+                {
+                    Id = c.Id,
+                    Title = c.Title,
+                    Description = c.Description,
+                    Url = c.Url,
+                    ContentTypeName = c.ContentType?.Name ?? "Unknown",
+                    ContributorName = c.Contributor?.User?.FirstName ?? "Unknown",
+                    SpecializationNames = specializationNames
+                });
+            }
+
+            return result;
         }
 
-        public async Task<Content?> GetByIdAsync(int id)
+        public async Task<ContentResponseDto?> GetContentByIdAsync(int id)
         {
-            return await _context.Contents
-                .Include(c => c.Contributor).ThenInclude(cp => cp.User)
+            var c = await _context.Contents
+                .Include(c => c.Contributor)
                 .Include(c => c.ContentType)
-                .Include(c => c.ContentSpecializations)
-                    .ThenInclude(cs => cs.ContentSpecialization)
                 .FirstOrDefaultAsync(c => c.Id == id);
+
+            if (c == null) return null;
+
+            var specializationNames = await _context.ContentSpecializationJoins
+                .Where(cs => cs.ContentId == c.Id)
+                .Include(cs => cs.ContentSpecialization)
+                .Select(cs => cs.ContentSpecialization.Name)
+                .ToListAsync();
+
+            return new ContentResponseDto
+            {
+                Id = c.Id,
+                Title = c.Title,
+                Description = c.Description,
+                Url = c.Url,
+                ContentTypeName = c.ContentType?.Name ?? "Unknown",
+                ContributorName = c.Contributor?.User?.FirstName ?? "Unknown",
+                SpecializationNames = specializationNames
+            };
         }
+
 
         public async Task<Content> AddAsync(Content content, List<int> specializationIds, IFormFile file)
         {

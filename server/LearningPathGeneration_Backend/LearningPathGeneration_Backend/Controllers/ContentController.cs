@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using LearningPathGeneration_Backend.Dtos;
+using LearningPathGeneration_Backend.Services;
 
 namespace LearningPathGeneration_Backend.Controllers
 {
@@ -19,17 +20,18 @@ namespace LearningPathGeneration_Backend.Controllers
         [HttpGet]
         public async Task<IActionResult> GetAll()
         {
-            var contents = await _service.GetAllAsync();
+            var contents = await _service.GetAllContentsAsync();
             return Ok(contents);
         }
 
         [HttpGet("{id}")]
         public async Task<IActionResult> GetById(int id)
         {
-            var content = await _service.GetByIdAsync(id);
+            var content = await _service.GetContentByIdAsync(id);
             if (content == null) return NotFound();
             return Ok(content);
         }
+
 
         [HttpPost]
         public async Task<IActionResult> Create([FromForm] ContentDto dto)
