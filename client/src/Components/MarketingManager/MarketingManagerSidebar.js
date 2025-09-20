@@ -34,11 +34,23 @@ const MarketingSidebar = () => {
     try {
       const response = await fetch('https://localhost:7295/api/Auth/logout', {
         method: 'POST',
-        credentials: 'include', // Ensures cookies are included in the request
+        credentials: 'include',
       });
-  
+
       if (response.ok) {
-        // Navigate to the login page after successful logout
+        // Clear all cookies
+        document.cookie.split(";").forEach(cookie => {
+          const [name] = cookie.split("=");
+          document.cookie = `${name}=;expires=Thu, 01 Jan 1970 00:00:00 GMT;path=/`;
+        });
+
+        // Clear local storage
+        localStorage.clear();
+
+        // Clear session storage
+        sessionStorage.clear();
+
+        // Navigate to login page
         navigate('/login');
       } else {
         console.error('Failed to logout:', response.statusText);

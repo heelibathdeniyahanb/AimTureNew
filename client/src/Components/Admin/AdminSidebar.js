@@ -37,8 +37,20 @@ const AdminSidebar = () => {
         method: 'POST',
         credentials: 'include', // Ensures cookies are included in the request
       });
-  
+
       if (response.ok) {
+        // Clear all cookies
+        document.cookie.split(";").forEach(cookie => {
+          const [name] = cookie.split("=");
+          document.cookie = `${name}=;expires=Thu, 01 Jan 1970 00:00:00 GMT;path=/`;
+        });
+
+        // Clear local storage
+        localStorage.clear();
+
+        // Clear session storage
+        sessionStorage.clear();
+
         // Navigate to the login page after successful logout
         navigate('/login');
       } else {
