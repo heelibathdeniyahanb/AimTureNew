@@ -32,6 +32,18 @@ const SideBar = () => {
       });
 
       if (response.ok) {
+        // Clear all cookies
+      document.cookie.split(";").forEach(cookie => {
+        const [name] = cookie.split("=");
+        document.cookie = `${name}=;expires=Thu, 01 Jan 1970 00:00:00 GMT;path=/`;
+      });
+
+      // Clear local storage
+      localStorage.clear();
+
+      // Clear session storage
+      sessionStorage.clear();
+      
         navigate('/login');
       } else {
         console.error('Failed to logout:', response.statusText);

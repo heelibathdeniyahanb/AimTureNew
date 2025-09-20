@@ -43,7 +43,7 @@ const AdminDashboardPage = () => {
         setLearningPathCount(paths.length);
 
         // Pending contents
-        const unapproved = contents.filter((c) => !c.isApprove);
+        const unapproved = contents.filter((c) => !c.isApproved);
         setPendingContents(unapproved);
 
         // Process month trend from paths

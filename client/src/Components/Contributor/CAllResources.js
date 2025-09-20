@@ -1,18 +1,8 @@
 import React, { useEffect, useState, useContext } from "react";
 import { FaDownload, FaEye, FaFile, FaPlus } from "react-icons/fa";
-import { getAllContents } from "../Apis/ContentApi";
+import { getAllContents, createContent } from "../Apis/ContentApi";
 import axios from "axios";
-import { UserContext } from "../UserContext"; // to get logged-in user
-
-export const createContent = async (formData) => {
-  const API_URL = "https://localhost:7295/api/Contents"; // replace with your API
-  const response = await axios.post(API_URL, formData, {
-    headers: {
-      "Content-Type": "multipart/form-data",
-    },
-  });
-  return response.data;
-};
+import { UserContext } from "../UserContext";
 
 // Fetch Content Types
 const getContentTypes = async () => {
@@ -20,35 +10,48 @@ const getContentTypes = async () => {
   return response.data;
 };
 
-// Fetch Specializations
-const getSpecializations = async () => {
-  const response = await axios.get("https://localhost:7295/api/Specializations");
+// Fetch Specifications
+const getSpecifications = async () => {
+  const response = await axios.get("https://localhost:7295/api/Specification");
   return response.data;
 };
 
+// Fetch contributor by user id
+export const getContributorByUserId = async (userId) => {
+  const res = await fetch(`https://localhost:7295/api/Contributor/by-user/${userId}`);
+  if (!res.ok) throw new Error("Failed to fetch contributor");
+  return await res.json();
+};
+
 export default function CAllResources() {
-  const { user } = useContext(UserContext); // logged-in user
+  const { user } = useContext(UserContext);
   const [contents, setContents] = useState([]);
   const [loading, setLoading] = useState(true);
 
   const [showModal, setShowModal] = useState(false);
   const [contentTypes, setContentTypes] = useState([]);
-  const [specializations, setSpecializations] = useState([]);
+  const [specifications, setSpecifications] = useState([]);
+  const [contributorId, setContributorId] = useState(null); // store fetched ContributorId
+
   const [newContent, setNewContent] = useState({
     title: "",
     description: "",
     url: "",
     contentTypeId: "",
-    specializationIds: [],
+    SpecializationIds: [],
     file: null,
   });
 
-  // Fetch contents
+  // Fetch all contents
   useEffect(() => {
     const fetchContents = async () => {
       try {
         const data = await getAllContents();
-        setContents(data);
+        // Sort contents by createdAt date in descending order (newest first)
+        const sortedContents = data.sort((a, b) => 
+          new Date(b.createdAt) - new Date(a.createdAt)
+        );
+        setContents(sortedContents);
       } catch (error) {
         console.error("Error fetching contents:", error);
       } finally {
@@ -62,9 +65,9 @@ export default function CAllResources() {
   useEffect(() => {
     const fetchDropdowns = async () => {
       try {
-        const [types, specs] = await Promise.all([getContentTypes(), getSpecializations()]);
+        const [types, specs] = await Promise.all([getContentTypes(), getSpecifications()]);
         setContentTypes(types);
-        setSpecializations(specs);
+        setSpecifications(specs);
       } catch (error) {
         console.error("Error fetching dropdown data:", error);
       }
@@ -72,13 +75,27 @@ export default function CAllResources() {
     fetchDropdowns();
   }, []);
 
+  // Fetch ContributorId when modal opens
+  useEffect(() => {
+    if (showModal) {
+      getContributorByUserId(user.id)
+        .then((contributor) => {
+          console.log("Contributor ID:", contributor.id);
+          setContributorId(contributor.id);
+        })
+        .catch((err) => console.error("Error fetching contributor:", err));
+    }
+  }, [showModal, user.id]);
+
   const handleChange = (e) => {
     const { name, value, files } = e.target;
     if (name === "file") {
       setNewContent((prev) => ({ ...prev, file: files[0] }));
-    } else if (name === "specializationIds") {
-      const selectedOptions = Array.from(e.target.selectedOptions).map((opt) => parseInt(opt.value));
-      setNewContent((prev) => ({ ...prev, specializationIds: selectedOptions }));
+    } else if (name === "SpecializationIds") {
+      const selectedOptions = Array.from(e.target.selectedOptions).map((opt) =>
+        parseInt(opt.value)
+      );
+      setNewContent((prev) => ({ ...prev, SpecializationIds: selectedOptions }));
     } else {
       setNewContent((prev) => ({ ...prev, [name]: value }));
     }
@@ -86,39 +103,55 @@ export default function CAllResources() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    if (!contributorId) {
+      console.error("ContributorId not available yet!");
+      return;
+    }
+
     try {
       const formData = new FormData();
       formData.append("Title", newContent.title);
       formData.append("Description", newContent.description);
       formData.append("Url", newContent.url);
       formData.append("ContentTypeId", newContent.contentTypeId);
-      formData.append("ContributorId", user.id); // logged-in user
-      newContent.specializationIds.forEach((id) => formData.append("SpecializationIds", id));
+      formData.append("ContributorId", contributorId); // use fetched contributorId
+
+      if (newContent.SpecializationIds && newContent.SpecializationIds.length > 0) {
+        newContent.SpecializationIds.forEach((id) =>
+          formData.append("SpecializationIds", id)
+        );
+      }
+
       if (newContent.file) formData.append("File", newContent.file);
 
       const created = await createContent(formData);
-      setContents((prev) => [created, ...prev]);
+      // Add new content to the beginning of the array
+      setContents(prevContents => [created, ...prevContents]);
       setShowModal(false);
+
       setNewContent({
         title: "",
         description: "",
         url: "",
         contentTypeId: "",
-        specializationIds: [],
+        SpecializationIds: [],
         file: null,
       });
+      setContributorId(null);
     } catch (error) {
       console.error("Error creating content:", error);
     }
   };
 
-  // File helpers
+  // Helper to get file extension
   const getFileExtension = (url) => {
     if (!url) return "";
     const path = new URL(url).pathname;
     return path.substring(path.lastIndexOf(".")).toLowerCase();
   };
 
+  // Helper to download files
   const downloadFile = async (url, filename) => {
     try {
       const response = await fetch(url);
@@ -139,7 +172,9 @@ export default function CAllResources() {
 
   if (loading) {
     return (
-      <div className="text-center py-10 text-gray-400">Loading resources...</div>
+      <div className="text-center py-10 text-gray-400">
+        Loading resources...
+      </div>
     );
   }
 
@@ -267,7 +302,6 @@ export default function CAllResources() {
                 className="p-2 rounded bg-[#292929] text-white"
               />
 
-              {/* Content Type Dropdown */}
               <select
                 name="contentTypeId"
                 value={newContent.contentTypeId}
@@ -283,15 +317,14 @@ export default function CAllResources() {
                 ))}
               </select>
 
-              {/* Specializations Multi-select */}
               <select
-                name="specializationIds"
+                name="SpecializationIds"
                 multiple
-                value={newContent.specializationIds}
+                value={newContent.SpecializationIds}
                 onChange={handleChange}
-                className="p-2 rounded bg-[#292929] text-white"
+                className="p-2 rounded bg-[#292929] text-white h-32"
               >
-                {specializations.map((spec) => (
+                {specifications.map((spec) => (
                   <option key={spec.id} value={spec.id}>
                     {spec.name}
                   </option>
@@ -304,9 +337,15 @@ export default function CAllResources() {
                 onChange={handleChange}
                 className="p-2 rounded bg-[#292929] text-white"
               />
+
               <button
                 type="submit"
-                className="mt-3 bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg"
+                disabled={!contributorId} // prevent submit until contributorId is loaded
+                className={`mt-3 px-4 py-2 rounded-lg text-white ${
+                  contributorId
+                    ? "bg-green-600 hover:bg-green-700"
+                    : "bg-gray-500 cursor-not-allowed"
+                }`}
               >
                 Submit
               </button>
